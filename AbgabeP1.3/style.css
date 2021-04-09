@@ -6,14 +6,12 @@ body{
     font-family: sans-serif;
 }
 .sticky{
-    position: absolute;
+    position: fixed;
     overflow: hidden;
     background-color: rosybrown;
-    top: 0%;
-    right: 0%;
-    border-radius: 5px;
+    top: 0;
+    right: 0;
     width: 30%;
-    padding: 10px;
 
 }
 
@@ -22,9 +20,8 @@ body{
     float: right;
     display: block;
     color: white;
+    padding: 14px 16px;
     text-decoration: none;
-    padding-right: 10px;
-    padding-left: 10px;
 }
 
 .sticky a:hover{
