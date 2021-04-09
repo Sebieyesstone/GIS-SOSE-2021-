@@ -1,0 +1,48 @@
+body{
+    font-size: 15px;
+    background-image:url("bg.png");
+    font-family: sans-serif;
+}
+#sticky{
+    overflow: hidden;
+    background-color: rosybrown;  
+}
+
+#sticky a{
+    float:left;
+    position: sticky;
+    display: block;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+ }
+
+ .Hauptseite{
+     font-weight: bolder;
+     
+ }
+
+.content{
+     padding: 16px;
+ }
+
+form{
+    font-size: 15px;
+     width:370px;
+     color: white;
+     padding: 10px;
+     text-align: left;
+     background-color: gray;
+}
+input{
+    initial-letter:initial;
+     height: 20px;
+     border: 2px solid white;
+ }
+
+ form p{
+     font-size: 10px;
+     color: lightgray;
+     padding: auto;
+    
+ }
