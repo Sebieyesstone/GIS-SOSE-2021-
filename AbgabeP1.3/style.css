@@ -5,11 +5,12 @@ body{
 }
 #sticky{
     overflow: hidden;
+
     background-color: rosybrown;  
 }
 
 #sticky a{
-    float:left;
+    float: right;
     position: sticky;
     display: block;
     color: white;
@@ -17,32 +18,40 @@ body{
     text-decoration: none;
  }
 
+img{
+
+}
+
  .Hauptseite{
      font-weight: bolder;
      
  }
 
-.content{
-     padding: 16px;
- }
+ .content{
+    padding: 16px;
+}
+
 
 form{
-    font-size: 15px;
-     width:370px;
-     color: white;
-     padding: 10px;
-     text-align: left;
-     background-color: gray;
+   font-size: 15px;
+    width:370px;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    background-color: gray;
 }
 input{
-    initial-letter:initial;
-     height: 20px;
-     border: 2px solid white;
- }
+   initial-letter:initial;
+   resize: vertical;
+    box-sizing: border-box;
+    height: 20px;
+    border: 2px solid white;
+}
 
- form p{
-     font-size: 10px;
-     color: lightgray;
-     padding: auto;
-    
- }
+form p{
+    font-size: 10px;
+    color: lightgray;
+    padding: auto;
+   
+}
+
