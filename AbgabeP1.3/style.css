@@ -62,11 +62,7 @@ form{
     border: 1px solid gray;
     text-align: left;
 }
-label{;
-    display:inline-block;
-    cursor: pointer;
 
-}
 input#absender{
     background-color: lightgray;
     padding: 10px;
@@ -86,6 +82,4 @@ form p{
     font-size: 10px;
     color: lightgray;
     padding: auto;
-   
 }
-
