@@ -1,7 +1,3 @@
-head{
-    text-align: center;
-}
-
 body{
     width: 800px;
     margin: auto;
@@ -61,6 +57,10 @@ form{
     padding: 20px;
     border: 1px solid gray;
     text-align: left;
+}
+label{
+    display: block;
+    cursor: pointer;
 }
 
 input#absender{
