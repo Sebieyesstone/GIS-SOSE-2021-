@@ -7,7 +7,7 @@ body{
     font-family: sans-serif;
     color: rosybrown;
 }
-#Boxmodel{
+.Boxmodel{
     background-color:rosybrown;
     color: white;
     border: 15px solid white;
@@ -57,7 +57,7 @@ video{
     text-align: center;
 }
 
-#Formular{
+#FormularV{
     padding:2px 10px 2px 5px;
     background-color: lightgray;
     color: white;
@@ -66,6 +66,23 @@ video{
     margin-left: 290px;
 }
 
+#FormularN{
+    padding:2px 10px 2px 5px;
+    background-color: lightgray;
+    color: white;
+    width: 200px;
+    text-align: left;
+    margin-left: 290px;
+}
+
+#FormularE{
+    padding:2px 10px 2px 5px;
+    background-color: lightgray;
+    color: white;
+    width: 200px;
+    text-align: left;
+    margin-left: 290px;
+}
 #Formular_Nachricht{
     padding: 2px 10px 0px 5px;
     color: white;
