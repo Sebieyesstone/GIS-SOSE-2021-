@@ -10,10 +10,9 @@ body{
 @media smartphone and (min-width: 600px){
     body{
         color: lightskyblue;
-        font-size: 20px;
+        font-size: 5px;
     }
     #Vorstellung{
-        font-size: 5px;
         float: left;
         margin-right: 1em;
     }
