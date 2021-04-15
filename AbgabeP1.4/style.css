@@ -11,6 +11,7 @@ body{
     body{
         color: lightskyblue;
         font-size: 20px;
+        float: left;
     }
 }
 
