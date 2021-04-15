@@ -7,6 +7,12 @@ body{
     font-family: sans-serif;
     color: rosybrown;
 }
+@media screen and (min-width: 1024px) {
+body{
+    font-size: 30px;
+}
+}
+
 .IconInsta{
     width: 25px;
     height: auto;
@@ -37,13 +43,36 @@ body{
 .IconInsta:hover{
     opacity: .5;
 }
-* p{
-    color: brown;
-}
 video{
     width: 50%;
     height: auto;
     text-align: center;
+}
+#foto{
+    animation-duration: 5s;
+    animation-name: Foto;
+}
+@keyframes Foto {
+from {
+    margin-left: 100%;
+    width: 100%;
+
+}
+to {
+    margin-left: 0%;
+    width: 100%;
+}
+}
+.Überschrift2{
+    transition: width 2s; 
+    transition-property: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.1s;
+}
+
+.Überschrift2:hover{
+    width: 300px;
+    color: rgb(97, 45, 45);
 }
 .sticky{
     position: fixed;
