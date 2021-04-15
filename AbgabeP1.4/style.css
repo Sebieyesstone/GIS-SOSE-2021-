@@ -7,12 +7,16 @@ body{
     font-family: sans-serif;
     color: rosybrown;
 }
-@media screen and (min-width: 1024px) {
-body{
-    font-size: 15px;
-}
+@media smartphone and (min-width: 600px){
+    body{
+        color: lightskyblue;
+        font-size: 20px;
+    }
 }
 
+@media desktop and (min-width: 1024px){
+
+}
 .IconInsta{
     width: 25px;
     height: auto;
