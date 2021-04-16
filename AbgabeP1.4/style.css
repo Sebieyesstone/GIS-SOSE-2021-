@@ -7,15 +7,16 @@ body{
     font-family: sans-serif;
     color: rosybrown;
 }
-@media screen and (min-width: 600px){
+@media screen and (max-width: 600px){
     body{
+        float: left;
         color: lightskyblue;
-        font-size: 10px;
+        font-size: 20px;
     }
     #Vorstellung{
         float: left;
         margin-right: 1em;
-        font-size: 5px;
+        font-size: 20px;
     
 
     }
