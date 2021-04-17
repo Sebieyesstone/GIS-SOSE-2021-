@@ -1,5 +1,6 @@
-@media screen and (max-width: 1024px){
+@media screen and (min-width: 1024px) {
     body{
+        width: 1024px;
         margin: auto;
         text-align: start;
         font-size: 15px;
@@ -151,17 +152,15 @@
         padding: 5px;
            
     }
-    
 }
-
 @media screen and (max-width: 600px){
     body{
         margin: auto;
         text-align: start;
-        float: right;
+        font-size: 10px;
+        background-image:url("bg.png");
         font-family: sans-serif;
         color: lightskyblue;
-        font-size: 10px;
     }
     .sticky {
         position: fixed;
@@ -173,11 +172,11 @@
 
     }
     .sticky a{
-        display: block;
-        float: right;
         text-align: center;
+        float: right;
+        display: block;
         color: white;
-        padding: 14px 16px;
+        padding: 10px 10px;
         text-decoration: none;
     }
     .sticky a:hover{
@@ -257,7 +256,7 @@
         color: rgb(97, 45, 45);
     }
     
-     .Hauptseite{
+    .Hauptseite{
          font-weight: bolder;
      
     }
