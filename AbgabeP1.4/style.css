@@ -317,44 +317,34 @@
 }
 @media screen and (min-width: 600px) and  (max-width: 1024px){
     body{
+        width: 1024px;
         margin: auto;
         text-align: start;
-        font-size: 10px;
+        font-size: 15px;
         background-image:url("bg.png");
         font-family: sans-serif;
         color: lightgreen;
     }
-    .sticky {
+    .sticky{
         position: fixed;
         overflow: hidden;
         background-color: lightgreen;
         top: 0;
-        left: 0;
-        width: 100%;
-
+        right: 0;
+        width: 30%;
     }
     .sticky a{
         text-align: center;
         float: right;
         display: block;
         color: white;
-        padding: 10px 10px;
+        padding: 14px 16px;
         text-decoration: none;
     }
+    
     .sticky a:hover{
         background: center;
         color: lightgreen;
-    }
-    .videoVor{
-        width: 250%;
-    }
-    #Vorstellung{
-        float: right;
-        margin-right: 1em;
-        font-size: 10px;
-    }
-    .singapurvideo{
-        width: 250%;
     }
     .IconInsta{
         width: 25px;
@@ -387,7 +377,7 @@
         opacity: .5;
     }
     video{
-        width: 25%;
+        width: 50%;
         height: auto;
         text-align: center;
     }
@@ -418,13 +408,13 @@
         color: rgb(97, 45, 45);
     }
     
-    .Hauptseite{
+     .Hauptseite{
          font-weight: bolder;
-     
+         
     }
     .Boxmodel{
         background-color: lightgreen;
-        width: 200px;
+        width: 650px;
         color: white;
         border: 5px solid white;
         padding: 10px 20px 20px 10px;
@@ -435,34 +425,37 @@
         padding: 16px;
     }
     #FormularV{
-        padding:1px 5px 1px 2.5px;
+        padding:2px 10px 2px 5px;
         background-color: lightgray;
         color: white;
-        width: 100px;
+        width: 200px;
         text-align: left;
+    
     }
     
     #FormularN{
-        padding:1px 5px 1px 2.5px;
+        padding:2px 10px 2px 5px;
         background-color: lightgray;
         color: white;
-        width: 100px;
+        width: 200px;
         text-align: left;
+      
     }
     
     #FormularE{
-        padding:1px 5px 1px 2.5px;
+        padding:2px 10px 2px 5px;
         background-color: lightgray;
         color: white;
-        width: 100px;
+        width: 200px;
         text-align: left;
     }
     #Formular_Nachricht{
-        padding: 1px 5px 0px 2.5px;
+        padding: 2px 10px 0px 5px;
         color: white;
         background-color: lightgray;
-        width: 200px;
+        width: 400px;
         height: 50px;
+    
         text-align: left;
     }
     #Datenschutz {
@@ -473,7 +466,7 @@
     button{
         color: white;
         background: lightgray;
-        padding: 2.5px;
+        padding: 5px;
            
     }
 }
