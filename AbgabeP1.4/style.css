@@ -155,9 +155,8 @@
 }
 @media screen and (max-width: 600px){
     body{
-        
         margin: auto;
-        text-align: start;
+        text-align: center;
         font-size: 10px;
         background-image:url("bg.png");
         font-family: sans-serif;
