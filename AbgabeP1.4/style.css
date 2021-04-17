@@ -1,172 +1,323 @@
-body{
-    width: 800px;
-    margin: auto;
-    text-align: start;
-    font-size: 15px;
-    background-image:url("bg.png");
-    font-family: sans-serif;
-    color: rosybrown;
+@media screen and (max-width: 1024px){
+    body{
+        margin: auto;
+        text-align: start;
+        font-size: 15px;
+        background-image:url("bg.png");
+        font-family: sans-serif;
+        color: rosybrown;
+    }
+    .sticky{
+        position: fixed;
+        overflow: hidden;
+        background-color: rosybrown;
+        top: 0;
+        right: 0;
+        width: 30%;
+    }
+    .sticky a{
+        text-align: center;
+        float: right;
+        display: block;
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    .sticky a:hover{
+        background: center;
+        color: rosybrown;
+    }
+    .IconInsta{
+        width: 25px;
+        height: auto;
+        border-radius: 0;
+        padding-left:  5px;
+        padding-right: 5px;
+    }
+    .IconFace{
+        width: 25px;
+        height: auto;
+        border-radius: 0;
+        padding-left:  5px;
+        padding-right: 5px;
+    }
+    .IconDis{
+        width: 25px;
+        height: auto;
+        border-radius: 0;
+        padding-left:  5px;
+        padding-right: 5px;
+    }
+    .IconDis:hover{
+        opacity: .5;
+    }
+    .IconFace:hover{
+        opacity: .5;
+    }
+    .IconInsta:hover{
+        opacity: .5;
+    }
+    video{
+        width: 50%;
+        height: auto;
+        text-align: center;
+    }
+    #foto{
+        animation-duration: 5s;
+        animation-name: Foto;
+    }
+    @keyframes Foto {
+    from {
+        margin-left: 100%;
+        width: 100%;
+    
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+    }
+    .Überschrift2{
+        transition: width 2s; 
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0.1s;
+    }
+    
+    .Überschrift2:hover{
+        width: 300px;
+        color: rgb(97, 45, 45);
+    }
+    
+     .Hauptseite{
+         font-weight: bolder;
+         
+    }
+    .Boxmodel{
+        background-color: rosybrown;
+        width: 650px;
+        color: white;
+        border: 5px solid white;
+        padding: 10px 20px 20px 10px;
+        margin: 10px;
+        margin-left: 0;
+    }
+    .content{
+        padding: 16px;
+    }
+    #FormularV{
+        padding:2px 10px 2px 5px;
+        background-color: lightgray;
+        color: white;
+        width: 200px;
+        text-align: left;
+    
+    }
+    
+    #FormularN{
+        padding:2px 10px 2px 5px;
+        background-color: lightgray;
+        color: white;
+        width: 200px;
+        text-align: left;
+      
+    }
+    
+    #FormularE{
+        padding:2px 10px 2px 5px;
+        background-color: lightgray;
+        color: white;
+        width: 200px;
+        text-align: left;
+    }
+    #Formular_Nachricht{
+        padding: 2px 10px 0px 5px;
+        color: white;
+        background-color: lightgray;
+        width: 400px;
+        height: 50px;
+    
+        text-align: left;
+    }
+    #Datenschutz {
+        padding: 5px;
+        color: lightgray;
+    
+    }
+    button{
+        color: white;
+        background: lightgray;
+        padding: 5px;
+           
+    }
+    
 }
+
 @media screen and (max-width: 600px){
     body{
-        float: left;
+        margin: auto;
+        text-align: start;
+        float: right;
+        font-family: sans-serif;
         color: lightskyblue;
         font-size: 10px;
     }
-    #Vorstellung{
-        float: left;
-        margin-right: 1em;
-        font-size: 10px;
-    
+    .sticky {
+        position: fixed;
+        overflow: hidden;
+        background-color: lightskyblue;
+        top: 0;
+        left: 0;
+        width: 100%;
 
     }
-
-}
-
-@media screen and(min-width: 1024px){
-
-}
-.IconInsta{
-    width: 25px;
-    height: auto;
-    border-radius: 0;
-    padding-left:  5px;
-    padding-right: 5px;
-}
-.IconFace{
-    width: 25px;
-    height: auto;
-    border-radius: 0;
-    padding-left:  5px;
-    padding-right: 5px;
-}
-.IconDis{
-    width: 25px;
-    height: auto;
-    border-radius: 0;
-    padding-left:  5px;
-    padding-right: 5px;
-}
-.IconDis:hover{
-    opacity: .5;
-}
-.IconFace:hover{
-    opacity: .5;
-}
-.IconInsta:hover{
-    opacity: .5;
-}
-video{
-    width: 50%;
-    height: auto;
-    text-align: center;
-}
-#foto{
-    animation-duration: 5s;
-    animation-name: Foto;
-}
-@keyframes Foto {
-from {
-    margin-left: 100%;
-    width: 100%;
-
-}
-to {
-    margin-left: 0%;
-    width: 100%;
-}
-}
-.Überschrift2{
-    transition: width 2s; 
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
-    transition-delay: 0.1s;
-}
-
-.Überschrift2:hover{
-    width: 300px;
-    color: rgb(97, 45, 45);
-}
-.sticky{
-    position: fixed;
-    overflow: hidden;
-    background-color: rosybrown;
-    top: 0;
-    right: 0;
-    width: 30%;
-}
-.Boxmodel{
-    background-color: rosybrown;
-    width: 650px;
-    color: white;
-    border: 5px solid white;
-    padding: 10px 20px 20px 10px;
-    margin: 10px;
-    margin-left: 0;
-}
-.sticky a{
-    text-align: center;
-    float: right;
-    display: block;
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.sticky a:hover{
-    background: center;
-    color: rosybrown;
-}
- .Hauptseite{
-     font-weight: bolder;
+    .sticky a{
+        display: block;
+        float: right;
+        text-align: center;
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .sticky a:hover{
+        background: center;
+        color: lightskyblue;
+    }
+    .videoVor{
+        width: 250%;
+    }
+    #Vorstellung{
+        float: right;
+        margin-right: 1em;
+        font-size: 10px;
+    }
+    .singapurvideo{
+        width: 250%;
+    }
+    .IconInsta{
+        width: 25px;
+        height: auto;
+        border-radius: 0;
+        padding-left:  5px;
+        padding-right: 5px;
+    }
+    .IconFace{
+        width: 25px;
+        height: auto;
+        border-radius: 0;
+        padding-left:  5px;
+        padding-right: 5px;
+    }
+    .IconDis{
+        width: 25px;
+        height: auto;
+        border-radius: 0;
+        padding-left:  5px;
+        padding-right: 5px;
+    }
+    .IconDis:hover{
+        opacity: .5;
+    }
+    .IconFace:hover{
+        opacity: .5;
+    }
+    .IconInsta:hover{
+        opacity: .5;
+    }
+    video{
+        width: 25%;
+        height: auto;
+        text-align: center;
+    }
+    #foto{
+        animation-duration: 5s;
+        animation-name: Foto;
+    }
+    @keyframes Foto {
+    from {
+        margin-left: 100%;
+        width: 100%;
+    
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+    }
+    .Überschrift2{
+        transition: width 2s; 
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0.1s;
+    }
+    
+    .Überschrift2:hover{
+        width: 300px;
+        color: rgb(97, 45, 45);
+    }
+    
+     .Hauptseite{
+         font-weight: bolder;
      
+    }
+    .Boxmodel{
+        background-color: lightskyblue;
+        width: 400px;
+        color: white;
+        border: 5px solid white;
+        padding: 10px 20px 20px 10px;
+        margin: 10px;
+        margin-left: 0;
+    }
+    .content{
+        padding: 16px;
+    }
+    #FormularV{
+        padding:1px 5px 1px 2.5px;
+        background-color: lightgray;
+        color: white;
+        width: 100px;
+        text-align: left;
+    }
+    
+    #FormularN{
+        padding:1px 5px 1px 2.5px;
+        background-color: lightgray;
+        color: white;
+        width: 100px;
+        text-align: left;
+    }
+    
+    #FormularE{
+        padding:1px 5px 1px 2.5px;
+        background-color: lightgray;
+        color: white;
+        width: 100px;
+        text-align: left;
+    }
+    #Formular_Nachricht{
+        padding: 1px 5px 0px 2.5px;
+        color: white;
+        background-color: lightgray;
+        width: 200px;
+        height: 50px;
+        text-align: left;
+    }
+    #Datenschutz {
+        padding: 5px;
+        color: lightgray;
+    
+    }
+    button{
+        color: white;
+        background: lightgray;
+        padding: 2.5px;
+           
+    }
+    
+
 }
 
-.content{
-    padding: 16px;
-}
-#FormularV{
-    padding:2px 10px 2px 5px;
-    background-color: lightgray;
-    color: white;
-    width: 200px;
-    text-align: left;
 
-}
 
-#FormularN{
-    padding:2px 10px 2px 5px;
-    background-color: lightgray;
-    color: white;
-    width: 200px;
-    text-align: left;
-  
-}
-
-#FormularE{
-    padding:2px 10px 2px 5px;
-    background-color: lightgray;
-    color: white;
-    width: 200px;
-    text-align: left;
-}
-#Formular_Nachricht{
-    padding: 2px 10px 0px 5px;
-    color: white;
-    background-color: lightgray;
-    width: 400px;
-    height: 50px;
-
-    text-align: left;
-}
-#Datenschutz {
-    padding: 5px;
-    color: lightgray;
-
-}
-button{
-    color: white;
-    background: lightgray;
-    padding: 5px;
-       
-}
