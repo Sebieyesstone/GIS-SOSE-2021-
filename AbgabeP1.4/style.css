@@ -315,7 +315,7 @@
            
     }
 }
-@media screen and (min-width: 600px) and  (max-width: 1024px){
+@media screen and (min-width: 600px) and (max-width: 1024px){
     body{
         width: 1024px;
         margin: auto;
