@@ -6,6 +6,7 @@
         background-image:url("bg.png");
         font-family: sans-serif;
         color: rosybrown;
+        margin-left: 20%;
     }
     .sticky{
         position: fixed;
@@ -160,6 +161,7 @@
         background-image:url("bg.png");
         font-family: sans-serif;
         color: lightskyblue;
+        margin-left: 20%;
     }
     .sticky {
         position: fixed;
@@ -322,6 +324,7 @@
         background-image:url("bg.png");
         font-family: sans-serif;
         color: lightgreen;
+        margin-left: 20%;
     }
     .sticky{
         position: fixed;
