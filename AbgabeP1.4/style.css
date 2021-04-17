@@ -178,7 +178,7 @@
         background-color: lightskyblue;
         top: 0;
         right: 0;
-        width: 100%;
+        width: 50%;
 
     }
     .sticky a{
@@ -341,7 +341,7 @@
         background-color: lightgreen;
         top: 0;
         right: 0;
-        width: 100%;
+        width: 60%;
     }
     .sticky a{
         text-align: center;
@@ -435,7 +435,7 @@
     }
     .Boxmodel{
         background-color: lightgreen;
-        width: 650px;
+        width: 500px;
         color: white;
         border: 5px solid white;
         padding: 10px 20px 20px 10px;
