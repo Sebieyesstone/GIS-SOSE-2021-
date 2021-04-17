@@ -262,7 +262,7 @@
     }
     .Boxmodel{
         background-color: lightskyblue;
-        width: 400px;
+        width: 200px;
         color: white;
         border: 5px solid white;
         padding: 10px 20px 20px 10px;
@@ -314,9 +314,4 @@
         padding: 2.5px;
            
     }
-    
-
 }
-
-
-
