@@ -155,6 +155,7 @@
 }
 @media screen and (max-width: 600px){
     body{
+        
         margin: auto;
         text-align: start;
         font-size: 10px;
@@ -184,7 +185,7 @@
         color: lightskyblue;
     }
     .videoVor{
-        width: 250%;
+        width: 100%;
     }
     #Vorstellung{
         float: right;
