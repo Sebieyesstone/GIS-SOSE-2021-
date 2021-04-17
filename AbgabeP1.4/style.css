@@ -161,7 +161,6 @@
         background-image:url("bg.png");
         font-family: sans-serif;
         color: lightskyblue;
-        margin-left: 20%;
     }
     .sticky {
         position: fixed;
