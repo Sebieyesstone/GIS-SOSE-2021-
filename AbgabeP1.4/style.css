@@ -322,12 +322,12 @@
         font-size: 10px;
         background-image:url("bg.png");
         font-family: sans-serif;
-        color: lightskyblue;
+        color: lightgreen;
     }
     .sticky {
         position: fixed;
         overflow: hidden;
-        background-color: lightskyblue;
+        background-color: lightgreen;
         top: 0;
         left: 0;
         width: 100%;
@@ -343,7 +343,7 @@
     }
     .sticky a:hover{
         background: center;
-        color: lightskyblue;
+        color: lightgreen;
     }
     .videoVor{
         width: 250%;
@@ -423,7 +423,7 @@
      
     }
     .Boxmodel{
-        background-color: lightskyblue;
+        background-color: lightgreen;
         width: 200px;
         color: white;
         border: 5px solid white;
