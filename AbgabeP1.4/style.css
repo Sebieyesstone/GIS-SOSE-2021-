@@ -24,10 +24,20 @@
         padding: 14px 16px;
         text-decoration: none;
     }
-    
     .sticky a:hover{
         background: center;
         color: rosybrown;
+    }
+    .videoVor{
+        width: 100%;
+    }
+    #Vorstellung{
+        text-align: center;
+        margin-right: 1em;
+        font-size: 10px;
+    }
+    .singapurvideo{
+        width: 100%;
     }
     .IconInsta{
         width: 25px;
@@ -345,6 +355,17 @@
     .sticky a:hover{
         background: center;
         color: lightgreen;
+    }
+    .videoVor{
+        width: 100%;
+    }
+    #Vorstellung{
+        text-align: center;
+        margin-right: 1em;
+        font-size: 10px;
+    }
+    .singapurvideo{
+        width: 100%;
     }
     .IconInsta{
         width: 25px;
