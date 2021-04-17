@@ -178,7 +178,7 @@
         background-color: lightskyblue;
         top: 0;
         right: 0;
-        width: 50%;
+        width: 100%;
 
     }
     .sticky a{
@@ -341,7 +341,7 @@
         background-color: lightgreen;
         top: 0;
         right: 0;
-        width: 60%;
+        width: 100%;
     }
     .sticky a{
         text-align: center;
