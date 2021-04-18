@@ -256,7 +256,7 @@
         width: 250%;
     }
     .flexbox{
-        width: 42%;
+        width: 45%;
         display: flex;
         background-color: lightskyblue;
         flex-direction: column-reverse;
