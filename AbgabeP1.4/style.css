@@ -258,6 +258,7 @@
     .flexbox{
         width: 60%;
         display: flex;
+        margin-left: 10%;
         background-color: lightskyblue;
         flex-direction: column-reverse;
         justify-content: space-around;
