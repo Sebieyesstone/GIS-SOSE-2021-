@@ -32,15 +32,16 @@
         width: 100%;
     }
     .flexbox{
-        width: 66.5%;
+        width: 50%; 
         display: flex;
+        justify-content: space-around;
         background-color: rosybrown;
     }
-    .flexbox > div{
+    .item{
         background-color: white;
-        margin: 10px;
-        padding: 10px;
-
+        width: 100px;
+        height: 100px;
+        margin: 20px;
     }
     #Vorstellung{
         text-align: center;
@@ -208,15 +209,16 @@
         width: 250%;
     }
     .flexbox{
-        width: 155%;
+        width: 100%; 
         display: flex;
+        justify-content: space-around;
         background-color: lightskyblue;
     }
-    .flexbox > div{
+    .item{
         background-color: white;
-        margin: 10px;
-        padding: 10px;
-
+        width: 100px;
+        height: 100px;
+        margin: 20px;
     }
     #Vorstellung{
         text-align: center;
@@ -381,16 +383,19 @@
         width: 100%;
     }
     .flexbox{
-        width: 104.5%;
+        width: 100%;
         display: flex;
         background-color: lightgreen;
+        flex-direction: row;
+        justify-content: space-around;
     }
-    .flexbox > div{
+    .item{
         background-color: white;
-        margin: 10px;
-        padding: 10px;
-
+        width: 100px;
+        height: 100px;
+        margin: 20px;
     }
+
     #Vorstellung{
         text-align: center;
         margin-right: 1em;
