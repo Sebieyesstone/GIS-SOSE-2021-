@@ -28,25 +28,69 @@
         background: center;
         color: rosybrown;
     }
+    main *{
+        color: brown;
+    }
     .videoVor{
         width: 100%;
     }
     .flexbox{
-        width: 50%; 
+        width: 25%;
         display: flex;
-        justify-content: space-around;
         background-color: rosybrown;
+        flex-direction: column-reverse;
+        justify-content: space-around;
     }
-    .item{
+    .box1{
         background-color: white;
-        width: 100px;
+        width: 200px;
         height: 100px;
         margin: 20px;
+    }
+    .box2{
+        background-color: white;
+        width: 200px;
+        height: 100px;
+        margin: 20px;
+    }
+    .box3{
+        background-color: white;
+        width: 200px;
+        height: 100px;
+        margin: 20px;
+    }
+    h5{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: brown;
+        font-size: 15px;
+        padding: 5px 5px 5px 10px;
+    }
+    h6{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: brown;
+        font-size: 15px;
+        padding: 5px 5px 5px 10px;
+    }
+    h4{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: brown;
+        font-size: 15px;
+        padding: 5px 5px 5px 10px;
     }
     #Vorstellung{
         text-align: center;
         margin-right: 1em;
-        font-size: 10px;
+        font-size: 15px;
+    }
+    #Vorstellung th:first-child{
+        font-weight: bolder;
+        font-style: oblique;
     }
     .singapurvideo{
         width: 100%;
@@ -205,25 +249,69 @@
         background: center;
         color: lightskyblue;
     }
+    main *{
+        color: blue;
+    }
     .videoVor{
         width: 250%;
     }
     .flexbox{
-        width: 100%; 
+        width: 42%;
         display: flex;
-        justify-content: space-around;
         background-color: lightskyblue;
+        flex-direction: column-reverse;
+        justify-content: space-around;
     }
-    .item{
+    .box1{
         background-color: white;
-        width: 100px;
+        width: 200px;
         height: 100px;
         margin: 20px;
+    }
+    .box2{
+        background-color: white;
+        width: 200px;
+        height: 100px;
+        margin: 20px;
+    }
+    .box3{
+        background-color: white;
+        width: 200px;
+        height: 100px;
+        margin: 20px;
+    }
+    h5{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: blue;
+        font-size: 15px;
+        padding: 5px 5px 5px 10px;
+    }
+    h6{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: blue;
+        font-size: 15px;
+        padding: 5px 5px 5px 10px;
+    }
+    h4{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: blue;
+        font-size: 15px;
+        padding: 5px 5px 5px 10px;
     }
     #Vorstellung{
         text-align: center;
         margin-right: 1em;
-        font-size: 10px;
+        font-size: 15px;
+    }
+    #Vorstellung th:first-child{
+        font-weight: bolder;
+        font-style: oblique;
     }
     .singapurvideo{
         width: 250%;
@@ -374,32 +462,74 @@
         padding: 14px 16px;
         text-decoration: none;
     }
-    
     .sticky a:hover{
         background: center;
         color: lightgreen;
     }
+    main *{
+        color: green;
+    }
+
     .videoVor{
         width: 100%;
     }
     .flexbox{
-        width: 100%;
+        width: 42%;
         display: flex;
         background-color: lightgreen;
-        flex-direction: row;
+        flex-direction: column-reverse;
         justify-content: space-around;
     }
-    .item{
+    .box1{
         background-color: white;
-        width: 100px;
+        width: 200px;
         height: 100px;
         margin: 20px;
     }
-
+    .box2{
+        background-color: white;
+        width: 200px;
+        height: 100px;
+        margin: 20px;
+    }
+    .box3{
+        background-color: white;
+        width: 200px;
+        height: 100px;
+        margin: 20px;
+    }
+    h5{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: seagreen;
+        font-size: 15px;
+        padding: 5px 5px 5px 10px;
+    }
+    h6{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: seagreen;
+        font-size: 15px;
+        padding: 5px 5px 5px 10px;
+    }
+    h4{
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        color: seagreen;
+        font-size: 15px;
+        padding: 5px 5px 5px 10px;
+    }
     #Vorstellung{
         text-align: center;
         margin-right: 1em;
         font-size: 10px;
+    }
+    #Vorstellung th:first-child{
+        font-weight: bolder;
+        font-style: oblique;
     }
     .singapurvideo{
         width: 100%;
@@ -513,7 +643,6 @@
         background-color: lightgray;
         width: 400px;
         height: 50px;
-    
         text-align: left;
     }
     #Datenschutz {
