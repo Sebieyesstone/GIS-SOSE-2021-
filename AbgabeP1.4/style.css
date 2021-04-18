@@ -34,6 +34,20 @@
     .videoVor{
         width: 100%;
     }
+    a:visited{
+        color: brown;
+    }
+    p:first-letter{
+        font-size: 20px;
+        color: brown;
+        font-weight: bold;
+    }
+    .flexbox + p{
+        margin-top: 2em;
+        width: 50%;
+        background-color: rosybrown;
+        color: white;
+    }
     .flexbox{
         width: 25%;
         display: flex;
@@ -252,8 +266,22 @@
     main *{
         color: blue;
     }
+    a:visited{
+        color: blue;
+    }
+    p:first-letter{
+        font-size: 10px;
+        color: blue;
+        font-weight: bold;
+    }
     .videoVor{
         width: 250%;
+    }
+    .flexbox + p{
+        margin-top: 2em;
+        width: 50%;
+        background-color: lightskyblue;
+        color: white;
     }
     .flexbox{
         width: 65%;
@@ -469,9 +497,22 @@
     main *{
         color: green;
     }
-
     .videoVor{
         width: 100%;
+    }
+    a:visited{
+       color: green;
+    }
+    p:first-letter{
+        font-size: 20px;
+        color: green;
+        font-weight: bold;
+    }
+    .flexbox + p{
+        margin-top: 2em;
+        width: 50%;
+        background-color: lightgreen;
+        color: white;
     }
     .flexbox{
         width: 42%;
