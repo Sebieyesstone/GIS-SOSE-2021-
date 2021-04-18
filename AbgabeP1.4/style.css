@@ -31,6 +31,17 @@
     .videoVor{
         width: 100%;
     }
+    .flexbox{
+        width: 155%;
+        display: flex;
+        background-color: rosybrown;
+    }
+    .flexbox > div{
+        background-color: white;
+        margin: 10px;
+        padding: 10px;
+
+    }
     #Vorstellung{
         text-align: center;
         margin-right: 1em;
@@ -368,6 +379,17 @@
     }
     .videoVor{
         width: 100%;
+    }
+    .flexbox{
+        width: 155%;
+        display: flex;
+        background-color: lightgreen;
+    }
+    .flexbox > div{
+        background-color: white;
+        margin: 10px;
+        padding: 10px;
+
     }
     #Vorstellung{
         text-align: center;
