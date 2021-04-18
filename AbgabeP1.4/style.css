@@ -32,7 +32,7 @@
         width: 100%;
     }
     .flexbox{
-        width: 155%;
+        width: 66.5%;
         display: flex;
         background-color: rosybrown;
     }
@@ -381,7 +381,7 @@
         width: 100%;
     }
     .flexbox{
-        width: 155%;
+        width: 104.5%;
         display: flex;
         background-color: lightgreen;
     }
