@@ -1,5 +1,5 @@
-@media screen and (min-width: 1024px) {
-    body{
+body{
+        width: 1024px;
         margin: auto;
         text-align: start;
         font-size: 15px;
@@ -232,9 +232,9 @@
         padding: 5px;
            
     }
-}
 @media screen and (max-width: 600px){
     body{
+        overflow-x: hidden;
         margin: auto;
         text-align: start;
         font-size: 10px;
