@@ -21,7 +21,7 @@ function func1(): void {
 let c: string = "Alles";
 
 function c3(): void {
-    console.log(c + " Gute!" + c + " Klar?" + c + " Logo!");
+    console.log(c + " Gute! " + c + " Klar? " + c + " Logo!");
 }
 function c1(): void {
     c3();
