@@ -15,21 +15,43 @@ function func1() {
 //*  b) Ich habe einen Breakpoint in Zeile 3 (Haltepunkt) gesetzt. Er geht von Zeile 3 bis Zeile 5 durch und es wird "Alles" in der Konsole ausgegeben.
 //* Sobald er in Zeile 5 ist, springt er zu Zeile 11 in der die func1. Er geht durch die Funktion und gibt "Klar" in der Konsole aus. Danach springt er wieder hoch zur Zeile 6
 //* und gibt "Logo!" in der Konsole aus.
-//*  c)
+//*  c) 1. Möglichkeit mit einer Funktion (Schneller)
+let c = "Alles";
 function c3() {
-    console.log(c + " Gute!", c + " Klar?", c + " Logo!");
+    console.log(c + " Gute!" + c + " Klar?" + c + " Logo!");
 }
 function c1() {
     c3();
 }
-let c = "Alles";
 c1();
+//* 2. Möglichkeit - jeweils eine Funktion (Aufgabenstellung)
+function func0() {
+    console.log("Alles ");
+}
+function func11() {
+    console.log("Gute! ");
+}
+function func12() {
+    console.log("Klar? ");
+}
+function func13() {
+    console.log("Logo! ");
+}
+function a3() {
+    func0();
+    func11();
+    func0();
+    func12();
+    func0();
+    func13();
+}
+a3();
 //* Aufgabe 2 - Kontinuierliche Variablenmanipulation
 function a2() {
     let i = 9; //* Ini number i mit dem Wert 9
     do {
-        console.log(i); //* Ausgabe i 
-        i = i - 1; //* 
+        console.log(i); //* Ausgabe i
+        i = i - 1; //* neuer Wert = alter Wert - 1 -> i wird immer eins kleiner
     } while (i > 0); //* wenn i größer 0 ist 
 }
 a2();
@@ -42,10 +64,11 @@ a2();
 //*                  3
 //*                  2
 //*                  1
-//* Schleife läuft nur solage i größer 0 ist -> Also bei 1 hört sie auf
+//* Schleife läuft nur solage i größer 0 ist -> Also bei 1 hört sie auf (Zeile 62 1-1 = 0 )
 //* Aufgabe 3 - Fehler erkennen und vermeiden lernen
-//* a) 
-//* b) Ich bin mit Kommilitonen durchgegangen und haben uns die Fehler angeschaut und den Code überarbeitet ????
+//* a) Ich habe Zeichen weg gelassen ({}) und das war sehr hilfreich da ich sehen konnte das der Code nicht ausgeführt werden kann.
+//* Sobald ich einen String anstatt number vertausche kommt wieder eine Fehlermeldung da Strings: Zeichenkette sind und number: Zahlen
+//* b) Ich bin mit zwei Kommilitonen durchgegangen und wir haben uns die Fehler angeschaut und den Code überarbeitet
 //* Aufgabe 4 - Global vs Lokal
 let x = "Hallo"; //* Initialisierung String x mit dem Wert Hallo (Globale V)
 console.log(x); //* Ausgabe Hallo
@@ -60,48 +83,143 @@ function function1(y) {
 }
 function func2() {
     let x = "Blubb";
-    console.log(x);
+    console.log(x); //* Was wird ausgegeben ????
 }
 function func3() {
     x = "Test";
 }
-//* a) Als erstes wird String x mit dem Wert Hallo initialisiert. In Zeile 63 wird "Hallo" ausgegeben. Danach geht er in  die function1
-//* diese wird aber übersprungen. Hier wird nämlich y mit dem Wert "Bla" initialisiert aber nicht ausgegeben. Die function1 verlangt nach einem x
-//* aber das "Bla" wurde mit einem y initialisiert. In Zeile 65 wird nochmal "Hallo" ausgegeben. In Zeile 66 springt er runter in func2 in der String
-//* x mit dem Wert "Blubb" neu überschrieben wird (Erst Hallo jetzt Blubb). Zeile 67 wird x überschrieben zu "Test"
-//* Zeile 68 wird "Test" ausgegeben.
-//* b) Globale Variablen: sind von jeder beliebigen Stelle im gesamten Programm aus lesbar und überschreibar
-//* Lokale Variablen: können nicht mehr verändert werden und man hat kein Zugriff auserhalb des Programms (erleichert die Fehlersuche)
+//* a) Als erstes wird String x mit dem Wert Hallo initialisiert. In Zeile 89 wird "Hallo" ausgegeben. Danach geht er in  die function1
+//* diese wird aber übersprungen. Hier wird nämlich y mit dem Wert "Bla" zugewiesen. Die function1 verlangt nach einem string
+//* aber das "Bla" wurde y zugewiesen. In Zeile 91 wird nochmal "Hallo" ausgegeben. In Zeile 92 springt er runter in func2 in der String
+//* x mit dem Wert "Blubb" neu überschrieben wird (Erst Hallo jetzt Blubb). Zeile 93 wird x überschrieben zu "Test"
+//* Zeile 94 wird "Test" ausgegeben.
+//* b) Globale Variablen: sind von jeder beliebigen Stelle im gesamten Programm aus lesbar und überschreibar (z.B Funktionen)
+//* Lokale Variablen: können nicht mehr verändert werden und man hat kein Zugriff auserhalb des Programms (erleichert die Fehlersuche, innerhalb geschweiften Klammern)
 //* Übergabeparametern: wird als Wert übergeben und als Kopie bereitgestellt z.B bei Methoden
+//* Variablen sind Werte die ich speichere und Funktionen die arbeiten mit dem Werten
 //* Aufgabe 5 - Schleifen, Funktionen und andere Kontrollstrukturen
 //* a)
 function multiply(x, y) {
-    let x = "number";
-    let y = "number";
-    return;
-    console.log(x * y);
+    return (x * y); //* Multiplikation zwischen meinen zwei Nummern
 }
 //* b)
 function max(m, a) {
-    let m = "number";
-    let a = "number";
+    if (m < a) {
+        return (a); //* return = zurückgeben 1. Fall a größer m
+    }
+    if (a < m) {
+        return (m); //* 2. Fall m größer a 
+    }
+    else {
+        return (a); //* sind beide gleich
+    }
 }
 //* c)
 function count() {
-    let s = 0;
-    let h = 100;
-    do {
-        s = s + h;
-        console.log(s);
-    } while ();
+    let i = 1;
+    let ergebnis = 0;
+    while (i < 101) {
+        ergebnis = ergebnis + i; //* Ergebnis erhöht 
+        i = i + 1; //* zählt bis 100 hoch 
+    }
+    console.log(ergebnis);
 }
 //* d)
+function irgendeineZahl(min, max) {
+    for (let i = 0; i < 10; i++) {
+        console.log(Math.random() * (max - min) + min);
+    }
+}
+irgendeineZahl(0, 100);
 //* e)
+function factorial(n) {
+    let i = 1;
+    let ergebnis = 1;
+    while (i <= n) { //* 1*1 und so weiter
+        ergebnis = ergebnis * i; //* wird immer eins mehr bis es n wird 
+        i = i + 1;
+    }
+    console.log(ergebnis); //* ergebnis bleibt immer 1 wenn while Schleife nicht betreten wird
+}
 //* f)
+function leapyears() {
+    for (let i = 1900; i < 2021; i++) {
+        if (i % 4 == 0) { //* Wenn i modulo 4 ohne Rest (0) ist dann gehts ins If (durch 4 teilbar)
+            if (!(i % 100 == 0)) { //*  ! nicht durch 100 teilbar -> Schaltjahr
+                console.log(i); //* Ausgabe nur Schaltjahre 
+            }
+            else if (i % 400 == 0) { //* Wenns teilbar ist durch 100 geht es ins else weil das möchten wir nicht und hier wird überprüft ob es durch 400 teilbar ist
+                console.log(i); //* Ausgabe nur Schaltjahre
+            }
+        }
+    }
+}
+leapyears();
 //* Aufgabe 6 - Mehr Schleifen und Funktionen
 //* a)
+function hashtag() {
+    let zeichenh = "#"; //* Initialisierung String zeichenh mit dem Wert "#"
+    for (let i = 0; i < 7; i++) { //* es wird gezählt von 0 bis 7 i kleiner 7 und immer +1 
+        console.log(zeichenh); //* Ausgabe #
+        zeichenh += "#";
+    }
+}
+hashtag();
 //* b)
+function fizzbuzz() {
+    for (let i = 1; i < 101; i++) {
+        if (i % 3 == 0) {
+            let f = "Fizz"; //* Initialisierung String f mit dem Wert Fizz
+            console.log(f);
+        }
+        else if (!(i % 3 == 0) && i % 5 == 0) {
+            let b = "Buzz"; //* Initialisierung String b mit dem Wert Buzz
+            console.log(b);
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz();
 //* c)
-//* d)
-//* e)
+function fizzbuzz2() {
+    for (let i = 1; i < 101; i++) {
+        if (i % 15 == 0) {
+            let fb = "FizzBuzz"; //* Initialisierung String fb mit dem Wert FizzBuzz
+            console.log(fb);
+        }
+        else if (i % 3 == 0) {
+            let f = "Fizz"; //* Initialisierung String f mit dem Wert Fizz
+            console.log(f);
+        }
+        else if (!(i % 3 == 0) && i % 5 == 0) {
+            let b = "Buzz";
+            console.log(b);
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
+fizzbuzz2();
+//* d) und e)
+function schachbrett(b, h) {
+    let z = "";
+    for (let s = 0; s < h; s++) { //* Höhe 
+        if (s % 2 == 0)
+            z += " ";
+        for (let i = 0; i < b; i++) { //* Breite
+            if (i % 2 == 0) {
+                z += "#";
+            }
+            else {
+                z += " ";
+            }
+        }
+        z += "\n";
+    }
+    console.log(z);
+}
+schachbrett(8, 8);
 //# sourceMappingURL=app.js.map
