@@ -100,7 +100,7 @@ function function1(y: string): void { //* Deklaration
 
 function func2(): void {
     let x: string = "Blubb";
-    console.log(x); //* Was wird ausgegeben ????
+    console.log(x);
 }
 
 function func3(): void {

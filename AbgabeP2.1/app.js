@@ -83,7 +83,7 @@ function function1(y) {
 }
 function func2() {
     let x = "Blubb";
-    console.log(x); //* Was wird ausgegeben ????
+    console.log(x);
 }
 function func3() {
     x = "Test";
