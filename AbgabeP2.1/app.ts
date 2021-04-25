@@ -31,7 +31,7 @@ c1();
 //* 2. Möglichkeit - jeweils eine Funktion (Aufgabenstellung)
 
 function func0(): void {
-    console.log(" Alles ");
+    console.log("Alles ");
 }
 function func11(): void {
     console.log("Gute! ");

@@ -26,7 +26,7 @@ function c1() {
 c1();
 //* 2. Möglichkeit - jeweils eine Funktion (Aufgabenstellung)
 function func0() {
-    console.log(" Alles ");
+    console.log("Alles ");
 }
 function func11() {
     console.log("Gute! ");
