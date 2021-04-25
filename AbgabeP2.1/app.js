@@ -18,7 +18,7 @@ function func1() {
 //*  c) 1. Möglichkeit mit einer Funktion (Schneller)
 let c = "Alles";
 function c3() {
-    console.log(c + " Gute!" + "" + c + " Klar?" + c + " Logo!");
+    console.log(c + " Gute!" + c + " Klar?" + c + " Logo!");
 }
 function c1() {
     c3();
