@@ -21,7 +21,7 @@ function func1(): void {
 let c: string = "Alles";
 
 function c3(): void {
-    console.log( c + " Gute!" + c + " Klar?" + c + " Logo!");
+    console.log(c + " Gute!" + c + " Klar?" + c + " Logo!");
 }
 function c1(): void {
     c3();
@@ -123,18 +123,18 @@ function func3(): void {
 
 //* a)
 function multiply(x: number, y: number): number { //* x und y gebe ich datentyp number -> number am Ende ist mein Rückgabewert und gibt mir eine Zahl zurück
-    return(x * y); //* Multiplikation zwischen meinen zwei Nummern
+    return (x * y); //* Multiplikation zwischen meinen zwei Nummern
 }
 //* b)
 function max(m: number, a: number): number {
     if (m < a) {
-        return(a); //* return = zurückgeben 1. Fall a größer m
+        return (a); //* return = zurückgeben 1. Fall a größer m
     }
     if (a < m) {
-        return(m); //* 2. Fall m größer a 
+        return (m); //* 2. Fall m größer a 
     }
     else {
-        return(a); //* sind beide gleich
+        return (a); //* sind beide gleich
     }
 }
 //* c)
@@ -148,7 +148,7 @@ function count(): void {
     console.log(ergebnis);
 }
 //* d)
-function irgendeineZahl (min: number, max: number): void {
+function irgendeineZahl(min: number, max: number): void {
     for (let i: number = 0; i < 10; i++) {
         console.log(Math.random() * (max - min) + min);
     }
@@ -160,7 +160,7 @@ irgendeineZahl(0, 100);
 function factorial(n: number): void {
     let i: number = 1;
     let ergebnis: number = 1;
-    while ( i <= n) { //* 1*1 und so weiter
+    while (i <= n) { //* 1*1 und so weiter
         ergebnis = ergebnis * i; //* wird immer eins mehr bis es n wird 
         i = i + 1;
     }
@@ -190,7 +190,7 @@ function hashtag(): void {
     let zeichenh: String = "#";//* Initialisierung String zeichenh mit dem Wert "#"
     for (let i: number = 0; i < 7; i++) { //* es wird gezählt von 0 bis 7 i kleiner 7 und immer +1 
         console.log(zeichenh); //* Ausgabe #
-        zeichenh += "#"; 
+        zeichenh += "#";
     }
 }
 hashtag();
@@ -236,7 +236,7 @@ fizzbuzz2();
 function schachbrett(b: number, h: number): void {
     let z: String = "";
     for (let s: number = 0; s < h; s++) { //* Höhe 
-        if (s % 2 == 0)                        
+        if (s % 2 == 0)
             z += " ";
         for (let i: number = 0; i < b; i++) { //* Breite
             if (i % 2 == 0) {
