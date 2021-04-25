@@ -187,7 +187,7 @@ leapyears();
 //* a)
 
 function hashtag(): void {
-    let zeichenh: String = "#";//* Initialisierung String zeichenh mit dem Wert "#"
+    let zeichenh: String = "#"; //* Initialisierung String zeichenh mit dem Wert "#"
     for (let i: number = 0; i < 7; i++) { //* es wird gezählt von 0 bis 7 i kleiner 7 und immer +1 
         console.log(zeichenh); //* Ausgabe #
         zeichenh += "#";
