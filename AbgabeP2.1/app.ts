@@ -18,10 +18,10 @@ function func1(): void {
 //* Sobald er in Zeile 5 ist, springt er zu Zeile 11 in der die func1. Er geht durch die Funktion und gibt "Klar" in der Konsole aus. Danach springt er wieder hoch zur Zeile 6
 //* und gibt "Logo!" in der Konsole aus.
 //*  c)
-function c3(): void{
+function c3(): void {
     console.log( c + " Gute!" c + " Klar?" c + " Logo!");
 }
-function c1(): void{
+function c1(): void {
     c3();
 }
 let c: string = "Alles";
@@ -59,16 +59,16 @@ a2();
 
 //* Aufgabe 4 - Global vs Lokal
 
-let x: string = "Hallo"; //* Initialisierung String x mit dem Wert Hallo
+let x: string = "Hallo"; //* Initialisierung String x mit dem Wert Hallo (Globale V)
 console.log(x); //* Ausgabe Hallo
-function1(x); //* Geht runter in die funktion1 
-console.log(x);
-func2();
-func3();
-console.log(x);
+function1(x); //* Geht runter in die funktion1 (Übergangsvariable)
+console.log(x); //* Ausgabe Hallo
+func2(); //* springt runter in die func2 x wird überschrieben von Hallo auf Blubb. Es wird "Blubb" ausgegeben
+func3(); //* öffnet die func3 und x wird wieder überschrieben von Blubb auf Test. Es wird "Test" ausgegeben
+console.log(x); //* Test wird ausgegeben
 
 function function1(y: string): void { //* Deklaration
-    y = "Bla"; //* 
+    y = "Bla"; //* y ist eine lokale Variable die nur innerhalb der Funktion exisitiert
     console.log(y);
 }
 
@@ -81,7 +81,11 @@ function func3(): void {
     x = "Test";
 }
 
-//* a)
+//* a) Als erstes wird String x mit dem Wert Hallo initialisiert. In Zeile 63 wird "Hallo" ausgegeben. Danach geht er in  die function1
+//* diese wird aber übersprungen. Hier wird nämlich y mit dem Wert "Bla" initialisiert aber nicht ausgegeben. Die function1 verlangt nach einem x
+//* aber das "Bla" wurde mit einem y initialisiert. In Zeile 65 wird nochmal "Hallo" ausgegeben. In Zeile 66 springt er runter in func2 in der String
+//* x mit dem Wert "Blubb" neu überschrieben wird (Erst Hallo jetzt Blubb). Zeile 67 wird x überschrieben zu "Test"
+//* Zeile 68 wird "Test" ausgegeben.
 
 //* b) Globale Variablen: sind von jeder beliebigen Stelle im gesamten Programm aus lesbar und überschreibar
 //* Lokale Variablen: können nicht mehr verändert werden und man hat kein Zugriff auserhalb des Programms (erleichert die Fehlersuche)
@@ -91,8 +95,30 @@ function func3(): void {
 //* Aufgabe 5 - Schleifen, Funktionen und andere Kontrollstrukturen
 
 //* a)
+function multiply(x, y): void {
+    let x: number = "number";
+    let y: number = "number";
+    return
+        console.log(x * y);
+}
 //* b)
+function max(m, a): void {
+    let m: number ="number";
+    let a: number ="number";
+
+}
 //* c)
+function count(): void {
+    let s: number = 0;
+    let h: number = 100;
+
+    do{
+        s= s + h;
+        console.log(s);
+
+    }
+
+}
 //* d)
 //* e)
 //* f)

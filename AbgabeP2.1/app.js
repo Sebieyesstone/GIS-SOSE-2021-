@@ -47,15 +47,15 @@ a2();
 //* a) 
 //* b) Ich bin mit Kommilitonen durchgegangen und haben uns die Fehler angeschaut und den Code überarbeitet ????
 //* Aufgabe 4 - Global vs Lokal
-let x = "Hallo"; //* Initialisierung String x mit dem Wert Hallo
+let x = "Hallo"; //* Initialisierung String x mit dem Wert Hallo (Globale V)
 console.log(x); //* Ausgabe Hallo
-function1(x); //* Geht runter in die funktion1 
-console.log(x);
-func2();
-func3();
-console.log(x);
+function1(x); //* Geht runter in die funktion1 (Übergangsvariable)
+console.log(x); //* Ausgabe Hallo
+func2(); //* springt runter in die func2 x wird überschrieben von Hallo auf Blubb. Es wird "Blubb" ausgegeben
+func3(); //* öffnet die func3 und x wird wieder überschrieben von Blubb auf Test. Es wird "Test" ausgegeben
+console.log(x); //* Test wird ausgegeben
 function function1(y) {
-    y = "Bla"; //* 
+    y = "Bla"; //* y ist eine lokale Variable die nur innerhalb der Funktion exisitiert
     console.log(y);
 }
 function func2() {
@@ -65,14 +65,36 @@ function func2() {
 function func3() {
     x = "Test";
 }
-//* a)
+//* a) Als erstes wird String x mit dem Wert Hallo initialisiert. In Zeile 63 wird "Hallo" ausgegeben. Danach geht er in  die function1
+//* diese wird aber übersprungen. Hier wird nämlich y mit dem Wert "Bla" initialisiert aber nicht ausgegeben. Die function1 verlangt nach einem x
+//* aber das "Bla" wurde mit einem y initialisiert. In Zeile 65 wird nochmal "Hallo" ausgegeben. In Zeile 66 springt er runter in func2 in der String
+//* x mit dem Wert "Blubb" neu überschrieben wird (Erst Hallo jetzt Blubb). Zeile 67 wird x überschrieben zu "Test"
+//* Zeile 68 wird "Test" ausgegeben.
 //* b) Globale Variablen: sind von jeder beliebigen Stelle im gesamten Programm aus lesbar und überschreibar
 //* Lokale Variablen: können nicht mehr verändert werden und man hat kein Zugriff auserhalb des Programms (erleichert die Fehlersuche)
 //* Übergabeparametern: wird als Wert übergeben und als Kopie bereitgestellt z.B bei Methoden
 //* Aufgabe 5 - Schleifen, Funktionen und andere Kontrollstrukturen
 //* a)
+function multiply(x, y) {
+    let x = "number";
+    let y = "number";
+    return;
+    console.log(x * y);
+}
 //* b)
+function max(m, a) {
+    let m = "number";
+    let a = "number";
+}
 //* c)
+function count() {
+    let s = 0;
+    let h = 100;
+    do {
+        s = s + h;
+        console.log(s);
+    } while ();
+}
 //* d)
 //* e)
 //* f)
