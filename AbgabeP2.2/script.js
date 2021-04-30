@@ -33,13 +33,15 @@ var P2_2;
         martikelnummer: 21374,
         studiengang: "MKB"
     };
-    let stA;
+    let stA = ["nameStudent", martikelnummer, "studiengang"];
+    stA.
+    ;
     const stA = { nameStudent: "", martikelnummer: , studiengang: "" };
     console.log(stA);
     // Aufgabe 2 - Arrays
     // a)
-    // function backwards() {
-    //}
+    // function backwards()
+    number.backwards();
     // b)
     //function join( arr: number[]: number) {
     //}

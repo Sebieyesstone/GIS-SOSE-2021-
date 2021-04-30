@@ -5,6 +5,7 @@ namespace P2_2 {
     return Math.min.apply(Math, args); // apply = Array zu übergeben anstatt einzelne Parameter, Math.min kann nur einzelne Parameter bekommen
     }
     //console.log(min(5, 3, 1, 8); // Test
+    
     // b)
     function isEven ( n: number ): boolean {
     if (n == 0) 
@@ -44,18 +45,17 @@ namespace P2_2 {
         studiengang: "MKB"
     };
 
-    let stA: Array<Student>[];
-    
+    let stA: Array<Student> = ["nameStudent", martikelnummer, "studiengang"];
+    stA.
     const stA = { nameStudent: "", martikelnummer: , studiengang: "" };
 
     console.log(stA);    
 
     // Aufgabe 2 - Arrays
     // a)
-   // function backwards() {
-
-
-    //}
+  // function backwards()
+    number.backwards();
+    
     // b)
     //function join( arr: number[]: number) {
 
@@ -64,10 +64,11 @@ namespace P2_2 {
     // c)
 
 
+   
 
     // Aufgabe 3 - Endlich was visuelles!
     // a)
-
+    
     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas");
     let context: CanvasRenderingContext2D = canvas.getContext("2d");
 
@@ -165,5 +166,4 @@ namespace P2_2 {
     // e)
     // f)
     // g)
-
 }
