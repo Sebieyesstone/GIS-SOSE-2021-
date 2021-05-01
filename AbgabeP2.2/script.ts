@@ -54,19 +54,13 @@ namespace P2_2 {
 
     // Aufgabe 2 - Arrays
     // a)
-    array.backwards();
 
     // b)
-    //function join( arr: number[]: number) {
-    let arr = new Array ();
-    
-    let arrj = arr.join();
-    console.log();
-
+   
 
     // c)
 
-    let arr: number[] = [5, 42, 17, 2018, -10, 60, -10010];
+    /*let arr: number[] = [5, 42, 17, 2018, -10, 60, -10010];
     let arrBack: number[] = backwards(arr);
     console.log(arr);
     console.log(arrBack);
@@ -78,7 +72,7 @@ namespace P2_2 {
     console.log(split(arr, 2, 0));     // Bonus c)
     console.log(split(arr, -1, 2));    // Bonus c)
     console.log(split(arr, 0, 7));     // Bonus c)
-
+    */
    
 
     // Aufgabe 3 - Endlich was visuelles!
@@ -86,15 +80,14 @@ namespace P2_2 {
     
     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas");
     let context: CanvasRenderingContext2D = canvas.getContext("2d");
-
-    context.fillStyle = "blue";  //Himmel
-    context.fillRect(0, 0, 500, 400);
-    context.fillStyle = "green";   //Wiese
+    context.fillStyle = "rgb(135,206,255)";  //Himmel
+    context.fillRect(0, 0, 500, 400); //Position von Himmel x y 
+    context.fillStyle = "rgb(155,205,155)";   //Wiese
     context.fillRect(0, 250, 500, 300);
 
     context.beginPath();   //Baumstamm
     context.lineWidth = 3;
-    context.fillStyle = "brown";
+    context.fillStyle = "rgb(139,69,19)";
     context.moveTo(370, 210);
     context.lineTo(350, 300);
     context.lineTo(410, 300);
@@ -106,7 +99,7 @@ namespace P2_2 {
     context.beginPath();    //Blätter
     context.lineWidth = 1;
     context.strokeStyle = "black";
-    context.fillStyle = "darkgreen";
+    context.fillStyle = "rgb(110,139,61)";
     context.arc(360, 210, 30, 0, Math.PI * 2);
     context.fill();
     context.stroke();
@@ -114,7 +107,7 @@ namespace P2_2 {
     context.beginPath();    //Blätter
     context.lineWidth = 1;
     context.strokeStyle = "black";
-    context.fillStyle = "darkgreen";
+    context.fillStyle = "rgb(110,139,61)";
     context.arc(380, 180, 30, 0, Math.PI * 2);
     context.fill();
     context.stroke();
@@ -122,19 +115,20 @@ namespace P2_2 {
     context.beginPath();    //Blätter
     context.lineWidth = 1;
     context.strokeStyle = "black";
-    context.fillStyle = "darkgreen";
+    context.fillStyle = "rgb(110,139,61)";
     context.arc(400, 210, 30, 0, Math.PI * 2);
     context.fill();
     context.stroke();
 
-    context.lineWidth = 10; //Haus
-    context.fillStyle = "black";
+
+    context.lineWidth = 0.5; //Haus
+    context.fillStyle = "rgb(238,213,183)";
     context.fillRect(75, 140, 150, 110);
-    context.fillStyle = "brown";
+    context.fillStyle = "rgb(240,128,128)";
     context.fillRect(130, 190, 40, 60);
 
     context.beginPath();    //Dach
-    context.fillStyle = "black";
+    context.fillStyle = "rgb(240,128,128)";
     context.moveTo(50, 140);
     context.lineTo(150, 60);
     context.lineTo(250, 140);
@@ -158,21 +152,22 @@ namespace P2_2 {
     context.fill();
 
     context.beginPath();    //Wolke2
-    context.fillStyle = "lightgrey";
+    context.fillStyle = "whitesmoke";
     context.arc(35, 60, 20, 0, Math.PI * 2);
     context.fill();
 
     context.beginPath();    //Wolke2
-    context.fillStyle = "lightgrey";
+    context.fillStyle = "whitesmoke";
     context.arc(80, 44, 25, 0, Math.PI * 2);
     context.fill();
 
     context.beginPath();    //Wolke2
-    context.fillStyle = "lightgrey";
+    context.fillStyle = "whitesmoke";
     context.arc(55, 60, 25, 0, Math.PI * 2);
     context.fill();
 
     console.log(canvas);
+    
 
 
     // b)
