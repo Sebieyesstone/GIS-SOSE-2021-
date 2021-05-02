@@ -81,7 +81,7 @@ var Abgabe2_2;
     }
     // Aufgabe 2 - Arrays
     // a)
-    let b = [1, 2, 3, 4, 5]; // Array b 
+    let b = [1, 2, 3, 4, 5]; // Initialisierung b number mit dem Wert [] (Array)
     function backwards(b) {
         for (let i = b.length - 1; i >= 0; i--) {
             console.log(b[i]);
@@ -89,7 +89,7 @@ var Abgabe2_2;
     }
     backwards(b);
     // b)
-    let j = [6, 7, 8, 9, 10];
+    let j = [6, 7, 8, 9, 10]; // Initialisierung j number mit dem Wert [] (Array)
     function join(baseArray, addingArray) {
         for (let i = 0; i < addingArray.length; i++) {
             baseArray.push(addingArray[i]);

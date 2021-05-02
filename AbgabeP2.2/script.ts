@@ -110,8 +110,8 @@ namespace Abgabe2_2 {
     // Aufgabe 2 - Arrays
     // a)
 
-    let b: number[] = [1, 2, 3, 4, 5]; // Array b 
-    function backwards(b: number[]): void {
+    let b: number[] = [1, 2, 3, 4, 5]; // Initialisierung b number mit dem Wert [] (Array)
+    function backwards(b: number[]): void { 
         for (let i: number = b.length - 1; i >= 0; i--) {
             console.log(b[i]);
         }
@@ -119,8 +119,8 @@ namespace Abgabe2_2 {
     backwards(b);
 
     // b)
-    let j: number[] = [6, 7, 8, 9, 10];
-    function join(baseArray: number[], addingArray: number[]): number[] {
+    let j: number[] = [6, 7, 8, 9, 10]; // Initialisierung j number mit dem Wert [] (Array)
+    function join(baseArray: number[], addingArray: number[]): number[] { 
         for (let i: number = 0; i < addingArray.length; i++) {
             baseArray.push(addingArray[i]);
         }
