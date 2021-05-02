@@ -110,15 +110,16 @@ namespace Augabe1bis3 {
     // Aufgabe 2 - Arrays
     // a)
 
-    let h: number[] = [1, 2, 3, 4, 5];
+    let b: number[] = [1, 2, 3, 4, 5];
     function backwards(h: number[]): void {
-        for (let b: number = h.length - 1; b >= 0; b--) {
-            console.log(h[b]);
+        for (let i: number = h.length - 1; i >= 0; i--) {
+            console.log(h[i]);
         }
     }
-    // b)
+    backwards(b);
 
-    let b: number[] = [6, 7, 8, 9, 10];
+    // b)
+    let j: number[] = [6, 7, 8, 9, 10];
     function join(baseArray: number[], addingArray: number[]): number[] {
         for (let i: number = 0; i < addingArray.length; i++) {
             baseArray.push(addingArray[i]);
@@ -127,7 +128,7 @@ namespace Augabe1bis3 {
         return baseArray;
     }
 
-    join(h, b);
+    join(b, j);
 
     // c)
 
@@ -140,7 +141,7 @@ namespace Augabe1bis3 {
         return reihe;
     }
 
-    split(h, 2, 4); // (Array, Untergrenze, Obergrenze);
+    split(b, 2, 4); // (Array, Untergrenze, Obergrenze);
 
     /*let arr: number[] = [5, 42, 17, 2018, -10, 60, -10010];
     let arrBack: number[] = backwards(arr);

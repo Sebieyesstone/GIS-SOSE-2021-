@@ -81,14 +81,15 @@ var Augabe1bis3;
     }
     // Aufgabe 2 - Arrays
     // a)
-    let h = [1, 2, 3, 4, 5];
+    let b = [1, 2, 3, 4, 5];
     function backwards(h) {
-        for (let b = h.length - 1; b >= 0; b--) {
-            console.log(h[b]);
+        for (let i = h.length - 1; i >= 0; i--) {
+            console.log(h[i]);
         }
     }
+    backwards(b);
     // b)
-    let b = [6, 7, 8, 9, 10];
+    let j = [6, 7, 8, 9, 10];
     function join(baseArray, addingArray) {
         for (let i = 0; i < addingArray.length; i++) {
             baseArray.push(addingArray[i]);
@@ -96,7 +97,7 @@ var Augabe1bis3;
         console.log(baseArray);
         return baseArray;
     }
-    join(h, b);
+    join(b, j);
     // c)
     function split(array, left, right) {
         let reihe = [];
@@ -106,7 +107,7 @@ var Augabe1bis3;
         console.log(reihe);
         return reihe;
     }
-    split(h, 2, 4); // (Array, Untergrenze, Obergrenze);
+    split(b, 2, 4); // (Array, Untergrenze, Obergrenze);
     /*let arr: number[] = [5, 42, 17, 2018, -10, 60, -10010];
     let arrBack: number[] = backwards(arr);
     console.log(arr);
