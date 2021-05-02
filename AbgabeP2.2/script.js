@@ -1,6 +1,6 @@
 "use strict";
-var P2_2;
-(function (P2_2) {
+var Augabe1bis3;
+(function (Augabe1bis3) {
     // Aufgabe 1 - Mehr "langweilige" Konsolenausgaben
     // a)
     function min(...args) {
@@ -20,28 +20,93 @@ var P2_2;
     }
     let st1 = {
         nameStudent: "Maja",
-        martikelnummer: 21372,
+        matrikelnummer: 21372,
         studiengang: "OMB"
     }; // Bei einer Variablendeklaration macht man ein Komma auch am Ende
     let st2 = {
         nameStudent: "Helena",
-        martikelnummer: 21373,
+        matrikelnummer: 21373,
         studiengang: "MIB"
     };
     let st3 = {
         nameStudent: "Thomas",
-        martikelnummer: 21374,
+        matrikelnummer: 21374,
         studiengang: "MKB"
     };
     let stA = [
-        { "nameStudent": "Maja", "martikelnummer": 21372, "studiengang": "OMB" },
-        { "nameStudent": "Helena", "martikelnummer": 21373, "studiengang": "MIB" },
-        { "nameStudent": "Thomas", "martikelnummer": 21374, "studiengang": "MKB" }
+        { "nameStudent": "Maja", "matrikelnummer": 213721, "studiengang": "OMB" },
+        { "nameStudent": "Helena", "matrikelnummer": 213732, "studiengang": "MIB" },
+        { "nameStudent": "Thomas", "matrikelnummer": 213743, "studiengang": "MKB" }
     ];
+    stA = []; // Ausgabe Student Array
+    stA.push(st1, st2, st3); // hängt die angegebenen Elemente an das letzte Array an und gibt die Länge des neuen Arrays zurück
+    function addStudent(nameStudent, matrikelnummer, studiengang) {
+        let st4 = { nameStudent, matrikelnummer, studiengang }; // neuer Student anlegen
+        stA.push(st4);
+    }
+    addStudent("Romina", 213754, "SSB");
+    showInfo(213754);
+    function showInfo(matrikelnummer) {
+        for (let i = 0; i < stA.length; i++) { // wenn i = 0 , i kleiner Array Länge, immer +1
+            if (matrikelnummer == stA[i].matrikelnummer) { // eingebene Matrikelnummer und die im array gleich sind 
+                console.log(stA[i].nameStudent, stA[i].matrikelnummer, stA[i].studiengang); //Konsolenausgabe 
+                return true; // zurückgeben 
+            }
+        }
+        console.log("Student nicht gefunden!"); // wenn nicht -> Konsolenausgabe
+        return false; // zurückgeben
+    }
+    addStudent("Tabea", 213765, "OMB"); // Methode
+    showInfo(213776);
+    showInfo(213787);
+    showInfo(213798);
+    showInfo(213809);
+    // 5.
+    class Student2 {
+        constructor(nameStudent, martikelnummer, studiengang) {
+            this.nameStudent = nameStudent; // constructor Aufruf
+            this.matrikelnummer = martikelnummer;
+            this.studiengang = studiengang;
+        }
+        showInfo(matrikelnummer) {
+            for (let i = 0; i < stA.length; i++) {
+                if (matrikelnummer == stA[i].matrikelnummer) {
+                    console.log(stA[i].nameStudent, stA[i].matrikelnummer, stA[i].studiengang);
+                    return true;
+                }
+            }
+            console.log("Student nicht gefunden!");
+            return false;
+        }
+    }
     // Aufgabe 2 - Arrays
     // a)
+    let h = [1, 2, 3, 4, 5];
+    function backwards(h) {
+        for (let b = h.length - 1; b >= 0; b--) {
+            console.log(h[b]);
+        }
+    }
     // b)
+    let b = [6, 7, 8, 9, 10];
+    function join(baseArray, addingArray) {
+        for (let i = 0; i < addingArray.length; i++) {
+            baseArray.push(addingArray[i]);
+        }
+        console.log(baseArray);
+        return baseArray;
+    }
+    join(h, b);
     // c)
+    function split(array, left, right) {
+        let reihe = [];
+        for (let i = left; i <= right; i++) { // left = unterer Gw, rechts = oberer Gw -> dadurch wird die Obergrenze mit engeschlossen. Die Untergrenze ist automatisch immer eingeschlossen
+            reihe.push(array[i]);
+        }
+        console.log(reihe);
+        return reihe;
+    }
+    split(h, 2, 4); // (Array, Untergrenze, Obergrenze);
     /*let arr: number[] = [5, 42, 17, 2018, -10, 60, -10010];
     let arrBack: number[] = backwards(arr);
     console.log(arr);
@@ -55,6 +120,9 @@ var P2_2;
     console.log(split(arr, -1, 2));    // Bonus c)
     console.log(split(arr, 0, 7));     // Bonus c)
     */
+})(Augabe1bis3 || (Augabe1bis3 = {}));
+var Canvas;
+(function (Canvas) {
     // Aufgabe 3 - Endlich was visuelles!
     // a)
     let canvas = document.getElementById("myFirstCanvas");
@@ -132,11 +200,76 @@ var P2_2;
     context.arc(55, 60, 25, 0, Math.PI * 2);
     context.fill();
     console.log(canvas);
-    // b)
+    function getRandom(max) {
+        return Math.floor(Math.random() * max);
+    }
+    function createRect() {
+        let x = getRandom(500);
+        let w = getRandom(500);
+        let y = getRandom(400);
+        let h = getRandom(400);
+        context.fillRect(x, y, w, h);
+    }
+    createRect();
+    class Rectangle {
+        createRectangle(_width, _height) {
+            this.width = _width;
+            this.height = _height;
+        }
+        // c)
+        createRandomRec() {
+            this.width = Math.floor(Math.random() * 100);
+            this.height = Math.floor(Math.random() * 100);
+        }
+        // d)
+        drawRectangle(x, y, fill, color) {
+            let c = "rgb(188,143,143)";
+            context.beginPath();
+            context.rect(x, y, this.width, this.height);
+            if (color) {
+                context.fillStyle = color;
+                context.strokeStyle = color;
+            }
+            else {
+                context.fillStyle = c;
+                context.strokeStyle = c;
+            }
+            if (fill) {
+                context.fill();
+            }
+            context.stroke();
+        }
+        drawRandom() {
+            let x = Math.floor(Math.random() * 500);
+            let y = Math.floor(Math.random() * 500);
+            context.beginPath();
+            context.rect(x, y, this.width, this.height);
+            context.fillStyle = "rgb(188,143,143)";
+            context.strokeStyle = "rgb(188,143,143)";
+            context.fill();
+            context.stroke();
+        }
+    }
+    const r1 = new Rectangle();
+    r1.createRectangle(300, 200);
+    r1.drawRectangle(300, 650, true);
     // c)
+    const r2 = new Rectangle();
+    r2.createRandomRec();
+    r2.drawRectangle(20, 700, false);
     // d)
+    const r3 = new Rectangle();
+    r3.createRandomRec();
+    r3.drawRectangle(450, 800, true, "rgb(188,143,143)");
     // e)
-    // f)
-    // g)
-})(P2_2 || (P2_2 = {}));
+    const r4 = new Rectangle();
+    r4.createRandomRec();
+    const r5 = new Rectangle();
+    r5.createRandomRec();
+    const r6 = new Rectangle();
+    r6.createRandomRec();
+    let rectangles = new Array();
+    rectangles = [r4, r5, r6];
+    rectangles.forEach(rec => rec.drawRandom());
+})(Canvas || (Canvas = {}));
 //# sourceMappingURL=script.js.map
