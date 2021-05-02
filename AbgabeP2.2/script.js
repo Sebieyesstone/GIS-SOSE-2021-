@@ -1,6 +1,6 @@
 "use strict";
-var Augabe1bis3;
-(function (Augabe1bis3) {
+var Abgabe2_2;
+(function (Abgabe2_2) {
     // Aufgabe 1 - Mehr "langweilige" Konsolenausgaben
     // a)
     function min(...args) {
@@ -81,10 +81,10 @@ var Augabe1bis3;
     }
     // Aufgabe 2 - Arrays
     // a)
-    let b = [1, 2, 3, 4, 5];
-    function backwards(h) {
-        for (let i = h.length - 1; i >= 0; i--) {
-            console.log(h[i]);
+    let b = [1, 2, 3, 4, 5]; // Array b 
+    function backwards(b) {
+        for (let i = b.length - 1; i >= 0; i--) {
+            console.log(b[i]);
         }
     }
     backwards(b);
@@ -121,15 +121,12 @@ var Augabe1bis3;
     console.log(split(arr, -1, 2));    // Bonus c)
     console.log(split(arr, 0, 7));     // Bonus c)
     */
-})(Augabe1bis3 || (Augabe1bis3 = {}));
-var Canvas;
-(function (Canvas) {
     // Aufgabe 3 - Endlich was visuelles!
     // a)
     let canvas = document.getElementById("myFirstCanvas");
     let context = canvas.getContext("2d");
     context.fillStyle = "rgb(135,206,255)"; //Himmel
-    context.fillRect(0, 0, 500, 400); //Position von Himmel x y 
+    context.fillRect(0, 0, 500, 400); //Position von Himmel x y weite höhe
     context.fillStyle = "rgb(155,205,155)"; //Wiese
     context.fillRect(0, 250, 500, 300);
     context.beginPath(); //Baumstamm
@@ -245,7 +242,7 @@ var Canvas;
             let y = Math.floor(Math.random() * 500);
             context.beginPath();
             context.rect(x, y, this.width, this.height);
-            context.fillStyle = "rgb(188,143,143)";
+            context.fillStyle = "rgb(188,143,143)"; //rosybrown Kästchen
             context.strokeStyle = "rgb(188,143,143)";
             context.fill();
             context.stroke();
@@ -272,5 +269,5 @@ var Canvas;
     let rectangles = new Array();
     rectangles = [r4, r5, r6];
     rectangles.forEach(rec => rec.drawRandom());
-})(Canvas || (Canvas = {}));
+})(Abgabe2_2 || (Abgabe2_2 = {}));
 //# sourceMappingURL=script.js.map

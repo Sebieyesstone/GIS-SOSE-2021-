@@ -1,4 +1,4 @@
-namespace Augabe1bis3 {
+namespace Abgabe2_2 {
     // Aufgabe 1 - Mehr "langweilige" Konsolenausgaben
     // a)
     function min(...args: number[]): number { // args = Name arguments = Befehl.  
@@ -110,10 +110,10 @@ namespace Augabe1bis3 {
     // Aufgabe 2 - Arrays
     // a)
 
-    let b: number[] = [1, 2, 3, 4, 5];
-    function backwards(h: number[]): void {
-        for (let i: number = h.length - 1; i >= 0; i--) {
-            console.log(h[i]);
+    let b: number[] = [1, 2, 3, 4, 5]; // Array b 
+    function backwards(b: number[]): void {
+        for (let i: number = b.length - 1; i >= 0; i--) {
+            console.log(b[i]);
         }
     }
     backwards(b);
@@ -156,16 +156,14 @@ namespace Augabe1bis3 {
     console.log(split(arr, -1, 2));    // Bonus c)
     console.log(split(arr, 0, 7));     // Bonus c)
     */
-}
 
-namespace Canvas {
     // Aufgabe 3 - Endlich was visuelles!
     // a)
 
     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas");
     let context: CanvasRenderingContext2D = canvas.getContext("2d");
     context.fillStyle = "rgb(135,206,255)";  //Himmel
-    context.fillRect(0, 0, 500, 400); //Position von Himmel x y 
+    context.fillRect(0, 0, 500, 400); //Position von Himmel x y weite höhe
     context.fillStyle = "rgb(155,205,155)";   //Wiese
     context.fillRect(0, 250, 500, 300);
 
@@ -270,12 +268,11 @@ namespace Canvas {
 
     createRect();
 
-
     class Rectangle {
         width: number;
         height: number;
 
-    createRectangle(_width: number, _height: number): void {
+    createRectangle(_width: number, _height: number): void { //constructor
         this.width = _width;
         this.height = _height;
     }
@@ -310,7 +307,7 @@ namespace Canvas {
         let y: number = Math.floor(Math.random() * 500);
         context.beginPath();
         context.rect(x, y, this.width, this.height);
-        context.fillStyle = "rgb(188,143,143)";
+        context.fillStyle = "rgb(188,143,143)"; //rosybrown Kästchen
         context.strokeStyle = "rgb(188,143,143)";
         context.fill();
         context.stroke();
