@@ -112,16 +112,16 @@ namespace Abgabe2_2 {
 
     let b: number[] = [1, 2, 3, 4, 5]; // Initialisierung b number mit dem Wert [] (Array)
     function backwards(b: number[]): void { 
-        for (let i: number = b.length - 1; i >= 0; i--) {
+        for (let i: number = b.length - 1; i >= 0; i--) { //rückwarts immer 1 zurück
             console.log(b[i]);
         }
     }
-    backwards(b);
+    backwards(b); // 5, 4, 3, 2, 1 beginnt im Array von hinten nach vorne
 
     // b)
     let j: number[] = [6, 7, 8, 9, 10]; // Initialisierung j number mit dem Wert [] (Array)
-    function join(baseArray: number[], addingArray: number[]): number[] { 
-        for (let i: number = 0; i < addingArray.length; i++) {
+    function join(baseArray: number[], addingArray: number[]): number[] { // fasst alle E eines Arrays zu einer Zeichenfolge zusammen
+        for (let i: number = 0; i < addingArray.length; i++) { // +1
             baseArray.push(addingArray[i]);
         }
         console.log(baseArray);
@@ -140,8 +140,8 @@ namespace Abgabe2_2 {
         console.log(reihe);
         return reihe;
     }
-
-    split(b, 2, 4); // (Array, Untergrenze, Obergrenze);
+    
+    split(b, 2, 4); // (Array, Untergrenze, Obergrenze) - Wenn Zf leer ist, gibt split ein Array zurück, das eine leere Zf anstelle eines leeren Arrays enthält
 
     /*let arr: number[] = [5, 42, 17, 2018, -10, 60, -10010];
     let arrBack: number[] = backwards(arr);
