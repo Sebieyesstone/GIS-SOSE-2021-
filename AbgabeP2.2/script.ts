@@ -8,19 +8,19 @@ namespace Abgabe2_2 {
 
     // b)
     function isEven(n: number): boolean {
-        if (n == 0)
+        if (n == 0) // geht nochmal durch
             return true;
-        if (n == 1)
+        if (n == 1) // endet hier und wird false Reste = 1 
             return false;
         if (n < 0)
-            return isEven(-n);
+            return isEven(-n); //Vorzeichenwechsel wird von - zu plus
         else
             return isEven(n - 2);
     }
-    //Test
-    //console.log(isEven(50)); true     Ergebnis = 0
-    //console.log(isEven(75)); false    Ergebnis = 1
-    //console.log(isEven(-1)); false    Ergebnis = -5
+   // Test
+    console.log(isEven(50)); //true     Ergebnis = 0
+    console.log(isEven(75)); //false    Ergebnis = 1
+    console.log(isEven(-1)); //false    Ergebnis = -5
     // Bsp: mit 5 : 5 ist nicht 0 u. 1, 5-2 = 3, 3 ist nicht 0 u. 1, 3-2 = 1 -> 1 ist nicht 0, aber 1 -> false
     // Die -5 bei -1 entsteht, weil die if-Statements nie true sind, aber das else-Statement bei ihr zutrifft.
     // Die Lösung dafür wäre die Konsolenausgabe oder den Datentyp der Rückgabe so verändern, sodass negative Zahlen zurückgegeben werden können
@@ -34,34 +34,27 @@ namespace Abgabe2_2 {
 
     let st1: Student = {
         nameStudent: "Maja",
-        matrikelnummer: 21372,
+        matrikelnummer: 213721,
         studiengang: "OMB"
     }; // Bei einer Variablendeklaration macht man ein Komma auch am Ende
     let st2: Student = {
         nameStudent: "Helena",
-        matrikelnummer: 21373,
+        matrikelnummer: 213732,
         studiengang: "MIB"
     };
     let st3: Student = {
         nameStudent: "Thomas",
-        matrikelnummer: 21374,
+        matrikelnummer: 213743,
         studiengang: "MKB"
     };
 
-    let stA: Array<Student> = [
-        { "nameStudent": "Maja", "matrikelnummer": 213721, "studiengang": "OMB" },
-        { "nameStudent": "Helena", "matrikelnummer": 213732, "studiengang": "MIB" },
-        { "nameStudent": "Thomas", "matrikelnummer": 213743, "studiengang": "MKB" }
-    ];
-
-    stA = []; // Ausgabe Student Array
-
-    stA.push(st1, st2, st3); // hängt die angegebenen Elemente an das letzte Array an und gibt die Länge des neuen Arrays zurück
+    let stA: Array<Student> = [st1, st2, st3]; // Erstelle ich ein Array aus meinen Studenten und mache eine Liste draus
 
     function addStudent(nameStudent: string, matrikelnummer: number, studiengang: string): void {
         let st4: Student = { nameStudent, matrikelnummer, studiengang }; // neuer Student anlegen
-        stA.push(st4);
+        stA.push(st4); // push hängt die angegebenen Elemente an das letzte Array an und gibt die Länge des neuen Arrays zurück
     }
+
 
     addStudent("Romina", 213754, "SSB");
     showInfo(213754);
@@ -79,10 +72,10 @@ namespace Abgabe2_2 {
 
 
     addStudent("Tabea", 213765, "OMB"); // Methode
-    showInfo(213776);
-    showInfo(213787);
-    showInfo(213798);
-    showInfo(213809);
+    showInfo(213721);
+    showInfo(213732);
+    showInfo(213743);
+    showInfo(213765);
 
     // 5.
     class Student2 implements Student { // von dem meinem Interface Student implementiert
@@ -134,22 +127,32 @@ namespace Abgabe2_2 {
 
     function split(array: number[], left: number, right: number): number[] {
         let reihe: number[] = [];
+        if (left > right) {
+            return reihe;
+        }
+
+        
+
+
+
+        
         for (let i: number = left; i <= right; i++) { // left = unterer Gw, rechts = oberer Gw -> dadurch wird die Obergrenze mit engeschlossen. Die Untergrenze ist automatisch immer eingeschlossen
             reihe.push(array[i]);
         }
         console.log(reihe);
         return reihe;
     }
-    
-    split(b, 2, 4); // (Array, Untergrenze, Obergrenze) - Wenn Zf leer ist, gibt split ein Array zurück, das eine leere Zf anstelle eines leeren Arrays enthält
+    console.log(split(b, 2, 5));
+
+     // (Array, Untergrenze, Obergrenze) - Wenn Zf leer ist, gibt split ein Array zurück, das eine leere Zf anstelle eines leeren Arrays enthält
 
     /*let arr: number[] = [5, 42, 17, 2018, -10, 60, -10010];
-    let arrBack: number[] = backwards(arr);
+    let arrBack: number[] = backwards(arr); //aufruf backwardsmethode
     console.log(arr);
     console.log(arrBack);
     console.log(join(arr, [15, 9001, -440] ));
     console.log(join([123, 666, -911], arr, [15, 9001, -440, 1024] )); // Bonus b)
-    arr = split(arr, 0, 4);
+    arr = split(arr, 0, 4); // neue Zuweisung
     console.log(arr);
     console.log(split(arr, 1, 2));
     console.log(split(arr, 2, 0));     // Bonus c)
