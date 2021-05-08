@@ -1,4 +1,6 @@
+// in Zusammenarbeit mit Anna-Lara, Benjamin und Tabea
 namespace Aufgabe01 {
+
     document.addEventListener("DOMContentLoaded", function (): void { // addEv sitzt drauf + realiseren das was passiert + geladen werden
         
         const newRec: HTMLElement = document.getElementById("newRec");   //button 1 - durch die id

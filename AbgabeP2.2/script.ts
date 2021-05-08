@@ -131,11 +131,6 @@ namespace Abgabe2_2 {
             return reihe;
         }
 
-        
-
-
-
-        
         for (let i: number = left; i <= right; i++) { // left = unterer Gw, rechts = oberer Gw -> dadurch wird die Obergrenze mit engeschlossen. Die Untergrenze ist automatisch immer eingeschlossen
             reihe.push(array[i]);
         }

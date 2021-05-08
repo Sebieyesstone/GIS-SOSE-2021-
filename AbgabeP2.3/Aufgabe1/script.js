@@ -1,4 +1,5 @@
 "use strict";
+// in Zusammenarbeit mit Anna-Lara, Benjamin und Tabea
 var Aufgabe01;
 (function (Aufgabe01) {
     document.addEventListener("DOMContentLoaded", function () {
