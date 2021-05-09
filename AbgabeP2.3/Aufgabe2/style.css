@@ -50,3 +50,14 @@ h1 {
     border-style: solid;
     border-color: rgb(123, 87, 87);
 }
+#create{
+    background-color: rosybrown;
+    height: auto;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: rgb(123, 87, 87);
+}
+}

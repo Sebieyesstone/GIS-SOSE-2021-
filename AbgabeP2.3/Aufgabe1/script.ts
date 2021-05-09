@@ -25,7 +25,7 @@ namespace Aufgabe01 {
                 recDiv.style.top = y + "px";
                 recDiv.style.left = x + "px";
                 recDiv.style.position = "absolute";
-                recDiv.style.backgroundColor = "rgba(139, 0, 0, 0.7)";
+                recDiv.style.backgroundColor = "rgb(245,245,245)"; //Farbe der Rechtecken
                 recContainer.appendChild(recDiv); //jetzt hängen wir es an einem Body an + malen es an die Fläche (hintendran) append flexibler (appC = auf Obj/El ein von der Klammer)
             }
         }
