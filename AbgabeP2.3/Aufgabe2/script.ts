@@ -1,7 +1,7 @@
 // in Zusammenarbeit mit Anna-Lara, Benjamin und Tabea
 namespace Aufgabe02 {
     
-    //const save: HTMLElement = document.getElementById("save");           //wird später verwendet
+    //const save: HTMLElement = document.getElementById("save");                            //wird später verwendet
     const anzeigeflaeche: HTMLElement = document.getElementById("anzeigeflaeche");
     class Tier {
         head: string;

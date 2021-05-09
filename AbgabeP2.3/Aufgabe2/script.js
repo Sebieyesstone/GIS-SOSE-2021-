@@ -2,7 +2,7 @@
 // in Zusammenarbeit mit Anna-Lara, Benjamin und Tabea
 var Aufgabe02;
 (function (Aufgabe02) {
-    //const save: HTMLElement = document.getElementById("save");           //wird später verwendet
+    //const save: HTMLElement = document.getElementById("save");                            //wird später verwendet
     const anzeigeflaeche = document.getElementById("anzeigeflaeche");
     class Tier {
         setHead(_head) {
