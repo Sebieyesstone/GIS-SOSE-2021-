@@ -16,7 +16,13 @@ body {
     justify-content: space-around;
     align-items: center;
 }
-
+.Überschrift {
+    background-color: rosybrown;
+    width: auto;
+    text-align: start;
+    padding: 0;
+    right: 0;
+}
 .anzeigeflaeche {
     display: flex;
     justify-content: space-evenly;
