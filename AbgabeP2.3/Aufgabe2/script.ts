@@ -39,7 +39,7 @@ namespace Aufgabe02 {
 
     function highlightSelection(element: HTMLElement): void {                                  //Kopfbilder
         optionsHead.forEach(element => {                                                       // => bedeutet Pfeil. Liste mit allen El. von dieser Klasse (alle BILDER die wir erstellt haben)
-            element.style.border = "4px solid transparent";                                    // für jedes E. soll das ausgeführt werden
+            element.style.border = "4px solid transparent";     //gehört ins CSS                               // für jedes E. soll das ausgeführt werden
             element.style.boxShadow = "2px 3px 7px rgb(188,143,143)";                          
         });
 

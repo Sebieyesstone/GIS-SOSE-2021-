@@ -29,7 +29,7 @@ var Aufgabe02;
     const optionsHead = document.querySelectorAll(".auswahlbilder"); // neue V obH -> alle HTML El. die Klasse Auswahlbilder haben
     function highlightSelection(element) {
         optionsHead.forEach(element => {
-            element.style.border = "4px solid transparent"; // für jedes E. soll das ausgeführt werden
+            element.style.border = "4px solid transparent"; //gehört ins CSS                               // für jedes E. soll das ausgeführt werden
             element.style.boxShadow = "2px 3px 7px rgb(188,143,143)";
         });
         element.style.border = "4px solid rgb(188,143,143)"; // Wenn man Bild anklickt -> Rahmenfarbe

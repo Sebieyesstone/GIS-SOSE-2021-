@@ -1,3 +1,4 @@
+/*
 namespace Abgabe2_2 {
     // Aufgabe 1 - Mehr "langweilige" Konsolenausgaben
     // a)
@@ -157,7 +158,7 @@ namespace Abgabe2_2 {
 
     // Aufgabe 3 - Endlich was visuelles!
     // a)
-
+    /*
     let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas");
     let context: CanvasRenderingContext2D = canvas.getContext("2d");
     context.fillStyle = "rgb(135,206,255)";  //Himmel
@@ -338,3 +339,4 @@ namespace Abgabe2_2 {
     rectangles = [r4, r5, r6];
     rectangles.forEach(rec => rec.drawRandom());
 }
+*/
