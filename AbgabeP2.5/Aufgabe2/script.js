@@ -3,8 +3,6 @@
 var Aufgabe2;
 (function (Aufgabe2) {
     const anzeigeflaeche = document.querySelector(".anzeigeflaeche");
-    //const torsoButton: HTMLElement = document.getElementById("showTorso"); //getElementById seems to work best
-    //const legButton: HTMLElement = document.getElementById("showLegs");
     const currentStep = anzeigeflaeche ? anzeigeflaeche.id : "";
     const selection = document.getElementById("selection");
     const heroku = document.getElementById("heroku");
@@ -12,12 +10,13 @@ var Aufgabe2;
     let data;
     async function communicate(_url) {
         let response = await fetch(_url);
+        console.log(Response, response);
         let antwort = await response.json();
         data = antwort;
-        buildPageFromData(antwort);
+        buildPageFromData(data);
         console.log(antwort);
     }
-    communicate("https://raw.githubusercontent.com/Sebieyesstone/GIS-SOSE-2021-/main/Abgabe2.5/Aufgabe2/data.json");
+    communicate("https://sebieyesstone/GIS-SOSE-2021-/Abgabe2.5/Aufgabe2/data.json");
     //create img elemente
     function createImgElement(url, part) {
         const imgElem = document.createElement("img");
@@ -36,6 +35,20 @@ var Aufgabe2;
                 anzeigeflaeche.appendChild(imgElem);
             }
         }
+        const optionsHead = document.querySelectorAll(".pic-reel");
+        function highlightSelection(elem) {
+            optionsHead.forEach(elem => {
+                elem.classList.remove("highlighted");
+            });
+            elem.classList.add("highlighted");
+        }
+        //eventlistener
+        optionsHead.forEach(elem => {
+            elem.addEventListener("click", function () {
+                selectElem(elem.id);
+                highlightSelection(elem);
+            });
+        });
     }
     //select, store and show chosen elements
     function selectElem(id) {
@@ -77,26 +90,10 @@ var Aufgabe2;
         showSelected(sessionStorage.getItem("torso"));
         showSelected(sessionStorage.getItem("legs"));
     }
-    paint();
-    const optionsHead = document.querySelectorAll(".pic-reel");
-    function highlightSelection(elem) {
-        optionsHead.forEach(elem => {
-            elem.classList.remove("highlighted");
-        });
-        elem.classList.add("highlighted");
-    }
-    //eventlistener
-    optionsHead.forEach(elem => {
-        elem.addEventListener("click", function () {
-            selectElem(elem.id);
-            highlightSelection(elem);
-        });
-    });
     if (heroku) {
-        communicateHeroku("https://gis-communication.herokuapp.com");
         async function communicateHeroku(_url) {
-            const kerle = { head: sessionStorage.getItem("head"), body: sessionStorage.getItem("head"), legs: sessionStorage.getItem("head") };
-            let query = new URLSearchParams(kerle);
+            const tier = { head: sessionStorage.getItem("head"), body: sessionStorage.getItem("head"), legs: sessionStorage.getItem("head") };
+            let query = new URLSearchParams(tier);
             _url = _url + "?" + query.toString();
             const response = await fetch(_url);
             const stringResponse = await response.json();
@@ -115,6 +112,7 @@ var Aufgabe2;
                 p.innerHTML = stringResponse.message;
             } //Server Antwort: Konfiguration eingegangen. Server Antwort: Mit ihrer Anfrage ist alles in Ordnung, aber der Server konnte diese derzeit nicht verarbeiten. Auch bekannt als Error 500 (Internal Server Error).
         } //Server Antwort: Daten empfangen. Server Antwort: Alles angekommen.
+        communicateHeroku("https://gis-communication.herokuapp.com");
     }
 })(Aufgabe2 || (Aufgabe2 = {}));
 //# sourceMappingURL=script.js.map

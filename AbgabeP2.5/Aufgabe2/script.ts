@@ -2,8 +2,6 @@
 namespace Aufgabe2 {
 
     const anzeigeflaeche: HTMLElement = document.querySelector(".anzeigeflaeche");
-    //const torsoButton: HTMLElement = document.getElementById("showTorso"); //getElementById seems to work best
-    //const legButton: HTMLElement = document.getElementById("showLegs");
     const currentStep: string = anzeigeflaeche ? anzeigeflaeche.id : "";
     const selection: HTMLElement = document.getElementById("selection");
     const heroku: HTMLElement = document.getElementById("heroku");
@@ -13,13 +11,14 @@ namespace Aufgabe2 {
     async function communicate(_url: RequestInfo): Promise<void> {
         
         let response: Response = await fetch(_url);
+        console.log(Response, response);
         let antwort: BData = await response.json();
         data = antwort;
-        buildPageFromData(antwort);
+        buildPageFromData(data);
         console.log(antwort);
     }
 
-    communicate("https://raw.githubusercontent.com/Sebieyesstone/GIS-SOSE-2021-/main/Abgabe2.5/Aufgabe2/data.json");
+    communicate("https://sebieyesstone/GIS-SOSE-2021-/Abgabe2.5/Aufgabe2/data.json");
 
     //create img elemente
     function createImgElement(url: string, part?: string): HTMLImageElement {
@@ -41,6 +40,22 @@ namespace Aufgabe2 {
                 anzeigeflaeche.appendChild(imgElem);
             }
         }
+        const optionsHead: NodeListOf<HTMLElement> = document.querySelectorAll(".pic-reel");
+
+        function highlightSelection(elem: HTMLElement): void {
+            optionsHead.forEach(elem => {
+                elem.classList.remove("highlighted");
+            });
+            elem.classList.add("highlighted");
+        }
+
+        //eventlistener
+        optionsHead.forEach(elem => {
+            elem.addEventListener("click", function (): void {
+                selectElem(elem.id);
+                highlightSelection(elem);
+            });
+        });
     }
 
     //select, store and show chosen elements
@@ -87,34 +102,16 @@ namespace Aufgabe2 {
         showSelected(sessionStorage.getItem("torso"));
         showSelected(sessionStorage.getItem("legs"));
     }
-    paint();
 
-    const optionsHead: NodeListOf<HTMLElement> = document.querySelectorAll(".pic-reel");
-
-    function highlightSelection(elem: HTMLElement): void {
-        optionsHead.forEach(elem => {
-            elem.classList.remove("highlighted");
-        });
-        elem.classList.add("highlighted");
-    }
-
-    //eventlistener
-    optionsHead.forEach(elem => {
-        elem.addEventListener("click", function (): void {
-            selectElem(elem.id);
-            highlightSelection(elem);
-        });
-    });
     if (heroku) {
-        communicateHeroku("https://gis-communication.herokuapp.com");
-
+        
         interface HirokuResponse {
             [key: string]: string;
         }
 
         async function communicateHeroku(_url: RequestInfo): Promise<void> {
-            const kerle: object = { head: sessionStorage.getItem("head"), body: sessionStorage.getItem("head"), legs: sessionStorage.getItem("head") };
-            let query: URLSearchParams = new URLSearchParams(<any>kerle);
+            const tier: object = { head: sessionStorage.getItem("head"), body: sessionStorage.getItem("head"), legs: sessionStorage.getItem("head") };
+            let query: URLSearchParams = new URLSearchParams(<any>tier);
             _url = _url + "?" + query.toString();
 
             const response: Response = await fetch(_url);
@@ -134,6 +131,7 @@ namespace Aufgabe2 {
                 p.className = "success";
                 p.innerHTML = stringResponse.message;
             } //Server Antwort: Konfiguration eingegangen. Server Antwort: Mit ihrer Anfrage ist alles in Ordnung, aber der Server konnte diese derzeit nicht verarbeiten. Auch bekannt als Error 500 (Internal Server Error).
-        }     //Server Antwort: Daten empfangen. Server Antwort: Alles angekommen.
+        }  //Server Antwort: Daten empfangen. Server Antwort: Alles angekommen.
+        communicateHeroku("https://gis-communication.herokuapp.com");
     }
 }
