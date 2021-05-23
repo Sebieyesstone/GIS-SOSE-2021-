@@ -18,7 +18,7 @@ namespace Aufgabe2 {
         console.log(antwort);
     }
 
-    communicate("https://sebieyesstone/GIS-SOSE-2021-/Abgabe2.5/Aufgabe2/data.json");
+    communicate("https://sebieyesstone/GIS-SOSE-2021-/AbgabeP2.5/Aufgabe2/data.json");
 
     //create img elemente
     function createImgElement(url: string, part?: string): HTMLImageElement {

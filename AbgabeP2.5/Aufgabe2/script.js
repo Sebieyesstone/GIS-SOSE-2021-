@@ -16,7 +16,7 @@ var Aufgabe2;
         buildPageFromData(data);
         console.log(antwort);
     }
-    communicate("https://sebieyesstone/GIS-SOSE-2021-/Abgabe2.5/Aufgabe2/data.json");
+    communicate("https://sebieyesstone/GIS-SOSE-2021-/AbgabeP2.5/Aufgabe2/data.json");
     //create img elemente
     function createImgElement(url, part) {
         const imgElem = document.createElement("img");
