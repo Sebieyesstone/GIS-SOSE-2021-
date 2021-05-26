@@ -1,5 +1,27 @@
 {
+  "name": "sebieyesstonegis2021",
+  "description": "Test NodeJS Server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node AbgabeP3.1/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sebieyesstone/GIS-SOSE-2021-.git"
+  },
+  "author": "Sebastiana Augenstein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sebieyesstone/GIS-SOSE-2021-/issues"
+  },
+  "homepage": "https://github.com/Sebieyesstone/GIS-SOSE-2021-#readme",
   "dependencies": {
-    "typescript-tslint-plugin": "^1.0.1"
+    "-": "^0.0.1",
+    "express": "^4.17.1",
+    "save": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.6.1"
   }
 }
