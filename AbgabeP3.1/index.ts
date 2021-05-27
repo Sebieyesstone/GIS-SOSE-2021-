@@ -8,12 +8,10 @@ namespace Aufgabe3_1 {
         let url: string = "https://sebieyesstonegis2021.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams (formData.toString());
 
-        //url + query zusammenfügen
         url = url + "?" + query.toString();
-        console.log("url: " + url);
+        console.log("url: " + url); //url + query zusammenfügen
 
-        //Antwort des Servers (zusammengesetztes url+query)
-        let response: Response = await fetch (url);
+        let response: Response = await fetch (url); //Antwort des Servers (zusammengesetztes url+query)
         
         console.log("Antwort des Servers:" + response.toString());
     }
