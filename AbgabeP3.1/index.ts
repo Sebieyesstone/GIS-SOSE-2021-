@@ -5,7 +5,7 @@ namespace Aufgabe3_1 {
     async function handle(): Promise<void> {
 
         let formData: FormData = new FormData(document.forms [0]);
-        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        let url: string = "https://sebieyesstonegis2021.herokuapp.com"; 
         let query: URLSearchParams = new URLSearchParams (formData.toString());
 
         url = url + "?" + query.toString();
@@ -13,6 +13,6 @@ namespace Aufgabe3_1 {
 
         let response: Response = await fetch (url); //Antwort des Servers (zusammengesetztes url+query)
         
-        console.log("Antwort des Servers:" + response.toString());
+        console.log("Antwort des Servers:" + response.toString()); 
     }
 }
