@@ -6,13 +6,15 @@ namespace Aufgabe3_1 {
 
         let formData: FormData = new FormData(document.forms [0]);
         let url: string = "https://sebieyesstonegis2021.herokuapp.com"; 
-        let query: URLSearchParams = new URLSearchParams (formData.toString());
-
+        let query: URLSearchParams = new URLSearchParams (<any>formData);
         url = url + "?" + query.toString();
-        console.log("url: " + url); //url + query zusammenfügen
+        await fetch(url);
 
-        let response: Response = await fetch (url); //Antwort des Servers (zusammengesetztes url+query)
-        
-        console.log("Antwort des Servers:" + response.toString()); 
+        for (let entry of query) {
+            console.log(entry);
+            console.log("name: " + entry[0]);
+            console.log("value: " + entry[1]);
+            
+        }
     }
 }

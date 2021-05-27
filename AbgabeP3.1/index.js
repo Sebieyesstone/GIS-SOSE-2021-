@@ -6,11 +6,14 @@ var Aufgabe3_1;
     async function handle() {
         let formData = new FormData(document.forms[0]);
         let url = "https://sebieyesstonegis2021.herokuapp.com";
-        let query = new URLSearchParams(formData.toString());
+        let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
-        console.log("url: " + url); //url + query zusammenfügen
-        let response = await fetch(url); //Antwort des Servers (zusammengesetztes url+query)
-        console.log("Antwort des Servers:" + response.toString());
+        await fetch(url);
+        for (let entry of query) {
+            console.log(entry);
+            console.log("name: " + entry[0]);
+            console.log("value: " + entry[1]);
+        }
     }
 })(Aufgabe3_1 || (Aufgabe3_1 = {}));
 //# sourceMappingURL=index.js.map
