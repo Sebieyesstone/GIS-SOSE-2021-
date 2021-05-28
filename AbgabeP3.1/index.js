@@ -1,4 +1,5 @@
 "use strict";
+// in Zusammenarbeit mit Tabea und Benni
 var Aufgabe3_1;
 (function (Aufgabe3_1) {
     let button = document.getElementById("button");

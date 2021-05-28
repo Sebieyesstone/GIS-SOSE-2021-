@@ -1,3 +1,4 @@
+// in Zusammenarbeit mit Tabea und Benni
 namespace Aufgabe3_1 {
     let button: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
     button.addEventListener("click", handle);
