@@ -7,6 +7,7 @@ namespace Aufgabe3_1 {
         let _url: RequestInfo = "https://sebieyesstonegis2021.herokuapp.com"; 
         let query: URLSearchParams = new URLSearchParams (<any>formData);
         _url = _url + "?" + query.toString();
+        console.log(_url);
         await fetch(_url);
 
         for (let entry of query) {

@@ -22,7 +22,6 @@ export namespace A3_1Server {
         console.log("Listening");
     }
 
-
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void { //Konsole gibt I hear voices aus 
 
         console.log("I hear voices!");
