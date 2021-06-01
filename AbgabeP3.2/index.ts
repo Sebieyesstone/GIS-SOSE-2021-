@@ -1,8 +1,8 @@
 namespace Aufgabe3_2 {
-    let buttonjson: HTMLButtonElement = <HTMLButtonElement>document.getElementById("jsonbutton");
-    buttonjson.addEventListener("click", handlejson);
-    let buttonhtml: HTMLButtonElement = <HTMLButtonElement>document.getElementById("htmlbutton");
-    buttonhtml.addEventListener("click", handlehtml);
+    let buttonJson: HTMLButtonElement = <HTMLButtonElement>document.getElementById("jsonbutton");
+    buttonJson.addEventListener("click", handlejson);
+    let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("htmlbutton");
+    buttonHTML.addEventListener("click", handlehtml);
 
     let server: HTMLElement = <HTMLElement>document.getElementById("server");
 
@@ -28,7 +28,7 @@ namespace Aufgabe3_2 {
         console.log(responseText);
         let responseJSON: JSON = JSON.parse(responseText);
         console.log(responseJSON);
-        
+
         server.innerHTML = responseText;
         console.log(server);
     }
