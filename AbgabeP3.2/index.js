@@ -14,8 +14,7 @@ var Aufgabe3_2;
         _url = _url += "?" + query.toString();
         let response = await fetch(_url);
         let responseText = await response.text();
-        let server = document.getElementById("server");
-        server.innerText = responseText;
+        server.innerHTML = responseText;
     }
     async function handlejson() {
         let formData = new FormData(document.forms[0]);
@@ -25,9 +24,9 @@ var Aufgabe3_2;
         _url = _url += "?" + query.toString();
         let response = await fetch(_url);
         let responseText = await response.text();
+        console.log(responseText);
         let responseJSON = JSON.parse(responseText);
         console.log(responseJSON);
-        console.log(responseText);
         server.innerHTML = responseText;
         console.log(server);
     }

@@ -14,9 +14,7 @@ namespace Aufgabe3_2 {
         _url = _url += "?" + query.toString();
         let response: Response = await fetch(_url);
         let responseText: string = await response.text();
-        let server: HTMLElement = <HTMLElement>document.getElementById("server");
-
-        server.innerText = responseText;
+        server.innerHTML = responseText;
     }
 
     async function handlejson(): Promise<void> {
@@ -27,9 +25,10 @@ namespace Aufgabe3_2 {
         _url = _url += "?" + query.toString();
         let response: Response = await fetch(_url);
         let responseText: string = await response.text();
+        console.log(responseText);
         let responseJSON: JSON = JSON.parse(responseText);
         console.log(responseJSON);
-        console.log(responseText);
+        
         server.innerHTML = responseText;
         console.log(server);
     }
