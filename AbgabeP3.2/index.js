@@ -1,9 +1,9 @@
 "use strict";
 var Aufgabe3_2;
 (function (Aufgabe3_2) {
-    let buttonJson = document.getElementById("jsonbutton");
-    buttonJson.addEventListener("click", handlejson);
-    let buttonHTML = document.getElementById("htmlbutton");
+    let buttonJSON = document.getElementById("buttonJSON");
+    buttonJSON.addEventListener("click", handlejson);
+    let buttonHTML = document.getElementById("buttonHTML");
     buttonHTML.addEventListener("click", handlehtml);
     let server = document.getElementById("server");
     async function handlehtml() {

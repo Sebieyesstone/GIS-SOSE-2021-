@@ -1,7 +1,7 @@
 namespace Aufgabe3_2 {
-    let buttonJson: HTMLButtonElement = <HTMLButtonElement>document.getElementById("jsonbutton");
-    buttonJson.addEventListener("click", handlejson);
-    let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("htmlbutton");
+    let buttonJSON: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonJSON");
+    buttonJSON.addEventListener("click", handlejson);
+    let buttonHTML: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttonHTML");
     buttonHTML.addEventListener("click", handlehtml);
 
     let server: HTMLElement = <HTMLElement>document.getElementById("server");
