@@ -1,0 +1,27 @@
+html {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#buttonJSON{
+    border-radius: 1px solid rosybrown;
+    background-color:rosybrown;
+    margin-top: 20px;
+    border-color:rosybrown;
+    color: white;
+}
+
+#buttonHTML {
+    border-radius: 1px solid rosybrown;
+    background-color:rosybrown;
+    margin-top: 20px;
+    border-color:rosybrown;
+    color: white;
+}
+
+h1 {
+    color: rosybrown;
+}
+
+p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
