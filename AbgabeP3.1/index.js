@@ -6,17 +6,17 @@ var Aufgabe3_1;
     button.addEventListener("click", handle);
     async function handle() {
         let formData = new FormData(document.forms[0]);
-        let _url = "https://sebieyesstonegis2021.herokuapp.com";
+        let url = "https://sebieyesstonegis2021.herokuapp.com";
         let query = new URLSearchParams(formData);
-        _url = _url + "?" + query.toString();
-        console.log(_url);
-        await fetch(_url);
+        url = url + "?" + query.toString();
+        console.log(url);
+        await fetch(url);
         for (let entry of query) {
             console.log(entry);
             console.log("name: " + entry[0]);
             console.log("value: " + entry[1]);
         }
-        let response = await fetch(_url);
+        let response = await fetch(url);
         let answer = await response.text();
         console.log(answer);
         let paragraph = document.createElement("p");
