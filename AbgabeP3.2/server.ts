@@ -1,5 +1,5 @@
 import * as Http from "http";
-import * as Url from "url"; // zum bauen eines Servers und Sternchen * - sämtliche Funktionen werden importiert
+import * as Url from "url"; // zum bauen eines Servers und Sternchen "*" sämtliche Funktionen werden importiert
 
 export namespace A3_2Server {
 

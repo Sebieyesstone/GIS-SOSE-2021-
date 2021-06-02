@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.A3_2Server = void 0;
 const Http = require("http");
-const Url = require("url"); // zum bauen eines Servers und Sternchen * - sämtliche Funktionen werden importiert
+const Url = require("url"); // zum bauen eines Servers und Sternchen "*" sämtliche Funktionen werden importiert
 var A3_2Server;
 (function (A3_2Server) {
     console.log("Starting server"); //Konsole gibt Starting server aus
