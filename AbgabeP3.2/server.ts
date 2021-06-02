@@ -26,7 +26,7 @@ export namespace A3_2Server {
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {  
 
         console.log("I hear voices!"); //Konsole gibt I hear voices aus
-        console.log(_request.url);
+        console.log(_request.url); // Konsoleausgabe meiner Adresse (Heroku App)
 
         _response.setHeader("content-type", "text/html; charset=utf-8"); // setzt den Header des http.ServerAntwort auf: (HTML mit Zeichencode UTF-8)
         _response.setHeader("Access-Control-Allow-Origin", "*"); //Erlaubnis des Browser Codes für eine Anfrage um Ressourcen zu erreichen 
