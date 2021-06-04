@@ -11,7 +11,7 @@ namespace Aufgabe3_2 {
         let url: string = "https://sebieyesstonegis2021.herokuapp.com";
         url += "/html";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url += "?" + query.toString();
+        url = url + query.toString();
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
         server.innerHTML = responseText; // füllt HTML auf der index.html Seite aus
