@@ -22,7 +22,7 @@ namespace Aufgabe3_2 {
         let url: string = "https://sebieyesstonegis2021.herokuapp.com";
         url += "/json";
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        url = url += "?" + query.toString();
+        url = url + query.toString();
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
         console.log(responseText);
@@ -30,6 +30,5 @@ namespace Aufgabe3_2 {
         interface IResponse {
             [key: string]: string;
         }
-        
     }
 }
