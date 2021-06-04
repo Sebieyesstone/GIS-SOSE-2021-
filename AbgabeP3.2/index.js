@@ -25,10 +25,6 @@ var Aufgabe3_2;
         let response = await fetch(url);
         let responseText = await response.text();
         console.log(responseText);
-        let responseJSON = JSON.parse(responseText);
-        console.log(responseJSON);
-        server.innerHTML = responseText;
-        console.log(server);
     }
 })(Aufgabe3_2 || (Aufgabe3_2 = {}));
 //# sourceMappingURL=index.js.map
