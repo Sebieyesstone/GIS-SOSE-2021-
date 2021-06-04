@@ -11,7 +11,7 @@ var Aufgabe3_2;
         let url = "https://sebieyesstonegis2021.herokuapp.com";
         url += "/html";
         let query = new URLSearchParams(formData);
-        url = url + query.toString();
+        url = url += "?" + query.toString();
         let response = await fetch(url);
         let responseText = await response.text();
         server.innerHTML = responseText; // füllt HTML auf der index.html Seite aus
@@ -21,7 +21,7 @@ var Aufgabe3_2;
         let url = "https://sebieyesstonegis2021.herokuapp.com";
         url += "/json";
         let query = new URLSearchParams(formData);
-        url = url + query.toString();
+        url = url += "?" + query.toString();
         let response = await fetch(url);
         let responseText = await response.text();
         console.log(responseText);
