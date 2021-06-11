@@ -5,7 +5,7 @@ namespace Aufgabe3_2 {
     buttonHTML.addEventListener("click", handlehtml); //gibt den jeweiligen Buttons den passenden EventListener (html, json) bei Click:
 
     let server: HTMLElement = <HTMLElement>document.getElementById("server");
-
+    
     async function handlehtml(): Promise<void> {
         let formData: FormData = new FormData(document.forms[0]); //generiert FormData Objekt aus <form> im Dokument
         let url: string = "https://sebieyesstonegis2021.herokuapp.com";
