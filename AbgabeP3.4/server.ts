@@ -5,7 +5,7 @@ import * as Mongo from "mongodb";
 export namespace Aufgabe3_4 {
 
     let collection: Mongo.Collection;
-    let databaseUrl: String = "mongodb+srv://Testuser:<GIS404>@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let databaseUrl: string = "mongodb+srv://Testuser:<GIS404>@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     connectToDatabase(databaseUrl);
 
     console.log("Starting Server");
@@ -40,7 +40,7 @@ export namespace Aufgabe3_4 {
 
         if (_request.url) {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            let pathname: String | null = url.pathname;
+            let pathname: string | null = url.pathname;
       
             if (pathname == "/abschicken") {
       
