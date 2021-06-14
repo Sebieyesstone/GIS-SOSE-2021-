@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="index.js" defer></script>
+    <title>Formular</title>
+</head>
+<body>
+    <h1>Deine Daten</h1>
+
+    <form>
+        <label for="vname">Vorname:</label>
+        <input type="text" name="vorname">
+
+        <label for="nname">Nachname:</label>
+        <input type="text" name="name">
+
+        <label for="registration">Matrikelnummer:</label> <br>
+        <input type="number" name="registration">
+
+        <button type="button" id="datenAbschicken">Absenden</button>
+        <button type="button" id="datenErhalten">Daten erhalten</button>
+    </form>
+
+    <h2>Datenbank:</h2>
+
+    <p id="server"></p>
+</body>
+</html>

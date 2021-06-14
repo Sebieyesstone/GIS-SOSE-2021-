@@ -18,7 +18,9 @@
   "homepage": "https://github.com/Sebieyesstone/GIS-SOSE-2021-#readme",
   "dependencies": {
     "-": "^0.0.1",
+    "@types/mongodb": "^3.6.18",
     "express": "^4.17.1",
+    "mongodb": "^3.6.9",
     "save": "^2.4.0"
   },
   "devDependencies": {
