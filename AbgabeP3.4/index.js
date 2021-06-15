@@ -12,7 +12,7 @@ var Aufgabe3_4;
         let query = new URLSearchParams(form);
         url = url + "/insert?" + query.toString();
         await fetch(url);
-        console.log("Abschicken");
+        console.log("Daten wurden abgeschickt");
     }
     async function clickErhalten() {
         let form = new FormData(document.forms[0]);
@@ -22,7 +22,7 @@ var Aufgabe3_4;
         let serverResponse = await fetch(url);
         let stringResponse = await serverResponse.text();
         ausgabe.innerHTML = stringResponse;
-        console.log("Daten wurden abgefragt");
+        console.log("Daten wurden erhalten");
     }
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
 //# sourceMappingURL=index.js.map

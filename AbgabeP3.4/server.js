@@ -6,37 +6,39 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
-    let collection;
-    let databaseUrl = "mongodb+srv://Testuser:<GIS404>@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-    connectToDatabase(databaseUrl);
-    console.log("Starting Server");
+    let _url = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let mongoCollection;
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100; //Port wird auf 8100 gesetzt
-    let server = Http.createServer(); //Server wird erstellt
-    server.addListener("request", handleRequest); //Funktion handleRequest wird aufgerufen
-    server.addListener("listening", handleListen); //HandleListen Funktion wird aufgerufen
-    server.listen(port);
-    async function connectToDatabase(url) {
-        let options = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient = new Mongo.MongoClient(url, options);
-        await mongoClient.connect();
-        collection = mongoClient.db("Test").collection("Students");
+    startServer(port);
+    connectDatabase();
+    function startServer(_port) {
+        let server = Http.createServer();
+        server.addListener("request", handleRequest);
+        server.listen(port);
     }
-    function handleListen() {
-        console.log("Listening");
+    async function connectDatabase() {
+        let options = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
+        mongoCollection = mongoClient.db("Test").collection("Students");
     }
     async function handleRequest(_request, _response) {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            let pathname = url.pathname;
-            if (pathname == "/abschicken") {
-                collection.insertOne(url.query);
+            if (url.pathname == "/insert") {
+                mongoCollection.insert(url.query);
             }
-            else if (pathname == "/erhalten") {
-                _response.write(JSON.stringify(await collection.find().toArray()));
+            else if (url.pathname == "/pull") {
+                let findings = mongoCollection.find();
+                let findingsArray = await findings.toArray();
+                _response.write(JSON.stringify(findingsArray));
+            }
+            else {
+                console.log("Error - Daten nicht vorhanden");
             }
         }
         _response.end();
