@@ -13,7 +13,7 @@ namespace Aufgabe3_4 {
         let query: URLSearchParams = new URLSearchParams(<any>form);
         url = url + "/insert?" + query.toString();
         await fetch(url);
-        console.log("Abschicken");
+        console.log("Daten wurden abgeschickt");
     }
     async function clickErhalten(): Promise<void> {
         let form: FormData = new FormData(document.forms[0]);
@@ -25,6 +25,6 @@ namespace Aufgabe3_4 {
         let serverResponse: Response = await fetch(url);
         let stringResponse: string = await serverResponse.text();
         ausgabe.innerHTML = stringResponse;
-        console.log("Daten wurden abgefragt");
+        console.log("Daten wurden erhalten");
     }
 }
