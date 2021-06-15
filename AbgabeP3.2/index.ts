@@ -26,9 +26,10 @@ namespace Aufgabe3_2 {
         let response: Response = await fetch(url);
         let responseText: string = await response.text();
         console.log(responseText);
-
+/**
         interface IResponse {
             [key: string]: string;
         }
+ */ 
     }
 }

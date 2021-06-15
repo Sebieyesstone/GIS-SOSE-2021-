@@ -25,6 +25,11 @@ var Aufgabe3_2;
         let response = await fetch(url);
         let responseText = await response.text();
         console.log(responseText);
+        /**
+                interface IResponse {
+                    [key: string]: string;
+                }
+         */
     }
 })(Aufgabe3_2 || (Aufgabe3_2 = {}));
 //# sourceMappingURL=index.js.map
