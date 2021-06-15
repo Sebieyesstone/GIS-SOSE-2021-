@@ -3,27 +3,28 @@ namespace Aufgabe3_4 {
     buttonAbschicken.addEventListener("click", clickAbschicken);
 
     let buttonErhalten: HTMLButtonElement = <HTMLButtonElement>document.getElementById("datenErhalten");
-    buttonAbschicken.addEventListener("click", clickErhalten);
+    buttonErhalten.addEventListener("click", clickErhalten);
 
-    async function clickAbschicken(: Promise<void> {
+    let ausgabe: HTMLElement = <HTMLElement>document.getElementById("pResponse");
+
+    async function clickAbschicken(): Promise<void> {
         let form: FormData = new FormData(document.forms[0]);
-        let url: string ="";
+        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>form);
-
-        url += "/abschicken" + "?" + query.toString();
+        url = url + "/insert?" + query.toString();
         await fetch(url);
         console.log("Abschicken");
     }
-    async function clickErhalten(: Promise<void> {
+    async function clickErhalten(): Promise<void> {
         let form: FormData = new FormData(document.forms[0]);
-        let url: String = "";
-        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        let query: URLSearchParams = new URLSearchParams(<any>form);
 
-        url += "/erhalten" + "?" + query.toString();
+        url = url + "/get?" + query.toString();
         
-        let response: Response = await fetch(url, {method: get});
-        let response1: String = await response.text();
-
-        (<HTMLElement>document.getElementById("server")).innerHTML = response1;
+        let serverResponse: Response = await fetch(url);
+        let stringResponse: string = await serverResponse.text();
+        ausgabe.innerHTML = stringResponse;
+        console.log("Daten wurden abgefragt");
     }
 }
