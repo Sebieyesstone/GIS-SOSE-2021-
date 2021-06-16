@@ -13,18 +13,30 @@ export namespace Aufgabe3_4 {
         port = 8100;  //Port wird auf 8100 gesetzt
     
     startServer(port);
-    connectDatabase();
 
     function startServer(_port: number | string): void {
         let server: Http.Server = Http.createServer();
         server.addListener("request", handleRequest);
         server.listen(port);
     }
-    async function connectDatabase(): Promise<void> {
+    async function connectToDatabase(): Promise<void> {
         let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true};
+
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        mongoCollection = mongoClient.db("Test").collection("Students");
+
+        let students: Mongo.Collection = mongoClient.db("Test").collection("Students");
+        let cursor: Mongo.Cursor = students.find();
+        let result: Student[] = await cursor.toArray();
+        console.log(result);
+    }
+
+    connectToDatabase();
+    
+    interface Student {
+        name: string;
+        vorname: string;
+        matrikelnummer: number;
     }
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
 
