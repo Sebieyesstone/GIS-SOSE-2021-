@@ -4,7 +4,7 @@ import * as Mongo from "mongodb";
 
 export namespace Aufgabe3_4 {
 
-    let _url: string = "mongodb+srv://<Testuser>:<GIS404>@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let _url: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
     let mongoCollection: Mongo.Collection;
     let port: number | string | undefined = Number(process.env.PORT);
@@ -13,6 +13,7 @@ export namespace Aufgabe3_4 {
         port = 8100;  //Port wird auf 8100 gesetzt
     
     startServer(port);
+    connectToDatabase();
 
     function startServer(_port: number | string): void {
         let server: Http.Server = Http.createServer();
@@ -21,22 +22,9 @@ export namespace Aufgabe3_4 {
     }
     async function connectToDatabase(): Promise<void> {
         let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true};
-
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-
-        let students: Mongo.Collection = mongoClient.db("Test").collection("Students");
-        let cursor: Mongo.Cursor = students.find();
-        let result: Student[] = await cursor.toArray();
-        console.log(result);
-    }
-
-    connectToDatabase();
-    
-    interface Student {
-        name: string;
-        vorname: string;
-        matrikelnummer: number;
+        mongoCollection = mongoClient.db("Test").collection("Students");
     }
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
 
