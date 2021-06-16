@@ -19,9 +19,7 @@ namespace Aufgabe3_4 {
         let form: FormData = new FormData(document.forms[0]);
         let url: string = "https://sebieyesstonegis2021.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>form);
-
         url = url + "/get?" + query.toString();
-        
         let serverResponse: Response = await fetch(url);
         let stringResponse: string = await serverResponse.text();
         ausgabe.innerHTML = stringResponse;
