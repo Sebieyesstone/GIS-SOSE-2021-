@@ -4,7 +4,7 @@ import * as Mongo from "mongodb";
 
 export namespace Aufgabe3_4 {
 
-    let _url: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let _url: string = "mongodb+srv://<Testuser>:<GIS404>@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
     let mongoCollection: Mongo.Collection;
     let port: number | string | undefined = Number(process.env.PORT);
