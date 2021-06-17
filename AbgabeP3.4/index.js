@@ -5,24 +5,33 @@ var Aufgabe3_4;
     buttonAbschicken.addEventListener("click", clickAbschicken);
     let buttonErhalten = document.getElementById("datenErhalten");
     buttonErhalten.addEventListener("click", clickErhalten);
-    let ausgabe = document.getElementById("pResponse");
+    let buttonEnfernen = document.getElementById("datenEntfernen");
+    buttonEnfernen.addEventListener("click", clickEntfernen);
     async function clickAbschicken() {
         let form = new FormData(document.forms[0]);
         let url = "https://sebieyesstonegis2021.herokuapp.com";
         let query = new URLSearchParams(form);
-        url = url + "/insert?" + query.toString();
+        url = url + "/abschicken" + "?" + query.toString();
         await fetch(url);
-        console.log("Daten wurden abgeschickt");
     }
     async function clickErhalten() {
-        let form = new FormData(document.forms[0]);
+        let formD = new FormData(document.forms[0]);
         let url = "https://sebieyesstonegis2021.herokuapp.com";
-        let query = new URLSearchParams(form);
-        url = url + "/get?" + query.toString();
-        let serverResponse = await fetch(url);
-        let stringResponse = await serverResponse.text();
-        ausgabe.innerHTML = stringResponse;
-        console.log("Daten wurden erhalten");
+        url = formD + "/erhalten";
+        let response = await fetch(url);
+        let ausgabe = await response.text();
+        let console = document.getElementById("serverAntwort");
+        console.innerHTML = ausgabe;
+    }
+    async function clickEntfernen() {
+        let formData = new FormData(document.forms[0]);
+        let url = "https://sebieyesstonegis2021.herokuapp.com";
+        let query = new URLSearchParams(formData);
+        url = url + "/entfernen" + "?" + query.toString();
+        let response = await fetch(url);
+        let ausgabe = await response.text();
+        let console = document.getElementById("serverAntwort");
+        console.innerHTML = ausgabe;
     }
 })(Aufgabe3_4 || (Aufgabe3_4 = {}));
 //# sourceMappingURL=index.js.map

@@ -18,6 +18,17 @@ html {
     color: white;
 }
 
+#datenEntfernen {
+    border-radius: 1px solid rosybrown;
+    background-color:rosybrown;
+    margin-top: 20px;
+    border-color:rosybrown;
+    color: white;
+}
+
 h1 {
+    color: rosybrown;
+}
+h2 {
     color: rosybrown;
 }
