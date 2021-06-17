@@ -6,19 +6,20 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
-    let _url = "mongodb+srv://<Testuser>:<GIS404>@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    //let _url: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let _url = "mongodb://localhost:27017";
     let mongoCollection;
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100; //Port wird auf 8100 gesetzt
     startServer(port);
-    connectDatabase();
+    connectToDatabase();
     function startServer(_port) {
         let server = Http.createServer();
         server.addListener("request", handleRequest);
         server.listen(port);
     }
-    async function connectDatabase() {
+    async function connectToDatabase() {
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
