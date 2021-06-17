@@ -4,7 +4,7 @@ import * as Mongo from "mongodb";
 
 export namespace Aufgabe3_4 {
 
-    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let _url: string = "mongodb://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
     let mongoCollection: Mongo.Collection;
     let port: number | string | undefined = Number(process.env.PORT);
@@ -14,7 +14,7 @@ export namespace Aufgabe3_4 {
     
     startServer(port);
     connectToDatabase();
-
+    
     function startServer(_port: number | string): void {
         let server: Http.Server = Http.createServer();
         server.addListener("request", handleRequest);
@@ -22,10 +22,13 @@ export namespace Aufgabe3_4 {
     }
     async function connectToDatabase(): Promise<void> {
         let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true};
+
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
+
         mongoCollection = mongoClient.db("Test").collection("Students");
     }
+
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
 
         _response.setHeader("content-type", "text/html; charset=utf-8"); 
