@@ -12,8 +12,7 @@ export namespace Aufgabe3_4 {
     }*/
 
     let mongoCollection: Mongo.Collection;
-    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
+    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
     //let mongoUrl: string = "mongodb://localhost:27017";
 
     let port: number = Number(process.env.PORT);
