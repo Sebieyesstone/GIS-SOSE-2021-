@@ -21,14 +21,12 @@ export namespace Aufgabe3_4 {
     
     console.log("Starting Server");
 
-    function startServer(): void {
-        let server: Http.Server = Http.createServer();
-        server.addListener("request", handleRequest);
-        server.addListener("listening", handleListen);
-        server.listen(port);
-    }
     
-    startServer();
+    let server: Http.Server = Http.createServer();
+    server.addListener("request", handleRequest);
+    server.addListener("listening", handleListen);
+    server.listen(port);
+    
     connectToDatabase(mongoUrl);
     
     async function connectToDatabase(_url: string): Promise<void> {
@@ -39,20 +37,6 @@ export namespace Aufgabe3_4 {
 
         mongoCollection = mongoClient.db("Test").collection("Students");
         console.log("Verbindung zu Database", mongoCollection != undefined);
-
-        /*let cursor: Mongo.Cursor = mongoCollection.find();
-        let result: Students[] = await cursor.toArray();
-        
-
-        _response.write("<h2>" + "Serverantwort:" + "</h2>");
-
-        for (let i: number = 0; i < result.length; i++) {
-            _response.write("<div>" +
-            "<p>" + result[i].name + "</p>" +
-            "<p>" + result[i].nachname + "</p>" +
-            "<p>" + result[i].matrikelnummer + "</p>" +
-            "</div>");
-        }*/
     }
     
     function handleListen(): void {
@@ -66,12 +50,13 @@ export namespace Aufgabe3_4 {
 
         if (_request.url) {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+            let pathname: String | null = url.pathname;
       
-            if (url.pathname == "/abschicken" ) {
+            if (pathname == "/abschicken" ) {
                 mongoCollection.insertOne(url.query);
                 
             }
-            if (url.pathname == "/erhalten") {
+            if (pathname == "/erhalten") {
                 _response.write(JSON.stringify(await(mongoCollection.find().toArray())));
                 /*let cursor: Mongo.Cursor = mongoCollection.find();
                 let result: Students[] = await cursor.toArray();
@@ -83,8 +68,7 @@ export namespace Aufgabe3_4 {
                 "<p>" + result[i].matrikelnummer + "</p>" +
                 "</div>");
                 }*/
-            }
-            if (url.pathname == "/entfernen") {
+            } else if (pathname == "/entfernen") {
                 mongoCollection.deleteOne({ "name": url.query ["name"], "nachname": url.query ["nachname"], "matrikelnummer": url.query ["matrikelnummer"]});
             }
 

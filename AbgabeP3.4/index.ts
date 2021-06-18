@@ -36,5 +36,7 @@ namespace Aufgabe3_4 {
         let ausgabe: string = await response.text();
         let console: HTMLElement = <HTMLElement>document.getElementById("serverAntwort");
         console.innerHTML = ausgabe; 
+
+        (<HTMLElement>document.getElementById("datenbank")).innerHTML = ausgabe;
     }
 }
