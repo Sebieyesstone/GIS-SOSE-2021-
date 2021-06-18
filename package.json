@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node AbgabeP3.4/server.js"
+    "start": "node GIS-SOSE-2021-/AbgabeP3.4/server.js "
   },
   "repository": {
     "type": "git",
