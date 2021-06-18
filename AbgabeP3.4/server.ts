@@ -1,3 +1,4 @@
+//mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
@@ -7,11 +8,11 @@ export namespace Aufgabe3_4 {
     /*interface Students {
         name: string;
         nachname: string;
-        matrikelnummer: number;
+        matrikelnummer: number; 
     }*/
 
     let mongoCollection: Mongo.Collection;
-    let mongoUrl: string = "mongodb://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
     //let mongoUrl: string = "mongodb://localhost:27017";
 
     let port: number = Number(process.env.PORT);
