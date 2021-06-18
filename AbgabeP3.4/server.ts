@@ -4,11 +4,11 @@ import * as Mongo from "mongodb";
 
 export namespace Aufgabe3_4 {
 
-    interface Students {
+    /*interface Students {
         name: string;
         nachname: string;
         matrikelnummer: number;
-    }
+    }*/
 
     let mongoCollection: Mongo.Collection;
     let mongoUrl: string = "mongodb://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
@@ -72,7 +72,7 @@ export namespace Aufgabe3_4 {
             }
             if (url.pathname == "/erhalten") {
                 _response.write(JSON.stringify(await(mongoCollection.find().toArray())));
-                let cursor: Mongo.Cursor = mongoCollection.find();
+                /*let cursor: Mongo.Cursor = mongoCollection.find();
                 let result: Students[] = await cursor.toArray();
                 _response.write("<h2>" + "Serverantwort:" + "</h2>");
                 for (let i: number = 0; i < result.length; i++) {
@@ -81,7 +81,7 @@ export namespace Aufgabe3_4 {
                 "<p>" + result[i].nachname + "</p>" +
                 "<p>" + result[i].matrikelnummer + "</p>" +
                 "</div>");
-                }
+                }*/
             }
             if (url.pathname == "/entfernen") {
                 mongoCollection.deleteOne({ "name": url.query ["name"], "nachname": url.query ["nachname"], "matrikelnummer": url.query ["matrikelnummer"]});
