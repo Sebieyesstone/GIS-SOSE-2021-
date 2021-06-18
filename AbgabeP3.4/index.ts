@@ -11,14 +11,14 @@ namespace Aufgabe3_4 {
     async function clickAbschicken(): Promise<void> {
         let form: FormData = new FormData(document.forms[0]);
         //let url: string = "http://localhost:8100";
-        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        let url: string = "https://sebieyesstonegis2021.herokuapp.com/";
         let query: URLSearchParams = new URLSearchParams(<any>form);
         url = url + "/abschicken" + "?" + query.toString();
         await fetch(url);
     }
     async function clickErhalten(): Promise<void> {
         //let url: string = "http://localhost:8100";
-        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        let url: string = "https://sebieyesstonegis2021.herokuapp.com/";
         url = url + "/erhalten";
         let response: Response = await fetch(url);
         let ausgabe: string = await response.text();
@@ -29,7 +29,7 @@ namespace Aufgabe3_4 {
     async function clickEntfernen(): Promise <void> {
         let form: FormData = new FormData(document.forms[0]);
         //let url: string = "http://localhost:8100";
-        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        let url: string = "https://sebieyesstonegis2021.herokuapp.com/";
         let query: URLSearchParams = new URLSearchParams(<any>form);
         url = url + "/entfernen" + "?" + query.toString();
         let response: Response = await fetch(url);
