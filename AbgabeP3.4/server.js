@@ -39,7 +39,6 @@ var Aufgabe3_4;
             let pathname = url.pathname;
             if (pathname == "/abschicken") {
                 mongoCollection.insertOne(url.query);
-                console.log("bitte funktionier");
                 connectToDatabase(mongoUrl);
             }
             if (pathname == "/erhalten") {

@@ -51,7 +51,6 @@ export namespace Aufgabe3_4 {
       
             if (pathname == "/abschicken" ) {
                 mongoCollection.insertOne(url.query);
-                console.log("bitte funktionier");
                 connectToDatabase(mongoUrl);
 
             }
