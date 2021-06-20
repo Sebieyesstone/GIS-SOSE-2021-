@@ -17,6 +17,7 @@ namespace Aufgabe3_4 {
         await fetch(url);
     }
     async function clickErhalten(): Promise<void> {
+        console.log("hey");
         let url: string = "http://localhost:8100";
         //let url: string = "https://sebieyesstonegis2021.herokuapp.com/";
         url = url + "/erhalten";

@@ -44,6 +44,9 @@ export namespace Aufgabe3_4 {
     }
 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
+        
+        console.log("I hear voices!"); //Konsole gibt I hear voices aus
+        console.log(_request.url); // Konsoleausgabe meiner Adresse (Heroku App)
 
         _response.setHeader("content-type", "text/html; charset=utf-8"); 
         _response.setHeader("Access-Control-Allow-Origin", "*"); 
@@ -54,10 +57,15 @@ export namespace Aufgabe3_4 {
       
             if (pathname == "/abschicken" ) {
                 mongoCollection.insertOne(url.query);
+                console.log("bitte funktionier");
+                
                 
             }
             if (pathname == "/erhalten") {
+                let erhalten = JSON.stringify(await(mongoCollection.find().toArray()));
                 _response.write(JSON.stringify(await(mongoCollection.find().toArray())));
+                console.log(erhalten);
+                
                 /*let cursor: Mongo.Cursor = mongoCollection.find();
                 let result: Students[] = await cursor.toArray();
                 _response.write("<h2>" + "Serverantwort:" + "</h2>");
