@@ -30,7 +30,7 @@ export namespace Aufgabe3_4 {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
 
-        mongoCollection = mongoClient.db("Test").collection("Students");
+        mongoCollection = mongoClient.db("Students").collection("Test");
         console.log("Verbindung zu Database", mongoCollection != undefined);
     }
     
