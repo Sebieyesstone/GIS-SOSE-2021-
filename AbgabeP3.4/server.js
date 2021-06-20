@@ -24,7 +24,7 @@ var Aufgabe3_4;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        mongoCollection = mongoClient.db("Students").collection("Test");
+        mongoCollection = mongoClient.db("Test").collection("Students");
         console.log("Verbindung zu Database", mongoCollection != undefined);
     }
     function handleListen() {
