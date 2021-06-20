@@ -4,16 +4,10 @@ import * as Url from "url";
 import * as Mongo from "mongodb";
 
 export namespace Aufgabe3_4 {
-
-    /*interface Students {
-        name: string;
-        nachname: string;
-        matrikelnummer: number; 
-    }*/
-
+    
     let mongoCollection: Mongo.Collection;
-    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
-    let mongoUrl: string = "mongodb://localhost:27017";
+    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
+    //let mongoUrl: string = "mongodb://localhost:27017";
 
     let port: number = Number(process.env.PORT);
     if (!port)
@@ -58,26 +52,16 @@ export namespace Aufgabe3_4 {
             if (pathname == "/abschicken" ) {
                 mongoCollection.insertOne(url.query);
                 console.log("bitte funktionier");
-                
-                
+                connectToDatabase(mongoUrl);
+
             }
             if (pathname == "/erhalten") {
-                let erhalten = JSON.stringify(await(mongoCollection.find().toArray()));
                 _response.write(JSON.stringify(await(mongoCollection.find().toArray())));
-                console.log(erhalten);
                 
-                /*let cursor: Mongo.Cursor = mongoCollection.find();
-                let result: Students[] = await cursor.toArray();
-                _response.write("<h2>" + "Serverantwort:" + "</h2>");
-                for (let i: number = 0; i < result.length; i++) {
-                _response.write("<div>" +
-                "<p>" + result[i].name + "</p>" +
-                "<p>" + result[i].nachname + "</p>" +
-                "<p>" + result[i].matrikelnummer + "</p>" +
-                "</div>");
-                }*/
+
             } else if (pathname == "/entfernen") {
                 mongoCollection.deleteOne({ "name": url.query ["name"], "nachname": url.query ["nachname"], "matrikelnummer": url.query ["matrikelnummer"]});
+                connectToDatabase(mongoUrl);
             }
 
         }

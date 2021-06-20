@@ -7,14 +7,9 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
-    /*interface Students {
-        name: string;
-        nachname: string;
-        matrikelnummer: number;
-    }*/
     let mongoCollection;
-    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
-    let mongoUrl = "mongodb://localhost:27017";
+    let mongoUrl = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
+    //let mongoUrl: string = "mongodb://localhost:27017";
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100; //Port wird auf 8100 gesetzt
@@ -35,6 +30,8 @@ var Aufgabe3_4;
         console.log("Listening");
     }
     async function handleRequest(_request, _response) {
+        console.log("I hear voices!"); //Konsole gibt I hear voices aus
+        console.log(_request.url); // Konsoleausgabe meiner Adresse (Heroku App)
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
@@ -42,22 +39,15 @@ var Aufgabe3_4;
             let pathname = url.pathname;
             if (pathname == "/abschicken") {
                 mongoCollection.insertOne(url.query);
+                console.log("bitte funktionier");
+                connectToDatabase(mongoUrl);
             }
             if (pathname == "/erhalten") {
                 _response.write(JSON.stringify(await (mongoCollection.find().toArray())));
-                /*let cursor: Mongo.Cursor = mongoCollection.find();
-                let result: Students[] = await cursor.toArray();
-                _response.write("<h2>" + "Serverantwort:" + "</h2>");
-                for (let i: number = 0; i < result.length; i++) {
-                _response.write("<div>" +
-                "<p>" + result[i].name + "</p>" +
-                "<p>" + result[i].nachname + "</p>" +
-                "<p>" + result[i].matrikelnummer + "</p>" +
-                "</div>");
-                }*/
             }
             else if (pathname == "/entfernen") {
                 mongoCollection.deleteOne({ "name": url.query["name"], "nachname": url.query["nachname"], "matrikelnummer": url.query["matrikelnummer"] });
+                connectToDatabase(mongoUrl);
             }
         }
         _response.end();
