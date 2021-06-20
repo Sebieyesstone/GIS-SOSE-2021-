@@ -22,7 +22,7 @@ namespace Aufgabe3_4 {
         url = url + "/erhalten";
         let response: Response = await fetch(url);
         let ausgabe: string = await response.text();
-        let serverA: HTMLElement = <HTMLElement>document.getElementById("serverAntwort");
+        let serverA: HTMLElement = <HTMLElement>document.getElementById("datenbank");
         serverA.innerHTML = ausgabe;
         console.log(ausgabe);
 
@@ -37,7 +37,7 @@ namespace Aufgabe3_4 {
         url = url + "/entfernen" + "?" + query.toString();
         let response: Response = await fetch(url);
         let ausgabe: string = await response.text();
-        let serverA: HTMLElement = <HTMLElement>document.getElementById("serverAntwort");
+        let serverA: HTMLElement = <HTMLElement>document.getElementById("datenbank");
         serverA.innerHTML = ausgabe; 
     }
 }
