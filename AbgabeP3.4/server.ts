@@ -6,7 +6,8 @@ import * as Mongo from "mongodb";
 export namespace Aufgabe3_4 {
 
     let mongoCollection: Mongo.Collection;
-    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
+    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
     //let mongoUrl: string = "mongodb://localhost:27017";
 
     let port: number = Number(process.env.PORT);
@@ -40,7 +41,7 @@ export namespace Aufgabe3_4 {
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
         
         console.log("I hear voices!"); //Konsole gibt I hear voices aus
-        
+
         _response.setHeader("content-type", "text/html; charset=utf-8"); 
         _response.setHeader("Access-Control-Allow-Origin", "*"); 
 

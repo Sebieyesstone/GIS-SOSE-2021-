@@ -8,7 +8,8 @@ const Mongo = require("mongodb");
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
     let mongoCollection;
-    let mongoUrl = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
+    let mongoUrl = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
     //let mongoUrl: string = "mongodb://localhost:27017";
     let port = Number(process.env.PORT);
     if (!port)
