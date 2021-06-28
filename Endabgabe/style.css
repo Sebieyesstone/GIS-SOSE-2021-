@@ -1,0 +1,22 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:rgb(139,90,43);
+}   
+body {
+    width: 1024;
+    margin: auto;
+    text-align: center;
+    background-image:url("Dateien/Hintergrund.png");
+    margin-left: 10%;
+}
+
+
+
+#form {
+    
+
+}
+#einloggen {
+    margin-top: 20px;
+    padding: 5px 5px 5px 5px;
+}
