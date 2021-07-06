@@ -1,3 +1,4 @@
+"use strict";
 /*let buttonLogin: HTMLButtonElement = <HTMLButtonElement>document.getElementById("login");
 buttonLogin.addEventListener("click", clickLogin);
 
@@ -15,3 +16,4 @@ async function clickRegister(): Promise<void> {
     let form: FormData = new FormData(document.forms[0]);
     
 }*/
+//# sourceMappingURL=login.js.map
