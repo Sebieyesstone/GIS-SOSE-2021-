@@ -21,7 +21,6 @@ export namespace EndabgabeServer {
         rezeptname: string;
         zutatenliste: string;
     }
-    let benutzer: Rezepte[];
 
     let loginCollection: Mongo.Collection;
     let rezeptCollection: Mongo.Collection;
@@ -47,7 +46,8 @@ export namespace EndabgabeServer {
         await mongoClient.connect();
         loginCollection = mongoClient.db("Endabgabe").collection("Benutzer");
         rezeptCollection = mongoClient.db("Endabgabe").collection("Rezepte");
-        console.log("Verbindung zu Database", loginCollection != undefined);
+        console.log("Verbindung zur loginCollection", loginCollection != undefined);
+        console.log("Verbindung zur rezeptCollection", rezeptCollection != undefined);
     }
 
     function handleListen(): void {

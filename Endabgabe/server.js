@@ -9,7 +9,6 @@ var EndabgabeServer;
 (function (EndabgabeServer) {
     let alleBenutzer;
     let neuerBenutzer;
-    let benutzer;
     let loginCollection;
     let rezeptCollection;
     let mongoUrl = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
@@ -29,7 +28,8 @@ var EndabgabeServer;
         await mongoClient.connect();
         loginCollection = mongoClient.db("Endabgabe").collection("Benutzer");
         rezeptCollection = mongoClient.db("Endabgabe").collection("Rezepte");
-        console.log("Verbindung zu Database", loginCollection != undefined);
+        console.log("Verbindung zur loginCollection", loginCollection != undefined);
+        console.log("Verbindung zur rezeptCollection", rezeptCollection != undefined);
     }
     function handleListen() {
         console.log("Listening");

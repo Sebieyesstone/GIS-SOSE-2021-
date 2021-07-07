@@ -11,6 +11,7 @@ async function clickAbschicken(): Promise<void> {
     let url: string = "https://sebieyesstonegis2021.herokuapp.com";
     let query: URLSearchParams = new URLSearchParams(<any>form);
     url = url + "/abschicken" + "?" + query.toString();
+    console.log(url);
     let response: Response = await fetch(url);
     let ausgabe: string = await response.text();
     let serverA: HTMLElement = <HTMLElement>document.getElementById("datenbank");
