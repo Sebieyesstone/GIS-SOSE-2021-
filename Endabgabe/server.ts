@@ -17,7 +17,14 @@ export namespace EndabgabeServer {
     let alleBenutzer: Login[];
     let neuerBenutzer: Login;
 
+    interface Rezepte {
+        rezeptname: string;
+        zutatenliste: string;
+    }
+    let benutzer: Rezepte[];
+
     let loginCollection: Mongo.Collection;
+    let rezeptCollection: Mongo.Collection;
     let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
     //let mongoUrl: string = "mongodb://localhost:27017";
 
@@ -39,6 +46,7 @@ export namespace EndabgabeServer {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         loginCollection = mongoClient.db("Endabgabe").collection("Benutzer");
+        rezeptCollection = mongoClient.db("Endabgabe").collection("Rezepte");
         console.log("Verbindung zu Database", loginCollection != undefined);
     }
 
@@ -92,7 +100,7 @@ export namespace EndabgabeServer {
                     let benutzernameReg: string = <string>url.query["benutzername"];
                     let emailReg: string = <string>url.query["email"];
                     let passwortReg: string = <string>url.query["passwort"];
-                    console.log("benutzernameReg" + benutzernameReg);
+                    //console.log("benutzernameReg" + benutzernameReg);
 
                     let neueReg: Reg = { benutzername: benutzernameReg, email: emailReg, passwort: passwortReg };
 
@@ -109,7 +117,21 @@ export namespace EndabgabeServer {
                         console.log("hello");
                     }
                     break;
-                }   
+
+                case "/abschicken":
+                    console.log(url.query);
+                    let rezeptname: string = <string>url.query["rezeptname"];
+                    let zutatenliste: string = <string>url.query["zutatenliste"];
+                    rezeptCollection.insertOne({"rezeptname": rezeptname, "zutatenliste": zutatenliste});
+                    _response.write("success");
+                    connectToDatabase(mongoUrl);
+                    break;
+
+                case "/erhalten":
+                    _response.write(JSON.stringify(await(rezeptCollection.find().toArray())));
+                    console.log("funktioniert");
+                    break;    
+                }
             }
         _response.end();
     }

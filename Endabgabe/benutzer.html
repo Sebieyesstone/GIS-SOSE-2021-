@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen">
+    <script src="benutzer.js" defer></script>
     <title>Mein Kochbuch</title>
 </head>
 <body>
@@ -12,21 +14,48 @@
             <div class="navbar">
                 <img src="" class="logo">
                 <ul>
-                    <li><a href="sammlung.html">REZEPTE</a></li>
+                    <li><a href="sammlung.html">ALLE REZEPTE</a></li>
                     <li><a href="benutzer.html" class="Kochbuch">MEIN KOCHBUCH</a></li>
                     <li><a href="favoriten.html">MEINE FAVORITEN</a></li>
-                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="index.html">LOGIN</a></li>
                 </ul>
             </div>
         </div>      
     </header>
+    <h1>Herzlich Willkommen</h1>    
+    <div class="containerrezpte">
+        <form action="#">
+            <label for="rezepte">Rezeptename:</label><br>
+            <input type="text" placeholder="Bitte gib hier deinen Rezeptename ein!" name="rezeptname"><br>
 
-    <main>
-        <div class="content">
-            <h1>Willkommen</h1>
-            <p></p>
-        </div>
-    </main>
+            <label for="zutaten">Zutaten für:</label><br>
+            <p class="zutatentext">
+                Hier kannst du eingeben für wie viel Personen, Portionen oder Stück dein Rezept hat.</p>
+            <select name="Anzahl">
+                <option value="eins">1</option>
+                <option value="zwei">2</option>
+                <option value="drei">3</option>
+                <option value="vier">4</option>
+            </select>
+            <select name="zutaten">
+                <option value="Personen">Personen</option>
+                <option value="Portionen">Portionen</option>
+                <option value="Stück">Stück</option>
+            </select>
 
+            <label for="kategorie">Kategorie:</label><br>
+            <select name="kategorie">
+                <option value="Vorspeise">Vorspeise</option>
+                <option value="Hauptspeise">Hauptspeise</option>
+                <option value="Desert">Desert</option>
+            </select>
+            <label for="Zutatenliste">Zutatenliste:</label><br>
+            <input type="text" placeholder="Hier kannst du deine Zutaten und deine Vorgehensweise reinschreiben." name="zutatenliste"><br>
+            <button type="button" id="rezeptabschicken">Absenden</button>
+            <button type="button" id="rezepterhalten">Rezept erhalten</button>
+        </form>
+    </div>
+    <div id="datenbank"></div>
+    
 </body>
 </html>

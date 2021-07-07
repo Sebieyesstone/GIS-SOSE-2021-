@@ -9,7 +9,9 @@ var EndabgabeServer;
 (function (EndabgabeServer) {
     let alleBenutzer;
     let neuerBenutzer;
+    let benutzer;
     let loginCollection;
+    let rezeptCollection;
     let mongoUrl = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
     //let mongoUrl: string = "mongodb://localhost:27017";
     let port = Number(process.env.PORT);
@@ -26,6 +28,7 @@ var EndabgabeServer;
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         loginCollection = mongoClient.db("Endabgabe").collection("Benutzer");
+        rezeptCollection = mongoClient.db("Endabgabe").collection("Rezepte");
         console.log("Verbindung zu Database", loginCollection != undefined);
     }
     function handleListen() {
@@ -69,7 +72,7 @@ var EndabgabeServer;
                     let benutzernameReg = url.query["benutzername"];
                     let emailReg = url.query["email"];
                     let passwortReg = url.query["passwort"];
-                    console.log("benutzernameReg" + benutzernameReg);
+                    //console.log("benutzernameReg" + benutzernameReg);
                     let neueReg = { benutzername: benutzernameReg, email: emailReg, passwort: passwortReg };
                     let vergebeneReg = false;
                     for (let i = 0; i < alleBenutzer.length; i++) {
@@ -82,6 +85,18 @@ var EndabgabeServer;
                         _response.write("success");
                         console.log("hello");
                     }
+                    break;
+                case "/abschicken":
+                    console.log(url.query);
+                    let rezeptname = url.query["rezeptname"];
+                    let zutatenliste = url.query["zutatenliste"];
+                    rezeptCollection.insertOne({ "rezeptname": rezeptname, "zutatenliste": zutatenliste });
+                    _response.write("success");
+                    connectToDatabase(mongoUrl);
+                    break;
+                case "/erhalten":
+                    _response.write(JSON.stringify(await (rezeptCollection.find().toArray())));
+                    console.log("funktioniert");
                     break;
             }
         }

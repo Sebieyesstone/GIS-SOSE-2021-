@@ -21,7 +21,7 @@ var Endabgabe;
         else {
             localStorage.setItem("currentUser", responseLT);
             window.alert("Du hast dich erfolgreich eingeloggt.");
-            window.location.href = "benutzer.html";
+            window.location.href = "sammlung.html";
         }
         formlog.reset();
     }
