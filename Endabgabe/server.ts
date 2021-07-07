@@ -23,8 +23,7 @@ export namespace EndabgabeServer {
 
     let port: number = Number(process.env.PORT);
     if (!port)
-        //port = 8100;
-        port = 5500;
+        port = 8100;
 
     console.log("Starting Server");
 
@@ -76,7 +75,6 @@ export namespace EndabgabeServer {
                             }
                         }
                     }
-
                     if ((benutzernameConfirmed == true) && (passwortConfirmed == true)) {
                         _response.write(JSON.stringify(neuerBenutzer));
                     }
@@ -103,7 +101,7 @@ export namespace EndabgabeServer {
                         }
                     }
                     if (vergebeneReg == false) {
-                        loginCollection.insertOne({ benutername: benutzernameReg, email: emailReg, passwort: passwortReg });
+                        loginCollection.insertOne({ "benutzername": benutzernameReg, "email": emailReg, "passwort": passwortReg });
                         _response.write("success");
                     }
                     break;
