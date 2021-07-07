@@ -121,8 +121,12 @@ export namespace EndabgabeServer {
                 case "/abschicken":
                     console.log(url.query);
                     let rezeptname: string = <string>url.query["rezeptname"];
+                    let anzahl: string = <string>url.query["anzahl"];
+                    let zutaten: string = <string>url.query["zutaten"];
+                    let kategorie: string = <string>url.query["kategorie"];
                     let zutatenliste: string = <string>url.query["zutatenliste"];
-                    rezeptCollection.insertOne({"rezeptname": rezeptname, "zutatenliste": zutatenliste});
+        
+                    rezeptCollection.insertOne({"rezeptname": rezeptname, "anzahl": anzahl, "zutaten": zutaten, "kategorie": kategorie, "zutatenliste": zutatenliste});
                     _response.write("success");
                     connectToDatabase(mongoUrl);
                     break;

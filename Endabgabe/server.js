@@ -89,8 +89,11 @@ var EndabgabeServer;
                 case "/abschicken":
                     console.log(url.query);
                     let rezeptname = url.query["rezeptname"];
+                    let anzahl = url.query["anzahl"];
+                    let zutaten = url.query["zutaten"];
+                    let kategorie = url.query["kategorie"];
                     let zutatenliste = url.query["zutatenliste"];
-                    rezeptCollection.insertOne({ "rezeptname": rezeptname, "zutatenliste": zutatenliste });
+                    rezeptCollection.insertOne({ "rezeptname": rezeptname, "anzahl": anzahl, "zutaten": zutaten, "kategorie": kategorie, "zutatenliste": zutatenliste });
                     _response.write("success");
                     connectToDatabase(mongoUrl);
                     break;
