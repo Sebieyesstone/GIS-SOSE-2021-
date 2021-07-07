@@ -1,83 +1,61 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EndabgabeServer = void 0;
 //mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-import * as Http from "http";
-import * as Url from "url";
-import * as Mongo from "mongodb";
-
-export namespace EndabgabeServer {
-
-    interface Login {
-        benutzername: string;
-        passwort: string;
-    }
-    interface Reg {
-        benutzername: string;
-        email: string;
-        passwort: string;
-    }
-    let alleBenutzer: Login[];
-    let neuerBenutzer: Login;
-
-    let loginCollection: Mongo.Collection;
-    let rezepteCollection: Mongo.Collection;
-    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
-    //let mongoUrl: string = "mongodb://localhost:27017";
-
-    let port: number = Number(process.env.PORT);
+const Http = require("http");
+const Url = require("url");
+const Mongo = require("mongodb");
+var EndabgabeServer;
+(function (EndabgabeServer) {
+    let alleBenutzer;
+    let neuerBenutzer;
+    let loginCollection;
+    let rezepteCollection;
+    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
+    let mongoUrl = "mongodb://localhost:27017";
+    let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-
     console.log("Starting Server");
-
-    let server: Http.Server = Http.createServer();
+    let server = Http.createServer();
     server.addListener("request", handleRequest);
     server.addListener("listening", handleListen);
     server.listen(port);
-
     connectToDatabase(mongoUrl);
-
-    async function connectToDatabase(_url: string): Promise<void> {
-        let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+    async function connectToDatabase(_url) {
+        let options = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         loginCollection = mongoClient.db("Endabgabe").collection("Benutzer");
         rezepteCollection = mongoClient.db("Endabgabe").collection("Rezepte");
         console.log("Verbindung zu Database", loginCollection, rezepteCollection != undefined);
     }
-
-    function handleListen(): void {
+    function handleListen() {
         console.log("Listening");
     }
-
-    async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
-
+    async function handleRequest(_request, _response) {
         console.log("I hear voices!");
-
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-
         if (_request.url) {
-            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-
+            let url = Url.parse(_request.url, true);
             switch (url.pathname) {
-
                 case "/einloggen":
                     alleBenutzer = await loginCollection.find().toArray();
-                    let benutzernameLogin: string = <string>url.query["benutzername"];
-                    let passwortLogin: string = <string>url.query["passwort"];
-
-                    let benutzernameConfirmed: boolean = false;
-                    let passwortConfirmed: boolean = false;
-
-                    for (let i: number = 0; i < alleBenutzer.length; i++) {
+                    let benutzernameLogin = url.query["benutzername"];
+                    let passwortLogin = url.query["passwort"];
+                    let benutzernameConfirmed = false;
+                    let passwortConfirmed = false;
+                    for (let i = 0; i < alleBenutzer.length; i++) {
                         if (alleBenutzer[i].benutzername == benutzernameLogin) {
                             benutzernameConfirmed = true;
                             if (alleBenutzer[i].passwort == passwortLogin) {
-                            passwortConfirmed = true;
-                            neuerBenutzer = { benutzername: benutzernameLogin, passwort: passwortLogin };
+                                passwortConfirmed = true;
+                                neuerBenutzer = { benutzername: benutzernameLogin, passwort: passwortLogin };
                             }
                         }
                     }
-
                     if ((benutzernameConfirmed == true) && (passwortConfirmed == true)) {
                         _response.write(JSON.stringify(neuerBenutzer));
                     }
@@ -87,18 +65,14 @@ export namespace EndabgabeServer {
                     benutzernameConfirmed = false;
                     passwortConfirmed = false;
                     break;
-
                 case "/reg":
                     alleBenutzer = await loginCollection.find().toArray();
-                    let benutzernameReg: string = <string>url.query["benutzername"];
-                    let emailReg: string = <string>url.query["email"];
-                    let passwortReg: string = <string>url.query["passwort"];
-
-                    let neueReg: Reg = { benutzername: benutzernameReg, email: emailReg, passwort: passwortReg };
-
-                    let vergebeneReg: boolean = false;
-
-                    for (let i: number = 0; i < alleBenutzer.length; i++) {
+                    let benutzernameReg = url.query["benutzername"];
+                    let emailReg = url.query["email"];
+                    let passwortReg = url.query["passwort"];
+                    let neueReg = { benutzername: benutzernameReg, email: emailReg, passwort: passwortReg };
+                    let vergebeneReg = false;
+                    for (let i = 0; i < alleBenutzer.length; i++) {
                         if (neueReg.benutzername == alleBenutzer[i].benutzername) {
                             vergebeneReg = true;
                         }
@@ -108,8 +82,9 @@ export namespace EndabgabeServer {
                         _response.write("success");
                     }
                     break;
-                }   
             }
+        }
         _response.end();
     }
-}
+})(EndabgabeServer = exports.EndabgabeServer || (exports.EndabgabeServer = {}));
+//# sourceMappingURL=server.js.map
