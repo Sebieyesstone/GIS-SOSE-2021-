@@ -18,13 +18,13 @@ export namespace EndabgabeServer {
     let neuerBenutzer: Login;
 
     let loginCollection: Mongo.Collection;
-    let rezepteCollection: Mongo.Collection;
-    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
-    //let mongoUrl: string = "mongodb://localhost:27017";
+    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
+    let mongoUrl: string = "mongodb://localhost:27017";
 
     let port: number = Number(process.env.PORT);
     if (!port)
-        port = 8100;
+        //port = 8100;
+        port = 5500;
 
     console.log("Starting Server");
 
@@ -40,8 +40,7 @@ export namespace EndabgabeServer {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         loginCollection = mongoClient.db("Endabgabe").collection("Benutzer");
-        rezepteCollection = mongoClient.db("Endabgabe").collection("Rezepte");
-        console.log("Verbindung zu Database", loginCollection, rezepteCollection != undefined);
+        console.log("Verbindung zu Database", loginCollection != undefined);
     }
 
     function handleListen(): void {

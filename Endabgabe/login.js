@@ -23,6 +23,7 @@ var Endabgabe;
             window.alert("Du hast dich erfolgreich eingeloggt.");
             window.location.href = "benutzer.html";
         }
+        formlog.reset();
     }
     async function clickRegistrieren() {
         let formlog = document.getElementById("formlog");

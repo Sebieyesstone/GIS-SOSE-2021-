@@ -10,13 +10,12 @@ var EndabgabeServer;
     let alleBenutzer;
     let neuerBenutzer;
     let loginCollection;
-    let rezepteCollection;
-    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
     //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
     let mongoUrl = "mongodb://localhost:27017";
     let port = Number(process.env.PORT);
     if (!port)
-        port = 8100;
+        //port = 8100;
+        port = 5500;
     console.log("Starting Server");
     let server = Http.createServer();
     server.addListener("request", handleRequest);
@@ -28,8 +27,7 @@ var EndabgabeServer;
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
         loginCollection = mongoClient.db("Endabgabe").collection("Benutzer");
-        rezepteCollection = mongoClient.db("Endabgabe").collection("Rezepte");
-        console.log("Verbindung zu Database", loginCollection, rezepteCollection != undefined);
+        console.log("Verbindung zu Database", loginCollection != undefined);
     }
     function handleListen() {
         console.log("Listening");
