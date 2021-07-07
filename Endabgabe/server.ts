@@ -127,7 +127,6 @@ export namespace EndabgabeServer {
                     let zutatenliste: string = <string>url.query["zutatenliste"];
         
                     rezeptCollection.insertOne({"rezeptname": rezeptname, "anzahl": anzahl, "zutaten": zutaten, "kategorie": kategorie, "zutatenliste": zutatenliste});
-                    _response.write("success");
                     connectToDatabase(mongoUrl);
                     break;
 

@@ -94,7 +94,6 @@ var EndabgabeServer;
                     let kategorie = url.query["kategorie"];
                     let zutatenliste = url.query["zutatenliste"];
                     rezeptCollection.insertOne({ "rezeptname": rezeptname, "anzahl": anzahl, "zutaten": zutaten, "kategorie": kategorie, "zutatenliste": zutatenliste });
-                    _response.write("success");
                     connectToDatabase(mongoUrl);
                     break;
                 case "/erhalten":
