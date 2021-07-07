@@ -18,8 +18,8 @@ export namespace EndabgabeServer {
     let neuerBenutzer: Login;
 
     let loginCollection: Mongo.Collection;
-    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
-    let mongoUrl: string = "mongodb://localhost:27017";
+    let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
+    //let mongoUrl: string = "mongodb://localhost:27017";
 
     let port: number = Number(process.env.PORT);
     if (!port)
@@ -55,9 +55,10 @@ export namespace EndabgabeServer {
 
         if (_request.url) {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+            console.log(url.query);
 
-            switch (url.pathname) {
-
+            switch (url.pathname.toString()) {
+                
                 case "/einloggen":
                     alleBenutzer = await loginCollection.find().toArray();
                     let benutzernameLogin: string = <string>url.query["benutzername"];
@@ -86,10 +87,12 @@ export namespace EndabgabeServer {
                     break;
 
                 case "/reg":
+                    console.log("ich bin hier");
                     alleBenutzer = await loginCollection.find().toArray();
                     let benutzernameReg: string = <string>url.query["benutzername"];
                     let emailReg: string = <string>url.query["email"];
                     let passwortReg: string = <string>url.query["passwort"];
+                    console.log("benutzernameReg" + benutzernameReg);
 
                     let neueReg: Reg = { benutzername: benutzernameReg, email: emailReg, passwort: passwortReg };
 
@@ -103,6 +106,7 @@ export namespace EndabgabeServer {
                     if (vergebeneReg == false) {
                         loginCollection.insertOne({ "benutzername": benutzernameReg, "email": emailReg, "passwort": passwortReg });
                         _response.write("success");
+                        console.log("hello");
                     }
                     break;
                 }   

@@ -8,8 +8,8 @@ var Endabgabe;
     async function clickEinloggen() {
         let formlog = document.getElementById("formlog");
         let form = new FormData(document.forms[0]);
-        let url = "http://localhost:8100";
-        //let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        //let url: string = "http://localhost:8100";
+        let url = "https://sebieyesstonegis2021.herokuapp.com";
         let query = new URLSearchParams(form);
         url = url + "/einloggen" + "?" + query.toString();
         let responseL = await fetch(url);
@@ -27,11 +27,12 @@ var Endabgabe;
     }
     async function clickRegistrieren() {
         let formlog = document.getElementById("formlog");
-        let form = new FormData(document.forms[0]);
-        let url = "http://localhost:8100";
-        //let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        let form = new FormData(document.forms[1]);
+        //let url: string = "http://localhost:8100";
+        let url = "https://sebieyesstonegis2021.herokuapp.com";
         let query = new URLSearchParams(form);
-        url = url + "/registrieren" + "?" + query.toString();
+        url = url + "/reg" + "?" + query.toString();
+        console.log(url);
         let responseRegistrieren = await fetch(url);
         let responseRT = await responseRegistrieren.text();
         console.log(responseRT);

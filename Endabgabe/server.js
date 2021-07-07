@@ -10,12 +10,11 @@ var EndabgabeServer;
     let alleBenutzer;
     let neuerBenutzer;
     let loginCollection;
-    //let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
-    let mongoUrl = "mongodb://localhost:27017";
+    let mongoUrl = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
+    //let mongoUrl: string = "mongodb://localhost:27017";
     let port = Number(process.env.PORT);
     if (!port)
-        //port = 8100;
-        port = 5500;
+        port = 8100;
     console.log("Starting Server");
     let server = Http.createServer();
     server.addListener("request", handleRequest);
@@ -38,7 +37,8 @@ var EndabgabeServer;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let url = Url.parse(_request.url, true);
-            switch (url.pathname) {
+            console.log(url.query);
+            switch (url.pathname.toString()) {
                 case "/einloggen":
                     alleBenutzer = await loginCollection.find().toArray();
                     let benutzernameLogin = url.query["benutzername"];
@@ -64,10 +64,12 @@ var EndabgabeServer;
                     passwortConfirmed = false;
                     break;
                 case "/reg":
+                    console.log("ich bin hier");
                     alleBenutzer = await loginCollection.find().toArray();
                     let benutzernameReg = url.query["benutzername"];
                     let emailReg = url.query["email"];
                     let passwortReg = url.query["passwort"];
+                    console.log("benutzernameReg" + benutzernameReg);
                     let neueReg = { benutzername: benutzernameReg, email: emailReg, passwort: passwortReg };
                     let vergebeneReg = false;
                     for (let i = 0; i < alleBenutzer.length; i++) {
@@ -76,8 +78,9 @@ var EndabgabeServer;
                         }
                     }
                     if (vergebeneReg == false) {
-                        loginCollection.insertOne({ benutername: benutzernameReg, email: emailReg, passwort: passwortReg });
+                        loginCollection.insertOne({ "benutzername": benutzernameReg, "email": emailReg, "passwort": passwortReg });
                         _response.write("success");
+                        console.log("hello");
                     }
                     break;
             }

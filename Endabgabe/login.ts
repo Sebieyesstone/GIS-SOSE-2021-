@@ -8,8 +8,8 @@ namespace Endabgabe {
     async function clickEinloggen(): Promise<void> {
         let formlog: HTMLFormElement = <HTMLFormElement>document.getElementById("formlog")!;
         let form: FormData = new FormData(document.forms[0]);
-        let url: string = "http://localhost:8100";
-        //let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        //let url: string = "http://localhost:8100";
+        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>form);
         url = url + "/einloggen" + "?" + query.toString();
         let responseL: Response = await fetch(url);
@@ -27,11 +27,12 @@ namespace Endabgabe {
     }
     async function clickRegistrieren (): Promise<void> {
         let formlog: HTMLFormElement = <HTMLFormElement>document.getElementById("formlog")!;
-        let form: FormData = new FormData(document.forms[0]);
-        let url: string = "http://localhost:8100";
-        //let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        let form: FormData = new FormData(document.forms[1]);
+        //let url: string = "http://localhost:8100";
+        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
         let query: URLSearchParams = new URLSearchParams(<any>form);
-        url = url + "/registrieren" + "?" + query.toString();
+        url = url + "/reg" + "?" + query.toString();
+        console.log(url);
         let responseRegistrieren: Response = await fetch(url);
         let responseRT: string = await responseRegistrieren.text();
         console.log(responseRT);
