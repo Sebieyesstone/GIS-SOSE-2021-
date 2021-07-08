@@ -18,6 +18,9 @@ body {
     background-image:url("Dateien/Hintergrund.png");
     padding: 30px;
 }
+#login {
+    width: 50%;
+}
 .container {
     position: relative;;
     max-width: 850px;
@@ -102,21 +105,24 @@ body {
     width: 100%;
     background: white;
 }
-.container .form-content {
-    display: flex;
+.container .form-content { /*formcontencontainer*/
+    float: left;
     align-items: center;
     justify-content: space-between;
+    width: 50%;
+    margin-bottom: 250px;
 }
-.form-content .login-form, .form-content .signup-form{
+.form-content .login-form, .form-content .signup-form{ /*Loginkomplettcontainre*/
     width: calc(100%/2 - 25px);
 }
-form .form-content .title{
+.title{ /*Wortregistriene*/
     position: relative;
     font-size: 24px;
     font-weight: 500;
     color: rgb(139,90,43);
 }
-form .form-content .title:before {
+
+form .form-content .title:before { 
     content: '';
     position: absolute;
     left: 0;
@@ -125,13 +131,16 @@ form .form-content .title:before {
     width: 25px;
     background: rgb(139,90,43);
 }
-form .signup-form .title:before {
+form .signup-form .title:before { /*underlineR*/
     width: 20px;
 }
-form .form-content .input-boxes{ 
+
+form .form-content .input-boxes{ /*RegCotainer?*/
+    
     margin-top: 30px;
+    width: 350px;
 }
-form .form-content .input-box {
+form .form-content .input-box { /*Regbutton*/
     display: flex;
     align-items: center;
     height: 50px;
@@ -185,7 +194,7 @@ form .form-content .input-box {
     border-bottom: 2px solid rgb(139,90,43);
     transition: all 0.3s ease;
 }
-.form-content .input-box input {
+.form-content .input-box input { /*Eingabefelder*/
     height: 100%;
     width: 100%;
     outline:none;
@@ -198,6 +207,7 @@ form .form-content .input-box {
 }
 .form-content .input-box input:focus, .form-content.input-box input:valid{
     border-color: rgb(139,90,43);
+    
 }
 .form-content .input-box i {
     position:absolute;
@@ -240,6 +250,151 @@ form .form-content .login-text, form .form-content .sign-up-text{
     text-align: center;
     margin-top: 25px;
 }
+.container .form-content2 { /*formcontencontainerAB HIER BEGINNT DIE REGISTRIERENSEITE*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    float: right;
+}
+.form-content2 .login-form, .form-content2 .signup-form{ /*Loginkomplettcontainre*/
+    width: calc(100%/2 - 25px);
+}
+.title2{ /*Wortregistriene*/
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: rgb(139,90,43);
+}
+
+form .form-content2 .title2:before { /*underline1*/
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 25px;
+    background: rgb(139,90,43);
+}
+form .signup-form .title2:before { /*underlineR*/
+    width: 20px;
+}
+
+form .form-content2 .input-boxes2{ /*RegCotainer?*/
+    display: inline-block;
+    margin-left: 50px;
+    width: 350px;
+}
+form .form-content2 .input-box2 { /*Regbutton*/
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+}
+#einloggen{
+    color: rgb(139,90,43);
+    background: lightgrey;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+    border: rgb(139,90,43);
+    border-radius: 50px;
+}
+#einloggen:hover {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgb(139,90,43);
+    transition: all 0.3s ease;
+}
+#reg{
+    color: rgb(139,90,43);
+    background: lightgrey;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+    border: rgb(139,90,43);
+    border-radius: 50px;
+}
+#reg:hover{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgb(139,90,43);
+    transition: all 0.3s ease;
+}
+.form-content2 .input-box2 input { /*Eingabefelder*/
+    height: 100%;
+    width: 100%;
+    outline:none;
+    border:none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid rgb(139,90,43);
+    transition: all 0.3s ease;
+}
+.form-content2 .input-box2 input:focus, .form-content2.input-box2 input:valid{
+    border-color: rgb(139,90,43);
+    
+}
+.form-content2 .input-box2 i {
+    position:absolute;
+    color: rgb(139,90,43);
+    font-size: 17px;
+}
+form .form-content2 .text{
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(139,90,43);
+}
+form .form-content2 .text a{
+    text-decoration: none;
+}
+form .form-content2 .text a:hover{
+    text-decoration: underline;
+}
+form .form-content2 .button{
+    color: rgb(139,90,43);
+}
+form.form-content2 .button input{
+    color: white;
+    background: rgb(139,90,43);
+    border-radius: 6px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+form .form-content2 .button input:hover{
+    background: white;
+}
+form .form-content2 label{
+    color: rgb(139,90,43);
+    cursor: pointer;
+}
+form .form-content2 label:hover {
+    text-decoration: underline;
+}
+form .form-content2 .login-text2, form .form-content2 .sign-up-text{
+    text-align: center;
+    margin-top: 25px;
+}
 .container #flip {
     display: none;
 }
@@ -249,12 +404,13 @@ form .form-content .login-text, form .form-content .sign-up-text{
     }
 .form-content .login-form, .form-content .signup-form{
     width: 100%;
+    
 }
 .form-content .signup-form{
     display: none;
 }
 .container #flip:checked ~ form .signup-form{
-    display: block;
+    display: none;
 }
 .container #flip:checked ~ form .login-form{
     display: none;
