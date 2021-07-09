@@ -7,7 +7,6 @@
 } 
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    width: 1024;
     margin: auto;
     text-align: start;
     display: flex;
@@ -215,7 +214,7 @@ form .form-content .input-box { /*Regbutton*/
     font-size: 17px;
 }
 form .form-content .text{
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     color: rgb(139,90,43);
 }
@@ -416,15 +415,19 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
     display: none;
     }
 }
+.logo {
+   padding-left: 175px;
+   height: 50px;
+   float: left;
+}
 .navbar {
     width: 100%;
-    height: 100%;
-    margin-inline-start: 10%;
-    padding: 15px 0;
-    display: flex;
+    padding: 15px 10px 15px 0px;
+    display: inline-block;
     align-items: center;
     justify-content: space-between;
-    background: white;
+    background-color: white;
+    border-radius: 25px;
     position: sticky;
 }
 .navbar ul li {
@@ -451,17 +454,34 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
 .navbar ul li:hover:after {
     width: 100%;
 }
-h1{
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    color: rgb(139,90,43);
+/*#cr {
+    float: left;
+    margin: 10px;
     position: absolute;
-    font-size: 25px;
-    padding: 100px 10px 0px 100px;
+    height: 100px;
+    margin-top: 5%;
+    margin-right: 10%;
+    padding-right: 500px;
+}*/
+.boxkomplett {
+    font-size: 15px;
+    background-color: white;
+    width: 40%;
+    margin-right: 5px;
+    padding: 10px;
+    display: inline-block;
+    margin-left: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    align-content: center;
+    margin: 10px;
 }
-.containerrezpte {
-    height: 100vh;
-    width: 100vh;
-    
+#datenbank {
+    height: 100px;
+    position: absolute;
+    margin: 10px;
+    float: left;
+    margin-top: 45%;
 }
+
+

@@ -17,11 +17,6 @@ export namespace EndabgabeServer {
     let alleBenutzer: Login[];
     let neuerBenutzer: Login;
 
-    interface Rezepte {
-        rezeptname: string;
-        zutatenliste: string;
-    }
-
     let loginCollection: Mongo.Collection;
     let rezeptCollection: Mongo.Collection;
     let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
@@ -131,7 +126,11 @@ export namespace EndabgabeServer {
                     break;
 
                 case "/erhalten":
+                    //let suchen: Mongo.Cursor = rezeptCollection.find();
+                    //let ausgabe: Rezepte [] = await suchen.toArray();
                     _response.write(JSON.stringify(await(rezeptCollection.find().toArray())));
+                    
+
                     console.log("funktioniert");
                     break;    
                 }

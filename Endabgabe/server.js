@@ -97,6 +97,8 @@ var EndabgabeServer;
                     connectToDatabase(mongoUrl);
                     break;
                 case "/erhalten":
+                    //let suchen: Mongo.Cursor = rezeptCollection.find();
+                    //let ausgabe: Rezepte [] = await suchen.toArray();
                     _response.write(JSON.stringify(await (rezeptCollection.find().toArray())));
                     console.log("funktioniert");
                     break;

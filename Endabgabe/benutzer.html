@@ -6,28 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css" media="screen">
     <script src="benutzer.js" defer></script>
-    <title>Mein Kochbuch</title>
+    <title>mon livre de recettes</title>
 </head>
 <body>
     <header>
         <div class="containernav">
             <div class="navbar">
-                <img src="" class="logo">
+                <img src="Dateien/Logo.png" class="logo">
                 <ul>
                     <li><a href="sammlung.html">ALLE REZEPTE</a></li>
                     <li><a href="benutzer.html" class="Kochbuch">MEIN KOCHBUCH</a></li>
                     <li><a href="favoriten.html">MEINE FAVORITEN</a></li>
-                    <li><a href="index.html">LOGIN</a></li>
                 </ul>
             </div>
         </div>      
-    </header>
-    <h1>Herzlich Willkommen</h1>    
+    </header>   
     <div class="containerrezpte">
-        <form action="#">
+        <form action="#" id="cr">
             <label for="rezepte">Rezeptename:</label><br>
             <input type="text" placeholder="Bitte gib hier deinen Rezeptename ein!" name="rezeptname"><br>
-
             <label for="zutaten">Zutaten für:</label><br>
             <p class="zutatentext">
                 Hier kannst du eingeben für wie viel Personen, Portionen oder Stück dein Rezept hat.</p>
@@ -42,7 +39,6 @@
                 <option value="Portionen">Portionen</option>
                 <option value="Stück">Stück</option>
             </select>
-
             <label for="kategorie">Kategorie:</label><br>
             <select name="kategorie">
                 <option value="Vorspeise">Vorspeise</option>
@@ -56,6 +52,5 @@
         </form>
     </div>
     <div id="datenbank"></div>
-    
 </body>
 </html>
