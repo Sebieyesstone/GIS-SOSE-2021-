@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EndabgabeServer = void 0;
+exports.Endabgabe = void 0;
 //mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
-var EndabgabeServer;
-(function (EndabgabeServer) {
+var Endabgabe;
+(function (Endabgabe) {
     let alleBenutzer;
     let neuerBenutzer;
     let loginCollection;
@@ -96,9 +96,19 @@ var EndabgabeServer;
                     rezeptCollection.insertOne({ "rezeptname": rezeptname, "anzahl": anzahl, "zutaten": zutaten, "kategorie": kategorie, "zutatenliste": zutatenliste });
                     connectToDatabase(mongoUrl);
                     break;
+                case "/update":
+                    const filter = { title: url.query["ID"] };
+                    let document = {
+                        "rezeptname": url.query["rezeptname"],
+                        "anzahl": url.query["anzahl"],
+                        "zutaten": url.query["zutaten"],
+                        "kategorie": url.query["kategorie"],
+                        "zutatenliste": url.query["zutatenliste"]
+                    };
+                    let result = rezeptCollection.replaceOne(filter, document);
+                    console.log(result);
+                    break;
                 case "/erhalten":
-                    //let suchen: Mongo.Cursor = rezeptCollection.find();
-                    //let ausgabe: Rezepte [] = await suchen.toArray();
                     _response.write(JSON.stringify(await (rezeptCollection.find().toArray())));
                     console.log("funktioniert");
                     break;
@@ -106,5 +116,5 @@ var EndabgabeServer;
         }
         _response.end();
     }
-})(EndabgabeServer = exports.EndabgabeServer || (exports.EndabgabeServer = {}));
+})(Endabgabe = exports.Endabgabe || (exports.Endabgabe = {}));
 //# sourceMappingURL=server.js.map

@@ -3,7 +3,7 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
 
-export namespace EndabgabeServer {
+export namespace Endabgabe {
 
     interface Login {
         benutzername: string;
@@ -19,6 +19,7 @@ export namespace EndabgabeServer {
 
     let loginCollection: Mongo.Collection;
     let rezeptCollection: Mongo.Collection;
+    
     let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
     //let mongoUrl: string = "mongodb://localhost:27017";
 
@@ -124,10 +125,25 @@ export namespace EndabgabeServer {
                     rezeptCollection.insertOne({"rezeptname": rezeptname, "anzahl": anzahl, "zutaten": zutaten, "kategorie": kategorie, "zutatenliste": zutatenliste});
                     connectToDatabase(mongoUrl);
                     break;
+                
+                case "/update":
+
+                    const filter = { title: <string>url.query["ID"] };
+                    let document = {
+                        "rezeptname": <string>url.query["rezeptname"], 
+                        "anzahl": <string>url.query["anzahl"], 
+                        "zutaten": <string>url.query["zutaten"], 
+                        "kategorie": <string>url.query["kategorie"], 
+                        "zutatenliste": <string>url.query["zutatenliste"]
+                    };
+
+                    let result = rezeptCollection.replaceOne(filter, document);
+
+                    console.log(result);
+
+                    break;
 
                 case "/erhalten":
-                    //let suchen: Mongo.Cursor = rezeptCollection.find();
-                    //let ausgabe: Rezepte [] = await suchen.toArray();
                     _response.write(JSON.stringify(await(rezeptCollection.find().toArray())));
                     
 

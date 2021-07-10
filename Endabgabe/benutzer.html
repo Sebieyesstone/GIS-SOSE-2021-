@@ -20,37 +20,68 @@
                 </ul>
             </div>
         </div>      
-    </header>   
-    <div class="containerrezpte">
-        <form action="#" id="cr">
-            <label for="rezepte">Rezeptename:</label><br>
-            <input type="text" placeholder="Bitte gib hier deinen Rezeptename ein!" name="rezeptname"><br>
-            <label for="zutaten">Zutaten für:</label><br>
-            <p class="zutatentext">
-                Hier kannst du eingeben für wie viel Personen, Portionen oder Stück dein Rezept hat.</p>
-            <select name="anzahl">
-                <option value="eins">1</option>
-                <option value="zwei">2</option>
-                <option value="drei">3</option>
-                <option value="vier">4</option>
-            </select>
-            <select name="zutaten">
-                <option value="Personen">Personen</option>
-                <option value="Portionen">Portionen</option>
-                <option value="Stück">Stück</option>
-            </select>
-            <label for="kategorie">Kategorie:</label><br>
-            <select name="kategorie">
-                <option value="Vorspeise">Vorspeise</option>
-                <option value="Hauptspeise">Hauptspeise</option>
-                <option value="Desert">Desert</option>
-            </select>
-            <label for="Zutatenliste">Zutatenliste:</label><br>
-            <input type="text" placeholder="Hier kannst du deine Zutaten und deine Vorgehensweise reinschreiben." name="zutatenliste"><br>
-            <button type="button" id="rezeptabschicken">Absenden</button>
-            <button type="button" id="rezepterhalten">Rezept erhalten</button>
+    </header>
+    
+    <div class="containerrezpte rezeptListe">
+        <h2>Erstelle ein Rezept deiner Wahl</h2><br>
+        <form>
+            <label for="rezepte">Rezeptename:</label>
+            <input type="text" name="rezeptname"><br>
+            <tr>
+                <td colspan="2"><p class="zutatentext"><br><i>Hier kannst du eingeben für wie viel Personen, Portionen oder Stück dein Rezept hat.</p></td></i>
+            </tr><br>
+            <td><label for="zutaten">Zutaten für:</label></td>
+            <td>
+                <select name="anzahl">
+                    <option value="eins">1</option>
+                    <option value="zwei">2</option>
+                    <option value="drei">3</option>
+                    <option value="vier">4</option>
+                </select>
+            </td>
+            <td>
+                <select name="zutaten">
+                    <option value="Personen">Personen</option>
+                    <option value="Portionen">Portionen</option>
+                    <option value="Stück">Stück</option>
+                </select>
+            </td><br>
+            <td>
+                <label for="kategorie"><br>Kategorie:</label><td>
+            </td>
+            <td>
+                <select name="kategorie">
+                    <option value="Vorspeise">Vorspeise</option>
+                    <option value="Hauptspeise">Hauptspeise</option>
+                    <option value="Desert">Desert</option>
+                </select>
+            </td><br>
+            <tr><i>
+                <td colspan="2"><p class="zutatentext"><br>Hier kannst du deine Zutaten und deine Vorgehensweise reinschreiben.</p></td>
+            </tr></i>
+            <label for="zutatenliste"><br>Zutatenliste:</label><br>
+            <input type="text" name="zutatenliste"><br>
+            <input type="text" name="zutatenliste"><br>
+            <input type="text" name="zutatenliste"><br>
+            <input type="text" name="zutatenliste"><br>
+            <input type="text" name="zutatenliste"><br>
+            <input type="text" name="zutatenliste"><br>
+            <input type="text" name="zutatenliste"><br>
+            <input type="text" name="zutatenliste"><br>
+            <input type="text" name="zutatenliste"><br>
+            <br>
+            <tr>
+                <td>
+                    <button type="button" id="rezeptabschicken">Absenden</button>
+                    
+
+                    </td>
+                    <td>
+                    <button type="button" id="rezepterhalten">Rezept erhalten</button>
+                </td>
+            </tr>
         </form>
     </div>
-    <div id="datenbank"></div>
+    <div id="datenbank" class="rezeptListe"></div>
 </body>
 </html>

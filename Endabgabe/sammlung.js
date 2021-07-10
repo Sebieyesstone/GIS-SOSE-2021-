@@ -1,67 +1,67 @@
 "use strict";
-/*let buttonRezepteAnzeigen: HTMLButtonElement = <HTMLButtonElement>document.getElementById("rezepterhalten");
-buttonRezepteAnzeigen.addEventListener("click", clickAnzeigen);
-
-interface Rezepte {
-    rezeptname: string;
-    anzahl: number;
-    zutaten: number;
-    kategorie: number;
-    zutatenliste: string;
-}
-async function clickAnzeigen(): Promise<void> {
+async function rezepteLaden() {
     console.log("BIN IN DER FUNKTION");
     //let url: string = "http://localhost:8100";
-    let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+    let url = "https://sebieyesstonegis2021.herokuapp.com";
     url = url + "/erhalten" + "?";
-    let response: Response = await fetch(url);
-    let ausgabe: Rezepte[] = await response.json();
-    //let ausgabeb: Login[] = await response.json();
+    let response = await fetch(url);
+    let ausgabe = await response.json();
     console.log(ausgabe);
-    const datenbank: HTMLElement = document.getElementById("datenbank");
-    /*for (const benutzer in ausgabeb) { //Test
-        if (Object.prototype.hasOwnProperty.call(ausgabe, benutzer)) {
-            const aktuellerBe: Login = ausgabeb[benutzer];
-            const div2: HTMLDivElement = document.createElement("div");
-            const p8: HTMLHeadingElement = document.createElement ("p");
-            
-            p8.innerHTML = "Benutzername: " + aktuellerBe.benutzername;
-
-            div2.className = "benutzerBox";
-
-            div2.appendChild(p8);
-            datenbank.appendChild(div2);
-
+    const datenbank = document.getElementById("datenbank");
+    datenbank.innerHTML = "";
+    for (const rezept in ausgabe) {
+        if (Object.prototype.hasOwnProperty.call(ausgabe, rezept)) {
+            const aktuelleRe = ausgabe[rezept]; //1 rezept kein Array
+            const div = document.createElement("div");
+            const p1 = document.createElement("p");
+            const p2 = document.createElement("p");
+            const p3 = document.createElement("p");
+            const p4 = document.createElement("p");
+            const p5 = document.createElement("p");
+            // Rezepte Favosieren
+            const favButton = document.createElement("button");
+            favButton.addEventListener("click", () => {
+                let favorites = JSON.parse(localStorage.getItem("Favoriten"));
+                if (favorites === null || favorites === undefined) {
+                    favorites = [];
+                    favorites[0] = aktuelleRe._id;
+                }
+                else if (favorites.indexOf(aktuelleRe._id) != -1) {
+                    favorites.splice(favorites.indexOf(aktuelleRe._id), 1);
+                }
+                else {
+                    favorites.push(aktuelleRe._id);
+                }
+                localStorage.setItem("Favoriten", JSON.stringify(favorites));
+                console.log(favorites);
+                rezepteLaden();
+            });
+            let favorites = JSON.parse(localStorage.getItem("Favoriten"));
+            console.log(favorites);
+            if (favorites !== null && favorites !== undefined && favorites.indexOf(aktuelleRe._id) != -1) {
+                favButton.innerHTML = "Nicht mehr Favorisieren";
+            }
+            else {
+                favButton.innerHTML = "Favorisieren";
+            }
+            p1.innerHTML = "Rezeptename: " + aktuelleRe.rezeptname;
+            p2.innerHTML = "Anzahl: " + aktuelleRe.anzahl;
+            p3.innerHTML = "Zutaten: " + aktuelleRe.zutaten;
+            p4.innerHTML = "Kategorie: " + aktuelleRe.kategorie;
+            p5.innerHTML = "Zutatenliste: " + aktuelleRe.zutatenliste;
+            div.className = "boxkomplett";
+            div.appendChild(p1); //alle infos jeweils
+            div.appendChild(p2);
+            div.appendChild(p3);
+            div.appendChild(p4);
+            div.appendChild(p5);
+            div.appendChild(favButton);
+            datenbank.appendChild(div); //alle enthält
         }
-    }*/
-/*for (const rezept in ausgabe) {
-    if (Object.prototype.hasOwnProperty.call(ausgabe, rezept)) {
-        const aktuelleRe: Rezepte = ausgabe[rezept]; //1 rezept kein Array
-        const div: HTMLDivElement = document.createElement("div");
-        const p1: HTMLHeadingElement = document.createElement ("p");
-        const p2: HTMLParagraphElement = document.createElement ("p");
-        const p3: HTMLParagraphElement = document.createElement ("p");
-        const p4: HTMLParagraphElement = document.createElement ("p");
-        const p5: HTMLParagraphElement = document.createElement ("p");
-
-        p1.innerHTML = "Rezeptename: " + aktuelleRe.rezeptname;
-        p2.innerHTML = "Anzahl: " + aktuelleRe.anzahl;
-        p3.innerHTML = "Zutaten: " + aktuelleRe.zutaten;
-        p4.innerHTML = "Kategorie: " + aktuelleRe.kategorie;
-        p5.innerHTML = "Zutatenliste: " + aktuelleRe.zutatenliste;
-        div.className = "boxkomplett";
-        
-        div.appendChild(p1); //alle infos jeweils
-        div.appendChild(p2);
-        div.appendChild(p3);
-        div.appendChild(p4);
-        div.appendChild(p5);
-
-        datenbank.appendChild(div); //alle enthält
+        console.log("ich hab es hier her geschafft");
     }
-    console.log("ich hab es hier her geschafft");
 }
-
-
-}*/ 
+window.addEventListener("load", function () {
+    rezepteLaden();
+});
 //# sourceMappingURL=sammlung.js.map
