@@ -512,7 +512,7 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
 }
 
 .edit_component_wrapper_component {
-    max-width: 50%;
-    margin-top: 0 !important;
+    margin-top: -12%;
+    max-height: 10%;
     position: relative;
 }
