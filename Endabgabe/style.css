@@ -1,17 +1,10 @@
 * {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color:rgb(139,90,43);
-    margin: 0; 
-    padding: 0;
-    box-sizing: border-box;
 } 
 body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin: auto;
-    text-align: start;
     display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
     align-items: center;
     justify-content: center;
     background-image:url("Dateien/Hintergrund.png");
@@ -416,16 +409,14 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
     }
 }
 .logo {
-    position:relative;
-    margin-left: 145px;
-    margin-right: 0;
-    height: 65px;
+    margin-left: 150px;
+    height: 50px;
     padding: 5px;
 
  }
 .navbar {
     width: 100%;
-    padding: 10px 10px 15px 0px;
+    padding: 5px 5px 10px 0px;
     display: inline-block;
     align-items: center;
     justify-content: space-between;
@@ -460,34 +451,32 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
 .boxkomplett { /* rezepte*/
     font-size: 15px;
     background-color: white;
-    padding: 10px;
-    display: inline-block; 
+    padding: 5px;
+    display: inline-flexbox;
     box-sizing: border-box;
     border-radius: 10px;
     align-content: center;
-    margin: 15px;
+    margin: 10px;
 }
-#datenbank {
+#favoriten{
+    height:450px;
+    margin-top: -12%;
+}
+#datenbank { /*REZEPTE*/
     height: 100px;
     position: absolute;
-    margin: 10px;
-    float: left;
-    margin-top: 10%;
+    margin-top: -40%;
 }
 .containerrezpte{
     font-size: 15px;
-    position: absolute;
     background-color: white;
     border-radius: 15px;
     padding: 10px;
-
+    margin-bottom: -50%;
+    margin-top: 50px;
 }
 .rezeptListe {
-    height: 300px;
+    float: right;
     position: absolute;
-    text-align:justify;
-    margin: 15px;
-    margin-bottom: -25%;
-    float: left;
-   
+    margin-bottom: -60%;
 }
