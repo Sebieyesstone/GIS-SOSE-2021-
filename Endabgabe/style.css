@@ -452,15 +452,34 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
     font-size: 15px;
     background-color: white;
     padding: 5px;
+    margin-left: 10px;
     display: inline-flexbox;
     box-sizing: border-box;
     border-radius: 10px;
     align-content: center;
     margin: 10px;
 }
-#favoriten{
-    height:450px;
-    margin-top: -12%;
+#favoriten {
+    height: 700px;
+    position: absolute;
+    display: inline-flexbox;
+    padding: 5px;
+ 
+    box-sizing: border-box;
+    border-radius: 10px;
+    align-content: center;
+    margin-bottom: -66%;
+}
+.benutzerd {
+    height: 500px;
+    position: absolute;
+    padding: 10px;
+    
+    box-sizing: border-box;
+    border-radius: 10px;
+    align-content: center;
+    margin-bottom: -160%;
+
 }
 #datenbank { /*REZEPTE*/
     height: 100px;
