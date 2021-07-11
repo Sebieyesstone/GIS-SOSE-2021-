@@ -8,8 +8,8 @@ async function clickRemoveFavorites(_id) {
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     form.append("benutzername", currentUser["benutzername"]);
     form.append("favoriten_id", _id);
-    let url = "http://localhost:8100";
-    // let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+    //let url: string = "http://localhost:8100";
+    let url = "https://sebieyesstonegis2021.herokuapp.com";
     let query = new URLSearchParams(form);
     url = url + "/removeFavoriten" + "?" + query.toString();
     let response = await fetch(url);
@@ -22,8 +22,8 @@ async function clickAnzeigenFavoriten() {
     let form = new FormData(document.forms[0]);
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     form.append("benutzername", currentUser["benutzername"]);
-    let url = "http://localhost:8100";
-    // let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+    //let url: string = "http://localhost:8100";
+    let url = "https://sebieyesstonegis2021.herokuapp.com";
     let query = new URLSearchParams(form);
     url = url + "/favoriten" + "?" + query.toString();
     let response = await fetch(url);

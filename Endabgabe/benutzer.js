@@ -8,8 +8,8 @@ async function clickAbschicken() {
     let form = new FormData(document.forms[0]);
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     form.append("benutzername", currentUser["benutzername"]);
-    let url = "http://localhost:8100";
-    // let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+    //let url: string = "http://localhost:8100";
+    let url = "https://sebieyesstonegis2021.herokuapp.com";
     let query = new URLSearchParams(form);
     url = url + "/abschicken" + "?" + query.toString();
     console.log(url);
@@ -25,8 +25,8 @@ async function clickErhalten() {
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     let form = new FormData();
     form.append("benutzername", currentUser["benutzername"]);
-    let url = "http://localhost:8100";
-    // let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+    //let url: string = "http://localhost:8100";
+    let url = "https://sebieyesstonegis2021.herokuapp.com";
     let query = new URLSearchParams(form);
     url = url + "/erhalten" + "?" + query.toString();
     let response = await fetch(url);
@@ -93,8 +93,8 @@ async function clickErhalten() {
                 submitEdit.addEventListener("click", async function () {
                     let form = new FormData(document.forms[0]);
                     form.append("ID", aktuelleRe._id);
-                    let url = "http://localhost:8100";
-                    //   let url: string = 'https://sebieyesstonegis2021.herokuapp.com';
+                    //let url: string = "http://localhost:8100";
+                    let url = "https://sebieyesstonegis2021.herokuapp.com";
                     let query = new URLSearchParams(form);
                     url = url + "/update" + "?" + query.toString();
                     console.log(url);

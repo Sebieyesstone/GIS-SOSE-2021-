@@ -20,8 +20,8 @@ async function clickAbschicken(): Promise<void> {
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
     form.append("benutzername", currentUser["benutzername"]);
-    let url: string = "http://localhost:8100";
-    // let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+    //let url: string = "http://localhost:8100";
+    let url: string = "https://sebieyesstonegis2021.herokuapp.com";
     let query: URLSearchParams = new URLSearchParams(<any>form);
 
     url = url + "/abschicken" + "?" + query.toString();
@@ -42,8 +42,8 @@ async function clickErhalten(): Promise<void> {
 
     let form: FormData = new FormData();
     form.append("benutzername", currentUser["benutzername"]);
-    let url: string = "http://localhost:8100";
-    // let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+    //let url: string = "http://localhost:8100";
+    let url: string = "https://sebieyesstonegis2021.herokuapp.com";
     let query: URLSearchParams = new URLSearchParams(<any>form);
 
     url = url + "/erhalten" + "?" + query.toString();
@@ -125,8 +125,8 @@ async function clickErhalten(): Promise<void> {
                     let form: FormData = new FormData(document.forms[0]);
                     form.append("ID", aktuelleRe._id);
 
-                    let url: string = "http://localhost:8100";
-                    //   let url: string = 'https://sebieyesstonegis2021.herokuapp.com';
+                    //let url: string = "http://localhost:8100";
+                    let url: string = "https://sebieyesstonegis2021.herokuapp.com";
                     let query: URLSearchParams = new URLSearchParams(<any>form);
                     url = url + "/update" + "?" + query.toString();
                     console.log(url);
@@ -147,7 +147,7 @@ async function clickErhalten(): Promise<void> {
             const deleteButton: HTMLButtonElement = document.createElement("button");
             deleteButton.innerHTML = "Löschen";
 
-            deleteButton.addEventListener("click", async function() {
+            deleteButton.addEventListener("click", async function () {
                 let url: string = "https://sebieyesstonegis2021.herokuapp.com";
                 url = url + "/entfernen" + "?" + "ID=" + aktuelleRe._id;
                 let response: Response = await fetch(url);
