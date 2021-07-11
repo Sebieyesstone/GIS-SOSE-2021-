@@ -8,14 +8,14 @@ async function clickAbschicken() {
     let form = new FormData(document.forms[0]);
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     form.append("benutzername", currentUser["benutzername"]);
-    //let url: string = "http://localhost:8100";
-    let url = "https://sebieyesstonegis2021.herokuapp.com";
+    let url = "http://localhost:8100";
+    // let url: string = "https://sebieyesstonegis2021.herokuapp.com";
     let query = new URLSearchParams(form);
     url = url + "/abschicken" + "?" + query.toString();
     console.log(url);
     let response = await fetch(url);
     let ausgabe = await response.text();
-    let serverA = document.getElementById("datenbank");
+    let serverA = document.getElementById("nutzer_rezepte");
     serverA.innerHTML = ausgabe;
     await fetch(url);
     console.log(form.get("kategorie"));
@@ -25,14 +25,14 @@ async function clickErhalten() {
     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
     let form = new FormData();
     form.append("benutzername", currentUser["benutzername"]);
-    //let url: string = "http://localhost:8100";
-    let url = "https://sebieyesstonegis2021.herokuapp.com";
+    let url = "http://localhost:8100";
+    // let url: string = "https://sebieyesstonegis2021.herokuapp.com";
     let query = new URLSearchParams(form);
     url = url + "/erhalten" + "?" + query.toString();
     let response = await fetch(url);
     let ausgabe = await response.json();
     console.log(ausgabe);
-    const datenbank = document.getElementById("datenbank");
+    const datenbank = document.getElementById("nutzer_rezepte");
     for (const rezept in ausgabe) {
         if (Object.prototype.hasOwnProperty.call(ausgabe, rezept)) {
             const aktuelleRe = ausgabe[rezept]; //1 rezept kein Array
@@ -62,6 +62,14 @@ async function clickErhalten() {
             const editButton = document.createElement("button");
             editButton.innerHTML = "Bearbeiten";
             editButton.addEventListener("click", () => {
+                if (document.getElementById("buttons")) {
+                    if (document.getElementById("edit_button")) {
+                        document.getElementById("buttons").removeChild(document.getElementById("edit_button"));
+                    }
+                    if (document.getElementById("rezeptabschicken")) {
+                        document.getElementById("buttons").removeChild(document.getElementById("rezeptabschicken"));
+                    }
+                }
                 for (var key in aktuelleRe) {
                     const rezeptValue = aktuelleRe[key];
                     if (key === "zutatenliste" && rezeptValue.length) {
@@ -81,10 +89,10 @@ async function clickErhalten() {
                 }
                 const submitEdit = document.createElement("button");
                 submitEdit.innerHTML = "Bearbeitung absenden";
-                submitEdit.addEventListener("click", async () => {
+                submitEdit.id = "edit_button";
+                submitEdit.addEventListener("click", async function () {
                     let form = new FormData(document.forms[0]);
                     form.append("ID", aktuelleRe._id);
-                    console.log(form);
                     let url = "http://localhost:8100";
                     //   let url: string = 'https://sebieyesstonegis2021.herokuapp.com';
                     let query = new URLSearchParams(form);
@@ -95,18 +103,18 @@ async function clickErhalten() {
                     let serverA = document.getElementById("datenbank");
                     serverA.innerHTML = ausgabe;
                     await fetch(url);
-                    //   await clickErhalten();
+                    // await clickErhalten();
                 });
-                document.getElementById("buttons").removeChild(document.getElementById("rezeptabschicken"));
                 document.getElementById("buttons").appendChild(submitEdit);
             });
             // Rezept löschen
             const deleteButton = document.createElement("button");
             deleteButton.innerHTML = "Löschen";
-            deleteButton.addEventListener("click", async () => {
+            deleteButton.addEventListener("click", async function () {
                 let url = "https://sebieyesstonegis2021.herokuapp.com";
                 url = url + "/entfernen" + "?" + "ID=" + aktuelleRe._id;
                 let response = await fetch(url);
+                console.log(response);
                 datenbank.innerHTML = "Rezept gelöscht.";
                 setTimeout(() => {
                     datenbank.innerHTML = "";

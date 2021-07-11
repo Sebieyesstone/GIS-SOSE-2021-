@@ -54,6 +54,7 @@ async function clickAnzeigen() {
             div.appendChild(p3);
             div.appendChild(p4);
             div.appendChild(p5);
+            div.appendChild(buttonFav);
             datenbank.appendChild(div); //alle enthält
         }
         console.log("ich hab es hier her geschafft");

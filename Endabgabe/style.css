@@ -458,13 +458,13 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
     border-radius: 10px;
     align-content: center;
     margin: 10px;
+    width: 25%;
 }
 #favoriten {
     height: 700px;
     position: absolute;
     display: inline-flexbox;
     padding: 5px;
- 
     box-sizing: border-box;
     border-radius: 10px;
     align-content: center;
@@ -474,7 +474,6 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
     height: 500px;
     position: absolute;
     padding: 10px;
-    
     box-sizing: border-box;
     border-radius: 10px;
     align-content: center;
@@ -495,7 +494,25 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
     margin-top: 50px;
 }
 .rezeptListe {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: center;
     float: right;
     position: absolute;
     margin-bottom: -60%;
+}
+.edit_component_wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    top: 50%;
+    position: absolute;
+}
+
+.edit_component_wrapper_component {
+    max-width: 50%;
+    margin-top: 0 !important;
+    position: relative;
 }

@@ -129,11 +129,12 @@ export namespace Endabgabe {
 
                 case "/erhalten":
                     console.log("erhalten");
-
                     let benutzernameErhalten: string = <string>url.query["benutzername"];
-                    _response.write(JSON.stringify(await (rezeptCollection.find().toArray())));
-
-                    rezeptCollection.insertOne({ "benutzername": benutzernameErhalten });
+                    if (benutzernameErhalten && benutzernameErhalten.length) {                        
+                        _response.write(JSON.stringify(await (rezeptCollection.find({benutzername : benutzernameErhalten }).toArray())));                        
+                    } else {
+                        _response.write(JSON.stringify(await (rezeptCollection.find().toArray())));
+                    }
 
                     console.log("funktioniert");
                     break;
@@ -182,17 +183,26 @@ export namespace Endabgabe {
                     break;
 
                 case "/addFavoriten":
+                    console.log("addFavoriten");
+
                     let benutzernameaddFavoriten: string = <string>url.query["benutzername"];
-                    let favoritenId: string = <string>url.query["favoritenId"];
+                    let favoritenId: string = <string>url.query["favoriten_id"];
 
                     let userAddfavorit = await loginCollection.findOne({ "benutzername": benutzernameaddFavoriten });
-
-                    if (!userAddfavorit.favoriten) {
-                        userAddfavorit.favoriten = [favoritenId];
-                    } else {
-                        userAddfavorit.favoriten = [...userAddfavorit.favoriten, favoritenId];
+                    console.log("old", userAddfavorit, favoritenId);
+                    
+                    let newFavoriten: Array<string> = [];
+                    if (userAddfavorit.favoriten && Array.isArray(userAddfavorit.favoriten)) {
+                        newFavoriten = userAddfavorit.favoriten;
                     }
-                    let newuserAddfavorit = await loginCollection.updateOne({ "benutzername": benutzernameaddFavoriten }, { $set: { "favoriten": userAddfavorit.favoriten } });
+
+                    if (!favoritenId) return;
+                    if (newFavoriten.includes(favoritenId)) return;
+
+                    newFavoriten.push(favoritenId);
+
+                    let newuserAddfavorit = await loginCollection.updateOne({ "benutzername": benutzernameaddFavoriten }, { $set: { favoriten: newFavoriten } });
+                    console.log(newuserAddfavorit);
 
                     if (newuserAddfavorit) {
                         _response.write(JSON.stringify(newuserAddfavorit));
@@ -200,7 +210,34 @@ export namespace Endabgabe {
                         _response.write("failure");
                     }
                     break;
-
+                case "/removeFavoriten":
+                    console.log("removeFavoriten");
+    
+                    let benutzernamedelFavoriten: string = <string>url.query["benutzername"];
+                    let favoritenIdtoremove: string = <string>url.query["favoriten_id"];
+    
+                    let userRemovefavorit = await loginCollection.findOne({ "benutzername": benutzernamedelFavoriten });
+                    console.log("old", userRemovefavorit, favoritenIdtoremove);
+                        
+                    let new_favoriten_remove: Array<string> = [];
+                    if (userRemovefavorit.favoriten && Array.isArray(userRemovefavorit.favoriten)) {
+                            new_favoriten_remove = userRemovefavorit.favoriten;
+                        }
+    
+                    if (!favoritenIdtoremove) return;
+                    if (!new_favoriten_remove.includes(favoritenIdtoremove)) return;
+    
+                    new_favoriten_remove = new_favoriten_remove.filter(e => e !== favoritenIdtoremove);
+    
+                    let newuserRemovefavorit = await loginCollection.updateOne({ "benutzername": benutzernamedelFavoriten }, { $set: { favoriten: new_favoriten_remove } });
+                    console.log(newuserRemovefavorit);
+    
+                    if (newuserRemovefavorit) {
+                            _response.write(JSON.stringify(newuserRemovefavorit));
+                        } else {
+                            _response.write("failure");
+                        }
+                    break;
             }
         }
         _response.end();

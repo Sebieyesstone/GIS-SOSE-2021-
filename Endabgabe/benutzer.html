@@ -10,21 +10,25 @@
     <title>mon livre de recettes</title>
 </head>
 
-<body>
-    <header>
-        <div class="containernav">
-            <div class="navbar">
-                <img src="Dateien/Logo.png" class="logo" alt="logo">
-                <ul>
-                    <li><a href="sammlung.html">ALLE REZEPTE</a></li>
-                    <li><a href="benutzer.html" class="Kochbuch">MEIN KOCHBUCH</a></li>
-                    <li><a href="favoriten.html">MEINE FAVORITEN</a></li>
-                </ul>
-            </div>
+<header>
+    <div class="containernav">
+        <div class="navbar">
+            <img src="Dateien/Logo.png" class="logo" alt="logo">
+            <ul>
+                <li><a href="sammlung.html">ALLE REZEPTE</a></li>
+                <li><a href="benutzer.html" class="Kochbuch">MEIN KOCHBUCH</a></li>
+                <li><a href="favoriten.html">MEINE FAVORITEN</a></li>
+            </ul>
         </div>
-    </header>
+    </div>
+</header>
 
-    <div class="containerrezpte rezeptListe">
+<body>
+
+    <div class="edit_component_wrapper">
+
+   
+    <div class="containerrezpte rezeptListe edit_component_wrapper_component">
         <h2>Erstelle ein Rezept deiner Wahl</h2><br>
         <form>
             <label id="rezepte">Rezeptename:</label>
@@ -71,7 +75,8 @@
             </div>
         </form>
     </div>
-    <div id="datenbank" class="benutzerd"></div>
-</body>
 
+    <div id="nutzer_rezepte" class="rezeptListe benutzerd edit_component_wrapper_component"></div>
+</div>
+</body>
 </html>
