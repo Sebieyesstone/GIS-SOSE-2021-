@@ -2,6 +2,7 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
+import { captureRejectionSymbol } from "events";
 
 export namespace Endabgabe {
 
@@ -128,7 +129,7 @@ export namespace Endabgabe {
                 
                 case "/update":
                     console.log("Got a update request!");
-                    const filter = { title: <string>url.query["ID"] };
+                    const filter = { _id: <string>url.query["ID"] };
                     console.log("I want to update: ", filter);
                     let document = {
                         "rezeptname": <string>url.query["rezeptname"], 
@@ -141,6 +142,15 @@ export namespace Endabgabe {
                     let result = rezeptCollection.replaceOne(filter, document);
 
                     console.log("I'm done udating, my result is: ", result);
+
+                    break;
+                
+                case "/entfernen":
+                    console.log("I got a remove request");
+                    const dFilter = {"_id " : <string>url.query["ID"]};
+                    console.log("I will delete with filter: " , dFilter);
+                    const res = await rezeptCollection.deleteOne(dFilter);
+                    console.log("Im done deleting, result is: " , res);
 
                     break;
 
