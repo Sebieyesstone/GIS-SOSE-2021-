@@ -123,6 +123,7 @@ async function clickErhalten(): Promise<void> {
 
     });
 
+
     p1.innerHTML = "Rezeptename: " + aktuelleRe.rezeptname;
     p2.innerHTML = "Anzahl: " + aktuelleRe.anzahl;
     p3.innerHTML = "Zutaten: " + aktuelleRe.zutaten;
@@ -135,8 +136,8 @@ async function clickErhalten(): Promise<void> {
     div.appendChild(p3);
     div.appendChild(p4);
     div.appendChild(p5);
-    //div.appendChild(favButton);
     div.appendChild(editButton);
+    div.appendChild(deleteButton);
 
     datenbank.appendChild(div); //alle enthält
 
