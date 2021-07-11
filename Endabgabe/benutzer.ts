@@ -48,36 +48,6 @@ async function clickErhalten(): Promise<void> {
     const p4: HTMLParagraphElement = document.createElement("p");
     const p5: HTMLParagraphElement = document.createElement("p");
 
-    /*// Rezepte Favosieren
-    const favButton: HTMLButtonElement = document.createElement("button");
-
-    favButton.addEventListener("click", () => {
-        let favorites: string[] = JSON.parse(localStorage.getItem("Favoriten"));
-
-        if (favorites === null || favorites === undefined) {
-            favorites = [];
-            favorites[0] = aktuelleRe._id;
-        } else if (favorites.indexOf(aktuelleRe._id) != -1) {
-            favorites.splice(favorites.indexOf(aktuelleRe._id), 1);
-        } else {
-            favorites.push(aktuelleRe._id);
-        }
-
-        localStorage.setItem("Favoriten", JSON.stringify(favorites));
-        console.log(favorites);
-        rezepteLaden();
-    });
-
-    let favorites: string[] = JSON.parse(localStorage.getItem("Favoriten"));
-    console.log(favorites);
-
-    if (favorites !== null && favorites !== undefined && favorites.indexOf(aktuelleRe._id) != -1) {
-        favButton.innerHTML = "Nicht mehr Favorisieren";
-    } else {
-        favButton.innerHTML = "Favorisieren";
-    }
-    */
-
     //Rezept bearbeiten
 
     const editButton: HTMLButtonElement = document.createElement("button");
@@ -137,8 +107,21 @@ async function clickErhalten(): Promise<void> {
 
     });
 
+    // Rezept löschen
+    
+    const deleteButton: HTMLButtonElement = document.createElement("button");
+    deleteButton.innerHTML = "Löschen";
 
+    deleteButton.addEventListener("click", async () => {
+        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+        url = url + "/entfernen" + "?" + "ID=" + aktuelleRe._id;
+        let response: Response = await fetch(url);
 
+        datenbank.innerHTML = "Rezept gelöscht.";
+
+        setTimeout(() => {datenbank.innerHTML = ""; }, 1000);
+
+    });
 
     p1.innerHTML = "Rezeptename: " + aktuelleRe.rezeptname;
     p2.innerHTML = "Anzahl: " + aktuelleRe.anzahl;

@@ -69,7 +69,7 @@ function clickAbschicken() {
 }
 function clickErhalten() {
     return __awaiter(this, void 0, void 0, function () {
-        var url, response, ausgabe, datenbank, aktuelleRe, div, p1, p2, p3, p4, p5, editButton;
+        var url, response, ausgabe, datenbank, aktuelleRe, div, p1, p2, p3, p4, p5, editButton, deleteButton;
         var _this = this;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -144,6 +144,24 @@ function clickErhalten() {
                         }); });
                         div.appendChild(submitEdit);
                     });
+                    deleteButton = document.createElement("button");
+                    deleteButton.innerHTML = "Löschen";
+                    deleteButton.addEventListener("click", function () { return __awaiter(_this, void 0, void 0, function () {
+                        var url, response;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    url = "https://sebieyesstonegis2021.herokuapp.com";
+                                    url = url + "/entfernen" + "?" + "ID=" + aktuelleRe._id;
+                                    return [4 /*yield*/, fetch(url)];
+                                case 1:
+                                    response = _a.sent();
+                                    datenbank.innerHTML = "Rezept gelöscht.";
+                                    setTimeout(function () { datenbank.innerHTML = ""; }, 1000);
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); });
                     p1.innerHTML = "Rezeptename: " + aktuelleRe.rezeptname;
                     p2.innerHTML = "Anzahl: " + aktuelleRe.anzahl;
                     p3.innerHTML = "Zutaten: " + aktuelleRe.zutaten;
