@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,27 +9,30 @@
     <script src="benutzer.js" defer></script>
     <title>mon livre de recettes</title>
 </head>
+
 <body>
     <header>
         <div class="containernav">
             <div class="navbar">
-                <img src="Dateien/Logo.png" class="logo">
+                <img src="Dateien/Logo.png" class="logo" alt="logo">
                 <ul>
                     <li><a href="sammlung.html">ALLE REZEPTE</a></li>
                     <li><a href="benutzer.html" class="Kochbuch">MEIN KOCHBUCH</a></li>
                     <li><a href="favoriten.html">MEINE FAVORITEN</a></li>
                 </ul>
             </div>
-        </div>      
+        </div>
     </header>
-    
+
     <div class="containerrezpte rezeptListe">
         <h2>Erstelle ein Rezept deiner Wahl</h2><br>
         <form>
             <label for="rezepte">Rezeptename:</label>
             <input type="text" name="rezeptname"><br>
             <tr>
-                <td colspan="2"><p class="zutatentext"><br><i>Hier kannst du eingeben für wie viel Personen, Portionen oder Stück dein Rezept hat.</p></td></i>
+                <td colspan="2">
+                    <p class="zutatentext"><br>Hier kannst du eingeben für wie viel Personen, Portionen oder Stück dein Rezept hat.</p>
+                </td>
             </tr><br>
             <td><label for="zutaten">Zutaten für:</label></td>
             <td>
@@ -47,7 +51,8 @@
                 </select>
             </td><br>
             <td>
-                <label for="kategorie"><br>Kategorie:</label><td>
+                <label for="kategorie"><br>Kategorie:</label>
+            <td>
             </td>
             <td>
                 <select name="kategorie">
@@ -56,9 +61,12 @@
                     <option value="Desert">Desert</option>
                 </select>
             </td><br>
-            <tr><i>
-                <td colspan="2"><p class="zutatentext"><br>Hier kannst du deine Zutaten und deine Vorgehensweise reinschreiben.</p></td>
-            </tr></i>
+            <tr>
+                    <td colspan="2">
+                        <p class="zutatentext"><br>Hier kannst du deine Zutaten und deine Vorgehensweise reinschreiben.
+                        </p>
+                    </td>
+            </tr>
             <label for="zutatenliste"><br>Zutatenliste:</label><br>
             <input type="text" name="zutatenliste"><br>
             <input type="text" name="zutatenliste"><br>
@@ -74,10 +82,10 @@
             <tr>
                 <td>
                     <button type="button" id="rezeptabschicken">Absenden</button>
-                    
 
-                    </td>
-                    <td>
+
+                </td>
+                <td>
                     <button type="button" id="rezepterhalten">Rezept erhalten</button>
                 </td>
             </tr>
@@ -85,4 +93,5 @@
     </div>
     <div id="datenbank" class="rezeptListe"></div>
 </body>
+
 </html>
