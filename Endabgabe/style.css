@@ -417,7 +417,7 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
 }
 .logo {
     position:relative;
-    margin-left: 115px;
+    margin-left: 145px;
     margin-right: 0;
     height: 65px;
     padding: 5px;
@@ -472,7 +472,7 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
     position: absolute;
     margin: 10px;
     float: left;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 .containerrezpte{
     font-size: 15px;
@@ -482,12 +482,12 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
     padding: 10px;
 
 }
-.rezeptListe{
-    height: 490px;
+.rezeptListe {
+    height: 480px;
     position: absolute;
     text-align:justify;
     margin: 15px;
     margin-bottom: -10%;
     float: left;
-    margin-top: 40%;
+    margin-top: 25%;
 }
