@@ -2,7 +2,6 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
-import { captureRejectionSymbol } from "events";
 
 export namespace Endabgabe {
 
@@ -20,7 +19,7 @@ export namespace Endabgabe {
 
     let loginCollection: Mongo.Collection;
     let rezeptCollection: Mongo.Collection;
-    
+
     let mongoUrl: string = "mongodb+srv://Testuser:GIS404@sebieyesstonegis-ist-ge.oawwp.mongodb.net";
     //let mongoUrl: string = "mongodb://localhost:27017";
 
@@ -63,7 +62,7 @@ export namespace Endabgabe {
             console.log(url.query);
 
             switch (url.pathname.toString()) {
-                
+
                 case "/einloggen":
                     alleBenutzer = await loginCollection.find().toArray();
                     let benutzernameLogin: string = <string>url.query["benutzername"];
@@ -76,8 +75,8 @@ export namespace Endabgabe {
                         if (alleBenutzer[i].benutzername == benutzernameLogin) {
                             benutzernameConfirmed = true;
                             if (alleBenutzer[i].passwort == passwortLogin) {
-                            passwortConfirmed = true;
-                            neuerBenutzer = { benutzername: benutzernameLogin, passwort: passwortLogin };
+                                passwortConfirmed = true;
+                                neuerBenutzer = { benutzername: benutzernameLogin, passwort: passwortLogin };
                             }
                         }
                     }
@@ -117,25 +116,37 @@ export namespace Endabgabe {
 
                 case "/abschicken":
                     console.log(url.query);
+                    let benutzername: string = <string>url.query["benutzername"];
                     let rezeptname: string = <string>url.query["rezeptname"];
                     let anzahl: string = <string>url.query["anzahl"];
                     let zutaten: string = <string>url.query["zutaten"];
                     let kategorie: string = <string>url.query["kategorie"];
                     let zutatenliste: string = <string>url.query["zutatenliste"];
-        
-                    rezeptCollection.insertOne({"rezeptname": rezeptname, "anzahl": anzahl, "zutaten": zutaten, "kategorie": kategorie, "zutatenliste": zutatenliste});
+
+                    rezeptCollection.insertOne({ "benutzername": benutzername, "rezeptname": rezeptname, "anzahl": anzahl, "zutaten": zutaten, "kategorie": kategorie, "zutatenliste": zutatenliste });
                     connectToDatabase(mongoUrl);
                     break;
-                
+
+                case "/erhalten":
+                    console.log("erhalten");
+
+                    let benutzernameErhalten: string = <string>url.query["benutzername"];
+                    _response.write(JSON.stringify(await (rezeptCollection.find().toArray())));
+
+                    rezeptCollection.insertOne({ "benutzername": benutzernameErhalten });
+
+                    console.log("funktioniert");
+                    break;
+
                 case "/update":
                     console.log("Got a update request!");
-                    const filter = { _id: new Mongo.ObjectId(<string>url.query["ID"])};
+                    const filter = { _id: new Mongo.ObjectId(<string>url.query["ID"]) };
                     console.log("I want to update: ", filter);
                     let document = {
-                        "rezeptname": <string>url.query["rezeptname"], 
-                        "anzahl": <string>url.query["anzahl"], 
-                        "zutaten": <string>url.query["zutaten"], 
-                        "kategorie": <string>url.query["kategorie"], 
+                        "rezeptname": <string>url.query["rezeptname"],
+                        "anzahl": <string>url.query["anzahl"],
+                        "zutaten": <string>url.query["zutaten"],
+                        "kategorie": <string>url.query["kategorie"],
                         "zutatenliste": <string>url.query["zutatenliste"]
                     };
                     console.log("I'm updating it with the following: ", document);
@@ -144,24 +155,54 @@ export namespace Endabgabe {
                     console.log("I'm done udating, my result is: ", result);
 
                     break;
-                
-                case "/entfernen":
-                    console.log("I got a remove request");
-                    const dFilter = { _id: new Mongo.ObjectId(<string>url.query["ID"])};
-                    console.log("I will delete with filter: " , dFilter);
-                    const res = await rezeptCollection.deleteOne(dFilter);
-                    console.log("Im done deleting, result is: " , res);
 
-                    break;
+                case "/favoriten":
+                    console.log("favoriten");
 
-                case "/erhalten":
-                    _response.write(JSON.stringify(await(rezeptCollection.find().toArray())));
-                    
+                    let benutzernameFavoriten: string = <string>url.query["benutzername"];
+                    const user = await loginCollection.findOne({ "benutzername": benutzernameFavoriten });
+
+                    const favoritenArray: Array<string> = user.favoriten;
+
+                    if (!favoritenArray || favoritenArray.length < 1) {
+                        _response.write("");
+                        return;
+                    }
+
+                    const favResponse = await rezeptCollection.find().toArray();
+                    console.log(favoritenArray);
+
+                    const favResults = favResponse.filter((rezept) => {
+                        return favoritenArray.indexOf(rezept._id.toSring()) !== -1;
+                    });
+
+                    _response.write(JSON.stringify(favResults));
 
                     console.log("funktioniert");
-                    break;    
-                }
+                    break;
+
+                case "/addFavoriten":
+                    let benutzernameaddFavoriten: string = <string>url.query["benutzername"];
+                    let favoritenId: string = <string>url.query["favoritenId"];
+
+                    let userAddfavorit = await loginCollection.findOne({ "benutzername": benutzernameaddFavoriten });
+
+                    if (!userAddfavorit.favoriten) {
+                        userAddfavorit.favoriten = [favoritenId];
+                    } else {
+                        userAddfavorit.favoriten = [...userAddfavorit.favoriten, favoritenId];
+                    }
+                    let newuserAddfavorit = await loginCollection.updateOne({ "benutzername": benutzernameaddFavoriten }, { $set: { "favoriten": userAddfavorit.favoriten } });
+
+                    if (newuserAddfavorit) {
+                        _response.write(JSON.stringify(newuserAddfavorit));
+                    } else {
+                        _response.write("failure");
+                    }
+                    break;
+
             }
+        }
         _response.end();
     }
 }

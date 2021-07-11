@@ -15,10 +15,15 @@ interface Rezepte {
 
 async function clickAbschicken(): Promise<void> {
     console.log("hier bin ich auch");
+
     let form: FormData = new FormData(document.forms[0]);
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    form.append("benutzername", currentUser["benutzername"]);
     //let url: string = "http://localhost:8100";
     let url: string = "https://sebieyesstonegis2021.herokuapp.com";
     let query: URLSearchParams = new URLSearchParams(<any>form);
+
     url = url + "/abschicken" + "?" + query.toString();
     console.log(url);
     let response: Response = await fetch(url);
@@ -32,114 +37,140 @@ async function clickAbschicken(): Promise<void> {
 
 async function clickErhalten(): Promise<void> {
     console.log("BIN IN DER FUNKTION");
+
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+    let form: FormData = new FormData();
+    form.append("benutzername", currentUser["benutzername"]);
     //let url: string = "http://localhost:8100";
     let url: string = "https://sebieyesstonegis2021.herokuapp.com";
-    url = url + "/erhalten" + "?";
+    let query: URLSearchParams = new URLSearchParams(<any>form);
+
+    url = url + "/erhalten" + "?" + query.toString();
     let response: Response = await fetch(url);
     let ausgabe: Rezepte[] = await response.json();
     console.log(ausgabe);
     const datenbank: HTMLElement = document.getElementById("datenbank");
 
-    const aktuelleRe: Rezepte = ausgabe[ausgabe.length - 1]; //1 rezept kein Array
-    const div: HTMLDivElement = document.createElement("div");
-    const p1: HTMLHeadingElement = document.createElement("p");
-    const p2: HTMLParagraphElement = document.createElement("p");
-    const p3: HTMLParagraphElement = document.createElement("p");
-    const p4: HTMLParagraphElement = document.createElement("p");
-    const p5: HTMLParagraphElement = document.createElement("p");
+    for (const rezept in ausgabe) {
+        if (Object.prototype.hasOwnProperty.call(ausgabe, rezept)) {
+            const aktuelleRe: Rezepte = ausgabe[rezept]; //1 rezept kein Array
+            const div: HTMLDivElement = document.createElement("div");
+            const p0: HTMLHeadingElement = document.createElement("p");
+            const p1: HTMLHeadingElement = document.createElement("p");
+            const p2: HTMLParagraphElement = document.createElement("p");
+            const p3: HTMLParagraphElement = document.createElement("p");
+            const p4: HTMLParagraphElement = document.createElement("p");
+            const p5: HTMLParagraphElement = document.createElement("p");
 
-    //Rezept bearbeiten
+            p0.innerHTML = "Benutzername: " + aktuelleRe.benutzername;
+            p1.innerHTML = "Rezeptename: " + aktuelleRe.rezeptname;
+            p2.innerHTML = "Anzahl: " + aktuelleRe.anzahl;
+            p3.innerHTML = "Zutaten: " + aktuelleRe.zutaten;
+            p4.innerHTML = "Kategorie: " + aktuelleRe.kategorie;
+            p5.innerHTML = "Zutatenliste: " + aktuelleRe.zutatenliste;
+            div.className = "boxkomplett";
 
-    const editButton: HTMLButtonElement = document.createElement("button");
-    editButton.innerHTML = "Bearbeiten";
+            div.appendChild(p0);
+            div.appendChild(p1); //alle infos jeweils
+            div.appendChild(p2);
+            div.appendChild(p3);
+            div.appendChild(p4);
+            div.appendChild(p5);
+            
 
-    editButton.addEventListener("click", () => {
-        const newRezeptName: HTMLInputElement = document.createElement("input");
-        newRezeptName.value = aktuelleRe.rezeptname;
+            datenbank.appendChild(div); //alle enthält
 
-        const newRezeptAnzahl: HTMLInputElement = document.createElement("input");
-        newRezeptAnzahl.value = aktuelleRe.anzahl.toString();
+            console.log("ich hab es hier her geschafft");
 
-        const newRezeptZutaten: HTMLInputElement = document.createElement("input");
-        newRezeptZutaten.value = aktuelleRe.zutaten.toString();
+            // Rezept bearbeiten
 
-        const newRezeptKategorie: HTMLInputElement = document.createElement("input");
-        newRezeptKategorie.value = aktuelleRe.kategorie.toString();
+            const editButton: HTMLButtonElement = document.createElement("button");
+            editButton.innerHTML = "Bearbeiten";
 
-        const newRezeptListe: HTMLInputElement = document.createElement("input");
-        newRezeptListe.value = aktuelleRe.zutatenliste.toString();
+            editButton.addEventListener("click", () => {
+                for (var key in aktuelleRe) {
+                    const rezeptValue: any = aktuelleRe[key];
 
-        editButton.hidden = true;
+                    if (key === "zutatenliste" && rezeptValue.length) {
+                        for (let index = 0; index < rezeptValue.length; index++) {
+                            const element = rezeptValue[index];
+                            let formField: HTMLInputElement = <HTMLInputElement>document.getElementById("zutatenliste_" + index);
+                            if (formField) {
+                                formField.value = element;
+                            }
+                        }
+                        continue;
+                    }
+                    let formField = <HTMLInputElement>document.getElementById(key);
+                    if (formField) {
+                        formField.value = rezeptValue;
+                    }
+                }
 
-        p1.innerHTML = "Rezeptename: ";
-        p1.appendChild(newRezeptName);
-        p2.innerHTML = "Anzahl: ";
-        p2.appendChild(newRezeptAnzahl);
-        p3.innerHTML = "Zutaten: ";
-        p3.appendChild(newRezeptZutaten);
-        p4.innerHTML = "Kategorie: ";
-        p4.appendChild(newRezeptKategorie);
-        p5.innerHTML = "Zutatenliste: ";
-        p5.appendChild(newRezeptListe);
+                const submitEdit: HTMLButtonElement = document.createElement("button");
+                submitEdit.innerHTML = "Bearbeitung absenden";
 
-        const submitEdit: HTMLButtonElement = document.createElement("button");
-        submitEdit.innerHTML = "Absenden";
+                submitEdit.addEventListener("click", async () => {
+                    let form: FormData = new FormData(document.forms[0]);
+                    form.append("ID", aktuelleRe._id);
+                    console.log(form);
 
-        submitEdit.addEventListener("click", async () => {
-            //let url: string = "http://localhost:8100";
-            let url: string = "https://sebieyesstonegis2021.herokuapp.com";
-            url = url + "/update" + "?" +
-                "ID=" + aktuelleRe._id +
-                "&rezeptname=" + encodeURI(newRezeptName.value.toString()) +
-                "&anzahl=" + encodeURI(newRezeptAnzahl.value.toString()) +
-                "&zutaten=" + encodeURI(newRezeptZutaten.value.toString()) +
-                "&kategorie=" + encodeURI(newRezeptKategorie.value.toString()) +
-                "&zutatenliste=" + encodeURI(newRezeptZutaten.value.toString())
-                ;
-            console.log("Sende update Anfrage an : " + url);
-            let response: Response = await fetch(url);
-            console.log("Update anfage hatte rückgabe: ");
-            console.log(response);
-            favoritenLaden();
-        });
+                    let url: string = "http://localhost:8100";
+                    //   let url: string = 'https://sebieyesstonegis2021.herokuapp.com';
+                    let query: URLSearchParams = new URLSearchParams(<any>form);
+                    url = url + "/update" + "?" + query.toString();
+                    console.log(url);
+                    let response: Response = await fetch(url);
+                    let ausgabe: string = await response.text();
+                    let serverA: HTMLElement = <HTMLElement>document.getElementById("datenbank");
+                    serverA.innerHTML = ausgabe;
 
-        div.appendChild(submitEdit);
+                    await fetch(url);
+                    //   await clickErhalten();
+                });
 
-    });
+                document.getElementById("buttons").removeChild(document.getElementById("rezeptabschicken"));
+                document.getElementById("buttons").appendChild(submitEdit);
+            });
 
-    // Rezept löschen
-    
-    const deleteButton: HTMLButtonElement = document.createElement("button");
-    deleteButton.innerHTML = "Löschen";
+            // Rezept löschen
 
-    deleteButton.addEventListener("click", async () => {
-        let url: string = "https://sebieyesstonegis2021.herokuapp.com";
-        url = url + "/entfernen" + "?" + "ID=" + aktuelleRe._id;
-        let response: Response = await fetch(url);
+            const deleteButton: HTMLButtonElement = document.createElement("button");
+            deleteButton.innerHTML = "Löschen";
 
-        datenbank.innerHTML = "Rezept gelöscht.";
+            deleteButton.addEventListener("click", async () => {
+                let url: string = "https://sebieyesstonegis2021.herokuapp.com";
+                url = url + "/entfernen" + "?" + "ID=" + aktuelleRe._id;
+                let response: Response = await fetch(url);
 
-        setTimeout(() => {datenbank.innerHTML = ""; }, 1000);
+                datenbank.innerHTML = "Rezept gelöscht.";
 
-    });
+                setTimeout(() => {
+                    datenbank.innerHTML = "";
+                },         1000);
+            });
 
+            p0.innerHTML = "Benutzername: " + aktuelleRe.benutzername;
+            p1.innerHTML = "Rezeptename: " + aktuelleRe.rezeptname;
+            p2.innerHTML = "Anzahl: " + aktuelleRe.anzahl;
+            p3.innerHTML = "Zutaten: " + aktuelleRe.zutaten;
+            p4.innerHTML = "Kategorie: " + aktuelleRe.kategorie;
+            p5.innerHTML = "Zutatenliste: " + aktuelleRe.zutatenliste;
+            div.className = "boxkomplett";
 
-    p1.innerHTML = "Rezeptename: " + aktuelleRe.rezeptname;
-    p2.innerHTML = "Anzahl: " + aktuelleRe.anzahl;
-    p3.innerHTML = "Zutaten: " + aktuelleRe.zutaten;
-    p4.innerHTML = "Kategorie: " + aktuelleRe.kategorie;
-    p5.innerHTML = "Zutatenliste: " + aktuelleRe.zutatenliste;
-    div.className = "boxkomplett";
+            div.appendChild(p0);
+            div.appendChild(p1); //alle infos jeweils
+            div.appendChild(p2);
+            div.appendChild(p3);
+            div.appendChild(p4);
+            div.appendChild(p5);
+            div.appendChild(editButton);
+            div.appendChild(deleteButton);
 
-    div.appendChild(p1); //alle infos jeweils
-    div.appendChild(p2);
-    div.appendChild(p3);
-    div.appendChild(p4);
-    div.appendChild(p5);
-    div.appendChild(editButton);
-    div.appendChild(deleteButton);
+            datenbank.appendChild(div); //alle enthält
 
-    datenbank.appendChild(div); //alle enthält
-
-    console.log("ich hab es hier her geschafft");
+            console.log("ich hab es hier her geschafft");
+        }
+    }
 }

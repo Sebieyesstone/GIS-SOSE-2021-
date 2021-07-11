@@ -28,24 +28,24 @@
         <h2>Erstelle ein Rezept deiner Wahl</h2><br>
         <form>
             <label id="rezepte">Rezeptename:</label>
-            <input type="text" name="rezeptname"><br>
+            <input type="text" name="rezeptname" id="rezeptname"><br>
                     <p class="zutatentext"><br>Hier kannst du eingeben für wie viel Personen, Portionen oder Stück dein Rezept hat.</p>
             <br>
             <label id="zutaten">Zutaten für:</label>
-                <select name="anzahl">
+                <select name="anzahl" id="anzahl">
                     <option value="eins">1</option>
                     <option value="zwei">2</option>
                     <option value="drei">3</option>
                     <option value="vier">4</option>
                 </select>
-                <select name="zutaten">
+                <select name="zutaten" id="zutaten">
                     <option value="Personen">Personen</option>
                     <option value="Portionen">Portionen</option>
                     <option value="Stück">Stück</option>
                 </select>
             <br>
-            <label id="kategorie"><br>Kategorie:</label>
-                <select name="kategorie">
+            <label id="kategorie_label"><br>Kategorie:</label>
+                <select name="kategorie" id="kategorie">
                     <option value="Vorspeise">Vorspeise</option>
                     <option value="Hauptspeise">Hauptspeise</option>
                     <option value="Desert">Desert</option>
@@ -54,19 +54,21 @@
             <p class="zutatentext"><br>Hier kannst du deine Zutaten und deine Vorgehensweise reinschreiben</p>
 
             <label id="zutatenliste"><br>Zutatenliste:</label><br>
-            <input type="text" name="zutatenliste"><br>
-            <input type="text" name="zutatenliste"><br>
-            <input type="text" name="zutatenliste"><br>
-            <input type="text" name="zutatenliste"><br>
-            <input type="text" name="zutatenliste"><br>
-            <input type="text" name="zutatenliste"><br>
-            <input type="text" name="zutatenliste"><br>
-            <input type="text" name="zutatenliste"><br>
-            <input type="text" name="zutatenliste"><br>
-            <input type="text" name="zutatenliste"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_0"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_1"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_2"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_3"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_4"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_5"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_6"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_7"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_8"><br>
+            <input type="text" name="zutatenliste" id="zutatenliste_9"><br>
             <br>
-            <button type="button" id="rezeptabschicken">Absenden</button>
-            <button type="button" id="rezepterhalten">Rezept erhalten</button>
+            <div id="buttons">
+                <button type="button" id="rezeptabschicken">Absenden</button>
+                <button type="button" id="rezepterhalten">Rezept erhalten</button>
+            </div>
         </form>
     </div>
     <div id="datenbank" class="benutzerd"></div>
