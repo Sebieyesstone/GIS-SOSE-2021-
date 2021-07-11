@@ -127,8 +127,9 @@ export namespace Endabgabe {
                     break;
                 
                 case "/update":
-
+                    console.log("Got a update request!");
                     const filter = { title: <string>url.query["ID"] };
+                    console.log("I want to update: ", filter);
                     let document = {
                         "rezeptname": <string>url.query["rezeptname"], 
                         "anzahl": <string>url.query["anzahl"], 
@@ -136,10 +137,10 @@ export namespace Endabgabe {
                         "kategorie": <string>url.query["kategorie"], 
                         "zutatenliste": <string>url.query["zutatenliste"]
                     };
-
+                    console.log("I'm updating it with the following: ", document);
                     let result = rezeptCollection.replaceOne(filter, document);
 
-                    console.log(result);
+                    console.log("I'm done udating, my result is: ", result);
 
                     break;
 

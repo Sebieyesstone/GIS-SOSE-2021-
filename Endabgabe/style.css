@@ -483,11 +483,11 @@ form .form-content2 .login-text2, form .form-content2 .sign-up-text{
 
 }
 .rezeptListe {
-    height: 480px;
+    height: 500px;
     position: absolute;
     text-align:justify;
     margin: 15px;
-    margin-bottom: -10%;
+    margin-bottom: -35%;
     float: left;
-    margin-top: 25%;
+   
 }
