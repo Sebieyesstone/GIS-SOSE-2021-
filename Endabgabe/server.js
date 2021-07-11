@@ -161,7 +161,7 @@ var Endabgabe;
                         return [3 /*break*/, 11];
                     case 6:
                         console.log("Got a update request!");
-                        filter = { _id: url.query["ID"] };
+                        filter = { _id: "ObjectId(" + url.query["ID"] + ")" };
                         console.log("I want to update: ", filter);
                         document_1 = {
                             "rezeptname": url.query["rezeptname"],
@@ -176,7 +176,7 @@ var Endabgabe;
                         return [3 /*break*/, 11];
                     case 7:
                         console.log("I got a remove request");
-                        dFilter = { "_id ": url.query["ID"] };
+                        dFilter = { _id: "ObjectId(" + url.query["ID"] + ")" };
                         console.log("I will delete with filter: ", dFilter);
                         return [4 /*yield*/, rezeptCollection.deleteOne(dFilter)];
                     case 8:

@@ -129,7 +129,7 @@ export namespace Endabgabe {
                 
                 case "/update":
                     console.log("Got a update request!");
-                    const filter = { _id: <string>url.query["ID"] };
+                    const filter = { _id: "ObjectId(" + <string>url.query["ID"] + ")"};
                     console.log("I want to update: ", filter);
                     let document = {
                         "rezeptname": <string>url.query["rezeptname"], 
@@ -147,7 +147,7 @@ export namespace Endabgabe {
                 
                 case "/entfernen":
                     console.log("I got a remove request");
-                    const dFilter = {"_id " : <string>url.query["ID"]};
+                    const dFilter = { _id: "ObjectId(" + <string>url.query["ID"] + ")"};
                     console.log("I will delete with filter: " , dFilter);
                     const res = await rezeptCollection.deleteOne(dFilter);
                     console.log("Im done deleting, result is: " , res);
