@@ -41,13 +41,13 @@ function mybuttonHandler() {
 async function post(konzertEvent) {
     console.log(konzertEvent);
     //await fetch("http://localhost:8100", {
-    await fetch("http://localhost:8100/EventOr", {
+    await fetch("http://localhost:8100/EventOrdner", {
         method: "POST",
         body: JSON.stringify(konzertEvent)
     });
 }
 async function get() {
-    let response = await fetch("http://localhost:8100/EventOr", {
+    let response = await fetch("http://localhost:8100/EventOrdner", {
         method: "GET"
     });
     let responseText = await response.text();
